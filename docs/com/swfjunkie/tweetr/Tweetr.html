@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="Tweetr,com.swfjunkie.tweetr.Tweetr,RETURN_TYPE_BOOLEAN,RETURN_TYPE_DIRECT_MESSAGE,RETURN_TYPE_HASH,RETURN_TYPE_IDS,RETURN_TYPE_LIST,RETURN_TYPE_RELATIONSHIP,RETURN_TYPE_SAVED_SEARCHES,RETURN_TYPE_SEARCH_RESULTS,RETURN_TYPE_STATUS,RETURN_TYPE_TRENDS_RESULTS,RETURN_TYPE_USER_INFO,serviceHost,useAuthHeaders,version,returnType,password,username,addListMember,addListSubscription,blockExists,blockUser,createFavorite,createFriendship,createList,createSavedSearch,currentTrends,dailyTrends,deleteList,destroy,destroyDirectMessage,destroyFavorite,destroyFriendship,destroySavedSearch,destroyStatus,destroyTweet,endSession,followUser,getBlockIds,getBlocks,getDirectMessage,getFavorites,getFollowerIds,getFollowers,getFriendIds,getFriends,getFriendsTimeLine,getList,getListMembers,getListMemberships,getListStatuses,getListSubscribers,getListSubscriptions,getLists,getMentions,getPublicTimeLine,getRateLimitStatus,getReceivedDirectMessages,getReplies,getSavedSearch,getSavedSearches,getSentDirectMessages,getSingleTweet,getStatus,getUserDetails,getUserTimeLine,hasFriendship,hasListMember,hasListSubscription,removeListMember,removeListSubscription,reportSpammer,search,sendDirectMessage,sendTweet,showFriendshipById,showFriendshipByName,trends,unblockUser,unfollowUser,updateList,updateProfile,updateProfileBackgroundImage,updateProfileColors,updateProfileImage,updateStatus,verifyCredentials,weeklyTrends" name="keywords">
+<meta content="Tweetr,com.swfjunkie.tweetr.Tweetr,RETURN_TYPE_BOOLEAN,RETURN_TYPE_DIRECT_MESSAGE,RETURN_TYPE_HASH,RETURN_TYPE_IDS,RETURN_TYPE_LIST,RETURN_TYPE_RELATIONSHIP,RETURN_TYPE_SAVED_SEARCHES,RETURN_TYPE_SEARCH_RESULTS,RETURN_TYPE_STATUS,RETURN_TYPE_TRENDS_RESULTS,RETURN_TYPE_USER_INFO,VERSION,useAuthHeaders,returnType,serviceHost,oAuth,password,username,addListMember,addListSubscription,blockExists,blockUser,createFavorite,createFriendship,createList,createSavedSearch,currentTrends,dailyTrends,deleteList,destroy,destroyDirectMessage,destroyFavorite,destroyFriendship,destroySavedSearch,destroyStatus,endSession,followUser,getBlockIds,getBlocks,getDirectMessage,getFavorites,getFollowerIds,getFollowers,getFriendIds,getFriends,getFriendsTimeLine,getHomeTimeLine,getList,getListMembers,getListMemberships,getListStatuses,getListSubscribers,getListSubscriptions,getLists,getMentions,getPublicTimeLine,getRateLimitStatus,getReceivedDirectMessages,getRetweetsByMe,getRetweetsOfMe,getRetweetsToMe,getSavedSearch,getSavedSearches,getSentDirectMessages,getStatus,getUserDetails,getUserTimeLine,hasFriendship,hasListMember,hasListSubscription,removeListMember,removeListSubscription,reportSpammer,retweetStatus,search,searchUser,sendDirectMessage,showFriendshipById,showFriendshipByName,statusRetweets,trends,unblockUser,unfollowUser,updateList,updateProfile,updateProfileBackgroundImage,updateProfileColors,updateProfileImage,updateStatus,verifyCredentials,weeklyTrends" name="keywords">
 <title>com.swfjunkie.tweetr.Tweetr</title>
 </head>
 <body>
@@ -56,6 +56,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#oAuth">oAuth</a> : <a href="oauth/IOAuth.html">IOAuth</a>
+<div class="summaryTableDescription">[write-only]</div>
+</td><td class="summaryTableOwnerCol">Tweetr</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#password">password</a> : String<div class="summaryTableDescription">[write-only] Set the users password </div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
@@ -64,7 +69,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#serviceHost">serviceHost</a> : String = "twitter.com"<div class="summaryTableDescription">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#serviceHost">serviceHost</a> : String<div class="summaryTableDescription">
          Service Host URL you want to use without "http://".</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
@@ -100,7 +105,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#addListMember()">addListMember</a>(id:String, userId:Number):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Add a member to a list.</div>
+         Add a member to a list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -108,7 +113,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#addListSubscription()">addListSubscription</a>(id:String, listUser:String):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Make the authenticated user follow the specified list.</div>
+         Make the authenticated user follow the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -116,7 +121,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#blockExists()">blockExists</a>(id:String):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns if the authenticating user is blocking a target user.</div>
+         Returns if the authenticating user is blocking a target user.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -146,9 +151,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#createList()">createList</a>(name:String, isPublic:Boolean = true):void</div>
+<a class="signatureLink" href="#createList()">createList</a>(name:String, isPublic:Boolean = true, description:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Creates a new list for the authenticated user.</div>
+         <b><font color="#00AA00">UPDATED</font></b> - Creates a new list for the authenticated user.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -164,7 +169,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#currentTrends()">currentTrends</a>():void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the current top 10 trending topics on Twitter.</div>
+         Returns the current top 10 trending topics on Twitter.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -172,7 +177,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#dailyTrends()">dailyTrends</a>():void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the top 20 trending topics for each hour in a given day.</div>
+         Returns the top 20 trending topics for each hour in a given day.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -180,7 +185,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#deleteList()">deleteList</a>(id:String):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Deletes the specified list.</div>
+         Deletes the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -229,15 +234,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#destroyStatus()">destroyStatus</a>(id:Number):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Destroys the status specified by the required ID parameter.</div>
-</td><td class="summaryTableOwnerCol">Tweetr</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#destroyTweet()">destroyTweet</a>(id:Number):void</div>
-<div class="summaryTableDescription">
-         <b><font color="#CC0000">DEPRECATED</font></b> use destroyStatus() instead.</div>
+         Destroys the status specified by the required ID parameter.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -261,7 +258,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getBlockIds()">getBlockIds</a>():void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns an array of numeric user ids the authenticating user is blocking.</div>
+         Returns an array of numeric user ids the authenticating user is blocking.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -269,7 +266,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getBlocks()">getBlocks</a>():void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns an array of user objects that the authenticated user is blocking.</div>
+         Returns an array of user objects that the authenticated user is blocking.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -332,9 +329,17 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
+<a class="signatureLink" href="#getHomeTimeLine()">getHomeTimeLine</a>(since_id:String = null, since_date:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
+<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends.</div>
+</td><td class="summaryTableOwnerCol">Tweetr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
 <a class="signatureLink" href="#getList()">getList</a>(id:String, listUser:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Show the specified list.</div>
+         Show the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -342,7 +347,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getListMembers()">getListMembers</a>(id:String, listUser:String = null, cursor:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the members of the specified list.</div>
+         Returns the members of the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -350,7 +355,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getListMemberships()">getListMemberships</a>(listUser:String = null, cursor:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - List the lists the specified user has been added to.</div>
+         List the lists the specified user has been added to.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -358,7 +363,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getLists()">getLists</a>(listUser:String = null, cursor:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - List the lists of the specified user.</div>
+         List the lists of the specified user.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -366,7 +371,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getListStatuses()">getListStatuses</a>(slug:String, listUser:String = null, since_id:String = null, max_id:Number = 0, perPage:Number = 0, page:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Show tweet timeline for members of the specified list.</div>
+         Show tweet timeline for members of the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -374,7 +379,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getListSubscribers()">getListSubscribers</a>(id:String, listUser:String = null, cursor:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the subscribers of the specified list.</div>
+         Returns the subscribers of the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -382,7 +387,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getListSubscriptions()">getListSubscriptions</a>(listUser:String = null, cursor:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - List the lists the specified user follows.</div>
+         List the lists the specified user follows.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -421,9 +426,25 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#getReplies()">getReplies</a>(since_id:String = null, since_date:String = null, max_id:Number = 0, page:Number = 0):void</div>
+<a class="signatureLink" href="#getRetweetsByMe()">getRetweetsByMe</a>(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#CC0000">DEPRECATED</font></b> use getMentions() instead.</div>
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user.</div>
+</td><td class="summaryTableOwnerCol">Tweetr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getRetweetsOfMe()">getRetweetsOfMe</a>(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
+<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.</div>
+</td><td class="summaryTableOwnerCol">Tweetr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getRetweetsToMe()">getRetweetsToMe</a>(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
+<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user's friends.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -453,17 +474,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#getSingleTweet()">getSingleTweet</a>(id:Number):void</div>
-<div class="summaryTableDescription">
-         <b><font color="#CC0000">DEPRECATED</font></b> use getStatus() instead.</div>
-</td><td class="summaryTableOwnerCol">Tweetr</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
 <a class="signatureLink" href="#getStatus()">getStatus</a>(id:Number):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns a single status, specified by the id parameter below.</div>
+         Returns a single status, specified by the id parameter below.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -495,7 +508,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#hasListMember()">hasListMember</a>(id:String, userId:Number):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Check if a user is a member of the specified list.</div>
+         Check if a user is a member of the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -503,7 +516,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#hasListSubscription()">hasListSubscription</a>(id:String, listUser:String, userId:Number):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Check if the specified user is a subscriber of the specified list.</div>
+         Check if the specified user is a subscriber of the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -511,7 +524,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#removeListMember()">removeListMember</a>(id:String, userId:Number):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Removes the specified member from the list.</div>
+         Removes the specified member from the list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -519,7 +532,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#removeListSubscription()">removeListSubscription</a>(id:String, listUser:String):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Unsubscribes the authenticated user form the specified list.</div>
+         Unsubscribes the authenticated user form the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -527,7 +540,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#reportSpammer()">reportSpammer</a>(id:String):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - The user specified in the id is blocked by the authenticated user and reported as a spammer.</div>
+         The user specified in the id is blocked by the authenticated user and reported as a spammer.</div>
+</td><td class="summaryTableOwnerCol">Tweetr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#retweetStatus()">retweetStatus</a>(id:Number):void</div>
+<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -541,6 +562,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
+<a class="signatureLink" href="#searchUser()">searchUser</a>(query:String, per_page:Number = 20, page:Number = 0):void</div>
+<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.</div>
+</td><td class="summaryTableOwnerCol">Tweetr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
 <a class="signatureLink" href="#sendDirectMessage()">sendDirectMessage</a>(text:String, user:String):void</div>
 <div class="summaryTableDescription">
          Sends a new direct message to the specified user from the authenticating user.</div>
@@ -549,17 +578,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#sendTweet()">sendTweet</a>(status:String, inReplyTo:Number = 0):void</div>
-<div class="summaryTableDescription">
-         <b><font color="#CC0000">DEPRECATED</font></b> use updateStatus() instead.</div>
-</td><td class="summaryTableOwnerCol">Tweetr</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
 <a class="signatureLink" href="#showFriendshipById()">showFriendshipById</a>(targetId:String, sourceId:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns detailed information about the relationship between two users.</div>
+         Returns detailed information about the relationship between two users.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -567,7 +588,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#showFriendshipByName()">showFriendshipByName</a>(targetName:String, sourceName:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns detailed information about the relationship between two users.</div>
+         Returns detailed information about the relationship between two users.</div>
+</td><td class="summaryTableOwnerCol">Tweetr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#statusRetweets()">statusRetweets</a>(id:Number, count:Number = 0):void</div>
+<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -597,9 +626,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#updateList()">updateList</a>(slug:String, name:String = null, isPublic:Boolean = true):void</div>
+<a class="signatureLink" href="#updateList()">updateList</a>(slug:String, name:String = null, isPublic:Boolean = true, description:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Updates the specified list.</div>
+         <b><font color="#00AA00">UPDATED</font></b> - Updates the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -615,7 +644,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#updateProfileBackgroundImage()">updateProfileBackgroundImage</a>(fileReference:FileReference, tile:Boolean = false):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Updates the authenticating user's profile background image.</div>
+         Updates the authenticating user's profile background image.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -623,7 +652,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#updateProfileColors()">updateProfileColors</a>(backgroundColor:String = null, textColor:String = null, linkColor:String = null, fillColor:String = null, borderColor:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com.</div>
+         Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -631,15 +660,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#updateProfileImage()">updateProfileImage</a>(fileReference:FileReference):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Updates the authenticating user's profile image.</div>
+         Updates the authenticating user's profile image.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#updateStatus()">updateStatus</a>(status:String, inReplyTo:Number = 0):void</div>
+<a class="signatureLink" href="#updateStatus()">updateStatus</a>(status:String, inReplyTo:Number = 0, lat:Number = 0, long:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Updates the authenticating user's status.</div>
+         <b><font color="#00AA00">UPDATED</font></b> - Updates the authenticating user's status.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -647,7 +676,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#verifyCredentials()">verifyCredentials</a>():void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns a representation of the requesting user if authentication was successful.</div>
+         Returns a representation of the requesting user if authentication was successful.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -655,7 +684,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#weeklyTrends()">weeklyTrends</a>():void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the top 30 trending topics for each day in a given week.</div>
+         Returns the top 30 trending topics for each day in a given week.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 </table>
@@ -746,7 +775,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#version">version</a> : String = "0.95"<div class="summaryTableDescription">[static] Version String of the Tweetr Library </div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#VERSION">VERSION</a> : String = "1.0b1"<div class="summaryTableDescription">[static] Version String of the Tweetr Library </div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 </table>
@@ -758,10 +787,22 @@ showHideInherited();
 <div class="MainContent">
 <a name="propertyDetail"></a>
 <div class="detailSectionHeader">Property detail</div>
+<a name="oAuth"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">oAuth</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>oAuth:<a href="oauth/IOAuth.html">IOAuth</a></code>&nbsp;&nbsp;[write-only]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set oAuth(value:<a href="oauth/IOAuth.html">IOAuth</a>):void</code>
+<br>
+</div>
 <a name="password"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">password</td><td class="detailHeaderType">property</td>
+<td class="detailHeaderName">password</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -789,12 +830,18 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var serviceHost:String = "twitter.com"</code><p>
+<code>serviceHost:String</code>&nbsp;&nbsp;[read-write]<p>
          Service Host URL you want to use without "http://".
          This has to be changed if you are going to use tweetr
          from a web app. Since the crossdomain policy of twitter.com
          is very restrictive. use Tweetr's own PHPProxy Class for this. 
-         </p></div>
+         </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get serviceHost():String</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set serviceHost(value:String):void</code>
+<br>
+</div>
 <a name="useAuthHeaders"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -856,7 +903,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function addListMember(id:String, userId:Number):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Add a member to a list. The authenticated user must own the list to be able to add members to it. Lists are limited to having 500 members. 
+         Add a member to a list. The authenticated user must own the list to be able to add members to it. Lists are limited to having 500 members. 
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -880,7 +927,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function addListSubscription(id:String, listUser:String):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Make the authenticated user follow the specified list.
+         Make the authenticated user follow the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -904,7 +951,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function blockExists(id:String):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns if the authenticating user is blocking a target user. Will return the blocked user's object if a block exists, and an error hash object otherwise.
+         Returns if the authenticating user is blocking a target user. Will return the blocked user's object if a block exists, and an error hash object otherwise.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -982,19 +1029,26 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function createList(name:String, isPublic:Boolean = true):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Creates a new list for the authenticated user. Accounts are limited to 20 lists. 
+<code>public function createList(name:String, isPublic:Boolean = true, description:String = null):void</code><p>
+         <b><font color="#00AA00">UPDATED</font></b> - Creates a new list for the authenticated user. Accounts are limited to 20 lists. 
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash;      The name of the list you are creating.
+<td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash;          The name of the list you are creating.
          </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">isPublic</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash;  Optional. Whether your list is public or private. By default it is public.
+<td width="20px"></td><td><code><span class="label">isPublic</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash;      Optional. Whether your list is public or private. By default it is public.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">description</span>:String</code> (default = <code>null</code>)<code></code> &mdash;   Optional. The description of the list you are creating.
          </td>
 </tr>
 </table>
@@ -1024,7 +1078,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function currentTrends():void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the current top 10 trending topics on Twitter. 
+         Returns the current top 10 trending topics on Twitter. 
          </p></div>
 <a name="dailyTrends()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1034,7 +1088,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function dailyTrends():void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the top 20 trending topics for each hour in a given day.
+         Returns the top 20 trending topics for each hour in a given day.
          </p></div>
 <a name="deleteList()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1044,7 +1098,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function deleteList(id:String):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Deletes the specified list. Must be owned by the authenticated user.  
+         Deletes the specified list. Must be owned by the authenticated user.  
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1144,7 +1198,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function destroyStatus(id:Number):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Destroys the status specified by the required ID parameter.
+         Destroys the status specified by the required ID parameter.
          The authenticating user must be the author of the specified status.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1153,28 +1207,6 @@ showHideInherited();
          </td>
 </tr>
 </table>
-</div>
-<a name="destroyTweet()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">destroyTweet</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function destroyTweet(id:Number):void</code><p>
-         <b><font color="#CC0000">DEPRECATED</font></b> use destroyStatus() instead.
-         </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">id</span>:Number</code></td>
-</tr>
-</table>
-<p>
-<span class="label">See also</span>
-</p>
-<div class="seeAlso">
-<a href="../tweetr/Tweetr.html#destroyStatus()" target="">destroyStatus()</a>
-</div>
 </div>
 <a name="endSession()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1213,7 +1245,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getBlockIds():void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns an array of numeric user ids the authenticating user is blocking.
+         Returns an array of numeric user ids the authenticating user is blocking.
          </p></div>
 <a name="getBlocks()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1223,7 +1255,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getBlocks():void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns an array of user objects that the authenticated user is blocking.
+         Returns an array of user objects that the authenticated user is blocking.
          </p></div>
 <a name="getDirectMessage()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1375,8 +1407,53 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getFriendsTimeLine(since_id:String = null, since_date:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
-         Returns the 20 most recent statuses posted by the authenticating user and that user's friends. 
-         This is the equivalent of /home on the Web.
+         Returns the 20 most recent statuses posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
+         Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">since_id</span>:String</code> (default = <code>null</code>)<code></code> &mdash;        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">since_date</span>:String</code> (default = <code>null</code>)<code></code> &mdash;      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">max_id</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">count</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">page</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         </td>
+</tr>
+</table>
+</div>
+<a name="getHomeTimeLine()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getHomeTimeLine</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getHomeTimeLine(since_id:String = null, since_date:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1421,7 +1498,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getList(id:String, listUser:String = null):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Show the specified list. Private lists will only be shown if the authenticated user owns the specified list.
+         Show the specified list. Private lists will only be shown if the authenticated user owns the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1445,7 +1522,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getListMembers(id:String, listUser:String = null, cursor:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the members of the specified list.
+         Returns the members of the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1476,7 +1553,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getListMemberships(listUser:String = null, cursor:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - List the lists the specified user has been added to. 
+         List the lists the specified user has been added to. 
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1500,7 +1577,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getLists(listUser:String = null, cursor:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - List the lists of the specified user. Private lists will be included if the authenticated users is the same as the user who'se lists are being returned.
+         List the lists of the specified user. Private lists will be included if the authenticated users is the same as the user who'se lists are being returned.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1524,7 +1601,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getListStatuses(slug:String, listUser:String = null, since_id:String = null, max_id:Number = 0, perPage:Number = 0, page:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Show tweet timeline for members of the specified list.
+         Show tweet timeline for members of the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1576,7 +1653,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getListSubscribers(id:String, listUser:String = null, cursor:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the subscribers of the specified list.
+         Returns the subscribers of the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1607,7 +1684,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getListSubscriptions(listUser:String = null, cursor:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - List the lists the specified user follows.
+         List the lists the specified user follows.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1723,45 +1800,122 @@ showHideInherited();
 </tr>
 </table>
 </div>
-<a name="getReplies()"></a>
+<a name="getRetweetsByMe()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">getReplies</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">getRetweetsByMe</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getReplies(since_id:String = null, since_date:String = null, max_id:Number = 0, page:Number = 0):void</code><p>
-         <b><font color="#CC0000">DEPRECATED</font></b> use getMentions() instead.
+<code>public function getRetweetsByMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user.
+         Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">since_id</span>:String</code> (default = <code>null</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">since_id</span>:String</code> (default = <code>null</code>)<code></code> &mdash;        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
+         </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">since_date</span>:String</code> (default = <code>null</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">max_id</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
+         </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">max_id</span>:Number</code> (default = <code>0</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">count</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
+         </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">page</span>:Number</code> (default = <code>0</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">page</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         </td>
 </tr>
 </table>
-<p>
-<span class="label">See also</span>
-</p>
-<div class="seeAlso">
-<a href="../tweetr/Tweetr.html#getMentions()" target="">getMentions()</a>
 </div>
+<a name="getRetweetsOfMe()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getRetweetsOfMe</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getRetweetsOfMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.
+         Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">since_id</span>:String</code> (default = <code>null</code>)<code></code> &mdash;        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">max_id</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">count</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">page</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         </td>
+</tr>
+</table>
+</div>
+<a name="getRetweetsToMe()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getRetweetsToMe</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getRetweetsToMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user's friends.
+         Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">since_id</span>:String</code> (default = <code>null</code>)<code></code> &mdash;        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">max_id</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">count</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">page</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         </td>
+</tr>
+</table>
 </div>
 <a name="getSavedSearch()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1829,28 +1983,6 @@ showHideInherited();
 </tr>
 </table>
 </div>
-<a name="getSingleTweet()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">getSingleTweet</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function getSingleTweet(id:Number):void</code><p>
-         <b><font color="#CC0000">DEPRECATED</font></b> use getStatus() instead.
-         </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">id</span>:Number</code></td>
-</tr>
-</table>
-<p>
-<span class="label">See also</span>
-</p>
-<div class="seeAlso">
-<a href="../tweetr/Tweetr.html#getStatus()" target="">getStatus()</a>
-</div>
-</div>
 <a name="getStatus()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -1859,7 +1991,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getStatus(id:Number):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns a single status, specified by the id parameter below.  The status's author will be returned inline.
+         Returns a single status, specified by the id parameter below.  The status's author will be returned inline.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1967,7 +2099,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function hasListMember(id:String, userId:Number):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Check if a user is a member of the specified list.
+         Check if a user is a member of the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1991,7 +2123,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function hasListSubscription(id:String, listUser:String, userId:Number):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Check if the specified user is a subscriber of the specified list.
+         Check if the specified user is a subscriber of the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -2022,7 +2154,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function removeListMember(id:String, userId:Number):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Removes the specified member from the list. The authenticated user must be the list's owner to remove members from the list.
+         Removes the specified member from the list. The authenticated user must be the list's owner to remove members from the list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -2046,7 +2178,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function removeListSubscription(id:String, listUser:String):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Unsubscribes the authenticated user form the specified list.
+         Unsubscribes the authenticated user form the specified list.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -2070,11 +2202,29 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function reportSpammer(id:String):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - The user specified in the id is blocked by the authenticated user and reported as a spammer.
+         The user specified in the id is blocked by the authenticated user and reported as a spammer.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash;    The ID or screen_name of the user you want to report as a spammer. 
+         </td>
+</tr>
+</table>
+</div>
+<a name="retweetStatus()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">retweetStatus</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function retweetStatus(id:Number):void</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
+         Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:Number</code> &mdash;    Required. The ID of the status to retweet
          </td>
 </tr>
 </table>
@@ -2133,6 +2283,38 @@ showHideInherited();
 </tr>
 </table>
 </div>
+<a name="searchUser()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">searchUser</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function searchUser(query:String, per_page:Number = 20, page:Number = 0):void</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.
+         It is only possible to retrieve the first 1000 matches from this API. This method does not support OAuth yet.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">query</span>:String</code> &mdash;     Required. The query to run against people search. For example "Sandro Ducceschi"
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">per_page</span>:Number</code> (default = <code>20</code>)<code></code> &mdash;  Optional. Specifies the number of statuses to retrieve. May not be greater than 20. 
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">page</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;      Optional. Specifies the page of results to retrieve.
+         </td>
+</tr>
+</table>
+</div>
 <a name="sendDirectMessage()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2157,34 +2339,6 @@ showHideInherited();
 </tr>
 </table>
 </div>
-<a name="sendTweet()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">sendTweet</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function sendTweet(status:String, inReplyTo:Number = 0):void</code><p>
-         <b><font color="#CC0000">DEPRECATED</font></b> use updateStatus() instead.
-         </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">status</span>:String</code></td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">inReplyTo</span>:Number</code> (default = <code>0</code>)<code></code></td>
-</tr>
-</table>
-<p>
-<span class="label">See also</span>
-</p>
-<div class="seeAlso">
-<a href="../tweetr/Tweetr.html#updateStatus()" target="">updateStatus()</a>
-</div>
-</div>
 <a name="showFriendshipById()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2193,7 +2347,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function showFriendshipById(targetId:String, sourceId:String = null):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns detailed information about the relationship between two users.
+         Returns detailed information about the relationship between two users.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -2217,7 +2371,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function showFriendshipByName(targetName:String, sourceName:String = null):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns detailed information about the relationship between two users.
+         Returns detailed information about the relationship between two users.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -2229,6 +2383,31 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">sourceName</span>:String</code> (default = <code>null</code>)<code></code> &mdash;      Optional. The screen_name of the source user. If not defined you have to be authenticated to use this method.
+         </td>
+</tr>
+</table>
+</div>
+<a name="statusRetweets()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">statusRetweets</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function statusRetweets(id:Number, count:Number = 0):void</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
+         Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:Number</code> &mdash;    Required. The ID of the status to retweet
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">count</span>:Number</code> (default = <code>0</code>)<code></code> &mdash; Optional. Specifies the number of retweets to retrieve. May not be greater than 100.
          </td>
 </tr>
 </table>
@@ -2287,26 +2466,33 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function updateList(slug:String, name:String = null, isPublic:Boolean = true):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Updates the specified list. 
+<code>public function updateList(slug:String, name:String = null, isPublic:Boolean = true, description:String = null):void</code><p>
+         <b><font color="#00AA00">UPDATED</font></b> - Updates the specified list. 
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">slug</span>:String</code> &mdash;      The slug of the list you would like to change
+<td width="20px"></td><td><code><span class="label">slug</span>:String</code> &mdash;          The slug of the list you would like to change
          </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">name</span>:String</code> (default = <code>null</code>)<code></code> &mdash;      Optional. What you'd like to change the lists name to.
+<td width="20px"></td><td><code><span class="label">name</span>:String</code> (default = <code>null</code>)<code></code> &mdash;          Optional. What you'd like to change the lists name to.
          </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">isPublic</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash;  Optional. Whether your list is public or private. Lists are public by default
+<td width="20px"></td><td><code><span class="label">isPublic</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash;      Optional. Whether your list is public or private. Lists are public by default
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">description</span>:String</code> (default = <code>null</code>)<code></code> &mdash;   Optional. The description of the list you are upating.
          </td>
 </tr>
 </table>
@@ -2358,7 +2544,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function updateProfileBackgroundImage(fileReference:FileReference, tile:Boolean = false):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Updates the authenticating user's profile background image.
+         Updates the authenticating user's profile background image.
          Keep in mind that the image must be a valid GIF, JPG, or PNG image of less than 
          800 kilobytes in size. Images with width larger than 2048 pixels will be forceably scaled down.  
          </p><span class="label">Parameters</span>
@@ -2384,7 +2570,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function updateProfileColors(backgroundColor:String = null, textColor:String = null, linkColor:String = null, fillColor:String = null, borderColor:String = null):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com.
+         Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -2429,7 +2615,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function updateProfileImage(fileReference:FileReference):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Updates the authenticating user's profile image. 
+         Updates the authenticating user's profile image. 
          Keep in mind that the image must be a valid GIF, JPG, or PNG image of less than 
          700 kilobytes in size. Images with width larger than 500 pixels will be scaled down. 
          </p><span class="label">Parameters</span>
@@ -2447,21 +2633,35 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function updateStatus(status:String, inReplyTo:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Updates the authenticating user's status. 
+<code>public function updateStatus(status:String, inReplyTo:Number = 0, lat:Number = 0, long:Number = 0):void</code><p>
+         <b><font color="#00AA00">UPDATED</font></b> - Updates the authenticating user's status. 
          A status update with text identical to the authenticating user's 
          current status will be ignored.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">status</span>:String</code> &mdash;      Required. The text of your status update. Should not be more than 140 characters.
+<td width="20px"></td><td><code><span class="label">status</span>:String</code> &mdash;        Required. The text of your status update. Should not be more than 140 characters.
          </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">inReplyTo</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;   Optional. The ID of an existing status that the status to be posted is in reply to. Invalid/missing status IDs will be ignored.
+<td width="20px"></td><td><code><span class="label">inReplyTo</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;     Optional. The ID of an existing status that the status to be posted is in reply to. Invalid/missing status IDs will be ignored.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">lat</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;           Optional. The location's latitude that this tweet refers to. Note: The valid ranges for latitude is -90.0 to +90.0 (North is positive) inclusive.  This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding long parameter with this tweet.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">long</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;          Optional. The location's longitude that this tweet refers to. Note: The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive.  This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter with this tweet.
          </td>
 </tr>
 </table>
@@ -2474,7 +2674,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function verifyCredentials():void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns a representation of the requesting user if authentication was successful. Else return a hash error message if not.  
+         Returns a representation of the requesting user if authentication was successful. Else return a hash error message if not.  
          Use this method to test if supplied user credentials are valid.
          </p></div>
 <a name="weeklyTrends()"></a>
@@ -2485,7 +2685,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function weeklyTrends():void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the top 30 trending topics for each day in a given week.
+         Returns the top 30 trending topics for each day in a given week.
          </p></div>
 <div class="detailSectionHeader">Event detail</div>
 <a name="event:complete"></a>
@@ -2614,20 +2814,28 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public static const RETURN_TYPE_USER_INFO:String = "users"</code><p> Return type defining what type of return Object you can expect, in this case: <code>UserData</code> </p></div>
-<a name="version"></a>
+<a name="VERSION"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">version</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">VERSION</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>public static const version:String = "0.95"</code><p> Version String of the Tweetr Library </p></div>
+<code>public static const VERSION:String = "1.0b1"</code><p> Version String of the Tweetr Library </p></div>
 <br>
 <br>
 <hr>
 <br>
 <p></p>
+<div id="disqus_thread"></div>
+<script src="http://disqus.com/forums/tweetrdocumentation/embed.js" type="text/javascript"></script>
+<noscript>
+<a href="http://disqus.com/forums/tweetrdocumentation/?url=ref">View the discussion thread.</a>
+</noscript>
+<a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a>
+<p>
 <center class="copyright">[swfjunkie.com] - Open source under GNU Lesser GPL</center>
+</p>
 </div>
 </body>
 </html>

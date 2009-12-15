@@ -30,6 +30,7 @@ package com.swfjunkie.tweetr.data.objects
         public var name:String;
         public var fullName:String;
         public var slug:String;
+        public var description:String;
         public var subscriberCount:Number;
         public var memberCount:Number;
         public var uri:String;

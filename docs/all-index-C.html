@@ -85,7 +85,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("CÂ
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/data/class-list.html');" href="com/swfjunkie/tweetr/data/package-detail.html">com.swfjunkie.tweetr.data</a> &mdash; Package</td>
 </tr>
 <tr>
-<td width="20"></td><td>Contains the static DataParser Class which takes care of parsing DataObject used by Tweetr.</td>
+<td width="20"></td><td>Contains the static DataParser Class which takes care of parsing DataObjects used by Tweetr.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/data/objects/class-list.html');" href="com/swfjunkie/tweetr/data/objects/package-detail.html">com.swfjunkie.tweetr.data.objects</a> &mdash; Package</td>
@@ -100,10 +100,32 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("CÂ
 <td width="20"></td><td>Event Classes used by Tweetr.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/oauth/class-list.html');" href="com/swfjunkie/tweetr/oauth/package-detail.html">com.swfjunkie.tweetr.oauth</a> &mdash; Package</td>
+</tr>
+<tr>
+<td width="20"></td><td>OAuth Classes used by Tweetr.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/utils/class-list.html');" href="com/swfjunkie/tweetr/utils/package-detail.html">com.swfjunkie.tweetr.utils</a> &mdash; Package</td>
 </tr>
 <tr>
-<td width="20"></td><td>Util Class used by Tweetr.</td>
+<td width="20"></td><td>Util Classes used by Tweetr.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/oauth/class-list.html');" href="com/swfjunkie/tweetr/oauth/OAuth.html#consumerKey">consumerKey</a> &mdash; Property in class com.swfjunkie.tweetr.oauth.<a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/oauth/class-list.html');" href="com/swfjunkie/tweetr/oauth/OAuth.html">OAuth</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+         Get/Set the Consumer Key for your Application
+         </td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/oauth/class-list.html');" href="com/swfjunkie/tweetr/oauth/OAuth.html#consumerSecret">consumerSecret</a> &mdash; Property in class com.swfjunkie.tweetr.oauth.<a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/oauth/class-list.html');" href="com/swfjunkie/tweetr/oauth/OAuth.html">OAuth</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+         Get/set the Consumer Secret for your Application
+         </td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/data/objects/class-list.html');" href="com/swfjunkie/tweetr/data/objects/DirectMessageData.html#createdAt">createdAt</a> &mdash; Property in class com.swfjunkie.tweetr.data.objects.<a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/data/objects/class-list.html');" href="com/swfjunkie/tweetr/data/objects/DirectMessageData.html">DirectMessageData</a></td>
@@ -150,11 +172,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("CÂ
          Befriends the user specified in the ID parameter as the authenticating user.</td>
 </tr>
 <tr>
-<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/class-list.html');" href="com/swfjunkie/tweetr/Tweetr.html#createList()">createList</a>(name, isPublic) &mdash; Method in class com.swfjunkie.tweetr.<a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/class-list.html');" href="com/swfjunkie/tweetr/Tweetr.html">Tweetr</a></td>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/class-list.html');" href="com/swfjunkie/tweetr/Tweetr.html#createList()">createList</a>(name, isPublic, description) &mdash; Method in class com.swfjunkie.tweetr.<a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/class-list.html');" href="com/swfjunkie/tweetr/Tweetr.html">Tweetr</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
-         <b><font color="#00AA00">NEW</font></b> - Creates a new list for the authenticated user.</td>
+         <b><font color="#00AA00">UPDATED</font></b> - Creates a new list for the authenticated user.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/class-list.html');" href="com/swfjunkie/tweetr/Tweetr.html#createSavedSearch()">createSavedSearch</a>(query) &mdash; Method in class com.swfjunkie.tweetr.<a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/class-list.html');" href="com/swfjunkie/tweetr/Tweetr.html">Tweetr</a></td>
@@ -168,7 +190,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("CÂ
 </tr>
 <tr>
 <td width="20"></td><td>
-         <b><font color="#00AA00">NEW</font></b> - Returns the current top 10 trending topics on Twitter.</td>
+         Returns the current top 10 trending topics on Twitter.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/events/class-list.html');" href="com/swfjunkie/tweetr/events/TweetEvent.html#cursor">cursor</a> &mdash; Property in class com.swfjunkie.tweetr.events.<a onclick="javascript:loadClassListFrame('com/swfjunkie/tweetr/events/class-list.html');" href="com/swfjunkie/tweetr/events/TweetEvent.html">TweetEvent</a></td>

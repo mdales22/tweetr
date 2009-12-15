@@ -18,7 +18,7 @@ package com.swfjunkie.tweetr.utils
     [Event(name="ioError", type="flash.events.IOErrorEvent")]
     
     /**
-     * URL Shortener Class using http://is.gd/ public service
+     * URL Shortener Class using <a href="http://is.gd/" target="_blank">http://is.gd/</a> public service
      * @author Sandro Ducceschi [swfjunkie.com, Switzerland]
      */
      

@@ -71,28 +71,7 @@ package com.swfjunkie.tweetr.data
             for (var i:int = 0; i < n; i++)
             {
                 var node:XML = (n > 1) ? list[i] as XML : xml;
-                
-                statusData = new StatusData(node.created_at,
-                    node.id,
-                    TweetUtil.tidyTweet(node.text),
-                    node.source,
-                    TweetUtil.stringToBool(node.truncated),
-                    node.in_reply_to_status_id,
-                    node.in_reply_to_user_id,
-                    TweetUtil.stringToBool(node.favorited),
-                    node.in_reply_to_screen_name);
-                
-                userData = new UserData(node.user.id,
-                    node.user.name,
-                    node.user.screen_name,
-                    node.user.location,
-                    node.user.description,
-                    node.user.profile_image_url,
-                    node.user.url,
-                    TweetUtil.stringToBool(node.user['protected']),
-                    node.user.followers_count); 
-                
-                statusData.user = userData;
+                statusData = parseStatus(node);
                 array.push(statusData);
             }
             return array;
@@ -277,6 +256,11 @@ package com.swfjunkie.tweetr.data
             return array;
         }
         
+        /**
+         * Parses a List XML to an Array
+         * @param xml   The XML Response from twitter
+         * @return An Array filled with ListDatas
+         */ 
         public static function parseLists(xml:XML):Array
         {
             var listData:ListData;
@@ -300,6 +284,7 @@ package com.swfjunkie.tweetr.data
                     listData.name = node.name;
                     listData.fullName = node.full_name;
                     listData.slug = node.slug;
+                    listData.description = node.description;
                     listData.subscriberCount = parseFloat(node.subscriber_count);
                     listData.memberCount = parseFloat(node.member_count);
                     listData.uri = node.uri;
@@ -370,13 +355,29 @@ package com.swfjunkie.tweetr.data
             for (var i:Number = 0; i < n; i++)
             {
                 var node:XML = list[i] as XML;
-                savedSearch = new SavedSearchData();
-                savedSearch.id = node.id;
-                savedSearch.name = node['name'];
-                savedSearch.query = node.query;
-                savedSearch.position = node.position;
-                savedSearch.createdAt = node.created_at;
-                array.push(savedSearch);
+                if (node)
+                {
+                    savedSearch = new SavedSearchData();
+                    savedSearch.id = node.id;
+                    savedSearch.name = node['name'];
+                    savedSearch.query = node.query;
+                    savedSearch.position = node.position;
+                    savedSearch.createdAt = node.created_at;
+                    array.push(savedSearch);
+                }
+                else
+                {
+                    if (xml.id)
+                    {
+                        savedSearch = new SavedSearchData();
+                        savedSearch.id = xml.id;
+                        savedSearch.name = xml['name'];
+                        savedSearch.query = xml.query;
+                        savedSearch.position = xml.position;
+                        savedSearch.createdAt = xml.created_at;
+                        array.push(savedSearch);
+                    }
+                }
             }
             return array;
         }
@@ -493,6 +494,43 @@ package com.swfjunkie.tweetr.data
         //  Methods
         //
         //--------------------------------------------------------------------------
+        
+        private static function parseStatus(xml:XML):StatusData
+        {
+            var statusData:StatusData = new StatusData(xml.created_at,
+                xml.id,
+                TweetUtil.tidyTweet(xml.text),
+                xml.source,
+                TweetUtil.stringToBool(xml.truncated),
+                xml.in_reply_to_status_id,
+                xml.in_reply_to_user_id,
+                TweetUtil.stringToBool(xml.favorited),
+                xml.in_reply_to_screen_name);
+            
+            if (xml.retweeted_status.hasComplexContent())
+                statusData.retweetedStatus = parseStatus(xml.retweeted_status[0] as XML);
+            
+            if (xml.geo.hasComplexContent())
+            {
+                namespace point = "http://www.georss.org/georss";
+                use namespace point;
+                var points:Array = String(xml.geo.point).split(" ");
+                statusData.geoLat = parseFloat(points[0]);
+                statusData.geoLong = parseFloat(points[1]);
+            }
+            var userData:UserData = new UserData(xml.user.id,
+                xml.user.name,
+                xml.user.screen_name,
+                xml.user.location,
+                xml.user.description,
+                xml.user.profile_image_url,
+                xml.user.url,
+                TweetUtil.stringToBool(xml.user['protected']),
+                xml.user.followers_count); 
+            
+            statusData.user = userData;
+            return statusData;
+        }
         
         //--------------------------------------------------------------------------
         //

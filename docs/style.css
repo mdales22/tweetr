@@ -19,6 +19,7 @@
 	padding-right: 5px;
 	font-size: 13px;
 	height: 44px;
+	color: #FFF;
 	background-image: url(images/titleTableTop.jpg);
 	background-repeat: repeat-x;
 }
@@ -51,6 +52,7 @@
 }
 .titleTableSubTitle {
 	font-size: 20px;
+	color: #FFF;
 	padding-left: 15px;
 	padding-right: 5px;
 }
@@ -166,7 +168,7 @@ html>body .summaryTable {
 }
 .summaryTable th {
 	color: #FFFFFF;
-	background-color: #627C9D;
+	background-color: #666;
 	white-space: nowrap;
 }
 .summaryTable td {
@@ -441,20 +443,76 @@ table.withBorder {
 }
 
 
+.titleTableTopNav a 
+{
+	color: #DDD;	
+}
+
+.titleTableTopNav a:link
+{
+	color: #DDD;	
+}
+
+.titleTableTopNav a:visited
+{
+	color: #DDD;	
+}
+
+.titleTableTopNav a:hover
+{
+	color: #DDD;	
+}
+
+.titleTableTopNav a:active
+{
+	color: #DDD;	
+}
+
+.titleTableSubNav a 
+{
+	color: #DDD;	
+}
+
+.titleTableSubNav a:link
+{
+	color: #DDD;	
+}
+
+.titleTableSubNav a:visited
+{
+	color: #DDD;	
+}
+
+.titleTableSubNav a:hover
+{
+	color: #DDD;	
+}
+
+.titleTableSubNav a:active
+{
+	color: #DDD;	
+}
+
+#disqus_thread a
+{
+	color: #333;
+}
+
+
 /* Links */
 a:link {
-	color: #0000CC;
+	color: #0000AA;
 	text-decoration: none;
 }
 
 a:visited {
-    color: #0000CC;
+    color: #0000AA;
 	text-decoration: none;
 }
 
 a:hover {
 	text-decoration: underline;
-	color: #0000CC;
+	color: #0000AA;
 }
 
 a:active {

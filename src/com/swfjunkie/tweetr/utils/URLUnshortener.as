@@ -19,7 +19,7 @@ package com.swfjunkie.tweetr.utils
     
     /**
      * URL Unshortener Class using http://untiny.me/ public service
-     * For a list of supported services see <a href="http://untiny.me/api/1.0/services/">http://untiny.me/api/1.0/services/</a>
+     * For a list of supported services see <a href="http://untiny.me/api/1.0/services/" target="_blank">http://untiny.me/api/1.0/services/</a>
      * @author Sandro Ducceschi [swfjunkie.com, Switzerland]
      */
     

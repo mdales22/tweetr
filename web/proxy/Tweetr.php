@@ -10,7 +10,7 @@ class Tweetr
     //  Class variables
     //
     //--------------------------------------------------------------------------
-    const USER_AGENT = 'TweetrProxy/0.95';
+    const USER_AGENT = 'TweetrProxy 1.0b1';
     const USER_AGENT_LINK = 'http://tweetr.googlecode.com/';
     const BASEURL = '/proxy';
     const DEBUGMODE = false;
@@ -111,7 +111,7 @@ class Tweetr
 		}
 		/* caching - end */
     	
-        $twitterURL = 'http://api.twitter.com/1'.str_replace($this->baseURL,'',$this->url['path']);
+        $twitterURL = 'https://api.twitter.com/1'.str_replace($this->baseURL,'',$this->url['path']);
         
         if($_SERVER['REQUEST_METHOD'] == 'GET')
         	$twitterURL .= '?'.$this->url['query'];
@@ -144,28 +144,80 @@ class Tweetr
 
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
+            $oauthArgs = array();
         	$postFields = array();
             if (isset($_FILES['image']))
             {
             	$imagePath = $this->uploadDirectory.$_FILES['image']['name'];
-            	if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath))
-            		$postFields['image'] = '@'.realpath($imagePath);
-            	else
-            		die('Upload failed, check upload directory permissions/path...');
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath))
+                {
+                    $imageInfo = getimagesize($imagePath);
+                    $postFields['image'] = "@".realpath($imagePath).";type=".$imageInfo['mime'];
+                }
+                else
+                {
+                    die('Upload failed, check upload directory permissions/path...');
+                }
             }
             
+            
             foreach($_POST as $key => $val)
-            	$postFields[$key] = stripslashes($val);
-            	
-            $opt[CURLOPT_POST] = true;
-            $opt[CURLOPT_HTTPHEADER] = array('Expect:');
-            $opt[CURLOPT_POSTFIELDS] = $postFields;
+            {
+                if (isset($imagePath))
+                {
+                    if (strpos($key, "oauth_") === false)
+                        $postFields[$key] = $val;
+                }
+                else
+                {
+                    
+                    if ($key == "oauth_signature")
+                        $oauthsig = $val;
+                    else if ($key == "_method")
+                        $_method = $val;
+                    else
+                        $postFields[$key] = $val;
+                }
+            }
+            
+            if (isset($imagePath))
+            {
+                if (isset($_POST['oauth_version']))
+                {
+                    
+                    $oauthHeader = 'Authorization: OAuth realm="'.$twitterURL.'", oauth_consumer_key="'.rawurlencode($_POST['oauth_consumer_key']).'", oauth_token="'.rawurlencode($_POST['oauth_token']).'", oauth_nonce="'.rawurlencode($_POST['oauth_nonce']).'", oauth_timestamp="'.rawurlencode($_POST['oauth_timestamp']).'", oauth_signature_method="HMAC-SHA1", oauth_version="1.0",oauth_signature="'.rawurlencode($_POST['oauth_signature']).'"';
+                    $opt[CURLOPT_HTTPHEADER] = array($oauthHeader, 'Expect:', );
+                }
+                else
+                {
+                    $opt[CURLOPT_HTTPHEADER] = array('Expect:', );
+                }
+                
+                $opt[CURLOPT_POST] = true;
+                $opt[CURLOPT_POSTFIELDS] = $postFields;
+            }
+            else
+            {
+                if (isset($oauthsig))
+                {
+                    ksort($postFields);
+                    $postFields = array_merge($postFields, array('oauth_signature' => $oauthsig));
+                }
+                
+                $opt[CURLOPT_HTTPHEADER] = array('Expect:');
+                if (isset($_method))
+                    $opt[CURLOPT_CUSTOMREQUEST] = strtoupper($_method);
+                else
+                    $opt[CURLOPT_POST] = TRUE;
+                    
+                $opt[CURLOPT_SSL_VERIFYPEER] = FALSE;
+                $opt[CURLOPT_POSTFIELDS] = http_build_query($postFields);
+            }
         }
         
         //do the request
         $curl = curl_init();
         curl_setopt_array($curl, $opt);
-
         
         ob_start();
         $response = curl_exec($curl);

@@ -100,7 +100,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#parseLists()">parseLists</a>(xml:XML):Array</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+         Parses a List XML to an Array
+         </div>
 </td><td class="summaryTableOwnerCol">DataParser</td>
 </tr>
 <tr class="">
@@ -301,17 +303,21 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function parseLists(xml:XML):Array</code><span class="label">Parameters</span>
+<code>public static function parseLists(xml:XML):Array</code><p>
+         Parses a List XML to an Array
+         </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">xml</span>:XML</code></td>
+<td width="20px"></td><td><code><span class="label">xml</span>:XML</code> &mdash;   The XML Response from twitter
+         </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Array</code></td>
+<td width="20"></td><td><code>Array</code> &mdash; An Array filled with ListDatas
+         </td>
 </tr>
 </table>
 </div>
@@ -477,7 +483,15 @@ showHideInherited();
 <hr>
 <br>
 <p></p>
+<div id="disqus_thread"></div>
+<script src="http://disqus.com/forums/tweetrdocumentation/embed.js" type="text/javascript"></script>
+<noscript>
+<a href="http://disqus.com/forums/tweetrdocumentation/?url=ref">View the discussion thread.</a>
+</noscript>
+<a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a>
+<p>
 <center class="copyright">[swfjunkie.com] - Open source under GNU Lesser GPL</center>
+</p>
 </div>
 </body>
 </html>

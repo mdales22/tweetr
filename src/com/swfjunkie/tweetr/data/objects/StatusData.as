@@ -55,6 +55,9 @@ package com.swfjunkie.tweetr.data.objects
         public var inReplyToUserId:Number;
         public var favorited:Boolean;
         public var inReplyToScreenName:String;
+        public var retweetedStatus:StatusData;
+        public var geoLat:Number;
+        public var geoLong:Number;
         public var user:UserData;
         
         //--------------------------------------------------------------------------
