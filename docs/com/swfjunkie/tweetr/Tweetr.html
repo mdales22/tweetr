@@ -2697,9 +2697,18 @@ showHideInherited();
 <div class="detailBody">
 <span class="label">Event object type: </span><a href="events/TweetEvent.html"><code>com.swfjunkie.tweetr.events.TweetEvent</code></a>
 <br>
-<p></p><p>
+<span class="label">TweetEvent.type property = </span><a href="events/TweetEvent.html#COMPLETE"><code>com.swfjunkie.tweetr.events.TweetEvent.COMPLETE</code></a>
+<br><p>
   Dispatched when the Tweetr has Completed a Request.
-  </p></div>
+  </p><p>
+   </p><p>The event returns the following properties:</p>
+   <table class=innertable>
+   <tr><th>Property</th><th>Value</th></tr>
+   <tr><td>responseArray</td><td>Array filled with Data Objects containing the results of your request</td></tr>
+   <tr><td>data</td><td>Contains the unparsed raw data returned from twitter</td></tr>
+   <tr><td>cursor</td><td>Contains a Cursor Data Object if the response includes cursor information</td></tr>
+   </table>
+      </div>
 <a name="event:failed"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2709,9 +2718,16 @@ showHideInherited();
 <div class="detailBody">
 <span class="label">Event object type: </span><a href="events/TweetEvent.html"><code>com.swfjunkie.tweetr.events.TweetEvent</code></a>
 <br>
-<p></p><p>
+<span class="label">TweetEvent.type property = </span><a href="events/TweetEvent.html#FAILED"><code>com.swfjunkie.tweetr.events.TweetEvent.FAILED</code></a>
+<br><p>
      Dispatched when something goes wrong while trying to request something from twitter
-     </p></div>
+     </p><p>
+   </p><p>The event returns the following properties:</p>
+   <table class=innertable>
+   <tr><th>Property</th><th>Value</th></tr>
+   <tr><td>info</td><td>Contains the Error Message returned</td></tr>
+   </table>
+      </div>
 <a name="event:status"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2721,9 +2737,16 @@ showHideInherited();
 <div class="detailBody">
 <span class="label">Event object type: </span><a href="events/TweetEvent.html"><code>com.swfjunkie.tweetr.events.TweetEvent</code></a>
 <br>
-<p></p><p>
+<span class="label">TweetEvent.type property = </span><a href="events/TweetEvent.html#STATUS"><code>com.swfjunkie.tweetr.events.TweetEvent.STATUS</code></a>
+<br><p>
      Merely for Informational purposes. Dispatches the http status to the listener
-     </p></div>
+     </p><p>
+   </p><p>The event returns the following properties:</p>
+   <table class=innertable>
+   <tr><th>Property</th><th>Value</th></tr>
+   <tr><td>info</td><td>Contains the HTTP Status</td></tr>
+   </table>
+      </div>
 <a name="constantDetail"></a>
 <div class="detailSectionHeader">Constant detail</div>
 <a name="RETURN_TYPE_BOOLEAN"></a>

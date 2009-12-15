@@ -21,17 +21,17 @@ package com.swfjunkie.tweetr
     
     /**
 	 * Dispatched when the Tweetr has Completed a Request.
-	 * @eventType com.swfjunkie.Tweetr.events.TweetEvent.COMPLETE
+	 * @eventType com.swfjunkie.tweetr.events.TweetEvent.COMPLETE
 	 */ 
     [Event(name="complete", type="com.swfjunkie.tweetr.events.TweetEvent")]
     /**
      * Dispatched when something goes wrong while trying to request something from twitter
-     * @eventType com.swfjunkie.Tweetr.events.TweetEvent.FAILED
+     * @eventType com.swfjunkie.tweetr.events.TweetEvent.FAILED
      */ 
     [Event(name="failed", type="com.swfjunkie.tweetr.events.TweetEvent")]
     /**
      * Merely for Informational purposes. Dispatches the http status to the listener
-     * @eventType com.swfjunkie.Tweetr.events.TweetEvent.STATUS
+     * @eventType com.swfjunkie.tweetr.events.TweetEvent.STATUS
      */ 
     [Event(name="status", type="com.swfjunkie.tweetr.events.TweetEvent")]
     

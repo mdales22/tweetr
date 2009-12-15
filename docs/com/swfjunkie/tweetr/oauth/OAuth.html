@@ -19,7 +19,7 @@
 <td align="left" class="titleTableTitle">Tweetr Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?com/swfjunkie/tweetr/oauth/OAuth.html&amp;com/swfjunkie/tweetr/oauth/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
 </tr>
 <tr class="titleTableRow2">
-<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;OAuth</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;OAuth</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
 </tr>
 <tr class="titleTableRow3">
 <td colspan="2">&nbsp;</td>
@@ -27,7 +27,7 @@
 </table>
 <script type="text/javascript" language="javascript">
 <!--
-if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class OAuth"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class OAuth"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
 --></script>
 <div class="MainContent">
 <table cellspacing="0" cellpadding="0" class="classHeaderTable">
@@ -124,17 +124,44 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getSignedRequest()">getSignedRequest</a>(method:String, url:String, urlVars:URLVariables = null):String</div>
 <div class="summaryTableDescription">
-         Signs a Request and returns an proper encoded argument string.</div>
+         Signs a Request and returns an proper encoded argument string.<br/>
+         <b>There usually is no need to call this by yourself.</b><br/><br/>
+         </div>
 </td><td class="summaryTableOwnerCol">OAuth</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#requestAccessToken()">requestAccessToken</a>(pin:Number):void</div>
+<a class="signatureLink" href="#requestAccessToken()">requestAccessToken</a>(pin:String):void</div>
 <div class="summaryTableDescription">
-         Requests the final Access Token to finish the OAuth Authorization
-         </div>
+         Requests the final Access Token to finish the OAuth Authorization.</div>
 </td><td class="summaryTableOwnerCol">OAuth</td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:complete">complete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+     Dispatched when the OAuth has succesfully completed a Request.</td><td class="summaryTableOwnerCol">OAuth</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:error">error</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+     Dispatched when something goes wrong while trying to authorize
+     </td><td class="summaryTableOwnerCol">OAuth</td>
 </tr>
 </table>
 </div>
@@ -238,7 +265,7 @@ showHideInherited();
 <div class="detailBody">
 <code>public function getAuthorizationRequest():void</code><p>
          Requests a OAuth Authorization Token and will build the proper authorization URL if successful.
-         When the URL has been created a <code>Event.COMPLETE</code> will be triggered.
+         When the URL has been created a <code>OAuthEvent.COMPLETE</code> will be fired containing the url.
          </p></div>
 <a name="getSignedRequest()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -248,7 +275,8 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getSignedRequest(method:String, url:String, urlVars:URLVariables = null):String</code><p>
-         Signs a Request and returns an proper encoded argument string.
+         Signs a Request and returns an proper encoded argument string.<br/>
+         <b>There usually is no need to call this by yourself.</b><br/><br/>
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -285,16 +313,56 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function requestAccessToken(pin:Number):void</code><p>
-         Requests the final Access Token to finish the OAuth Authorization
+<code>public function requestAccessToken(pin:String):void</code><p>
+         Requests the final Access Token to finish the OAuth Authorization.
+         When the Request succeeds a <code>OAuthEvent.COMPLETE</code> will be fired and the OAuth Instance will contain all the information needed to successfully call any Twitter API Method.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">pin</span>:Number</code> &mdash;   Pin Number given by Twitter on the Authorization Page.
+<td width="20px"></td><td><code><span class="label">pin</span>:String</code> &mdash;   PIN given by Twitter on the Authorization Page.
          </td>
 </tr>
 </table>
 </div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:complete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>com.swfjunkie.tweetr.oauth.OAuthEvent</code></a>
+<br>
+<span class="label">OAuthEvent.type property = </span><a href="events/OAuthEvent.html#COMPLETE"><code>com.swfjunkie.tweetr.oauth.events.OAuthEvent.COMPLETE</code></a>
+<br><p>
+     Dispatched when the OAuth has succesfully completed a Request.
+     </p><p>
+         </p><p>The event returns the following properties:</p>
+         <table class=innertable>
+         <tr><th>Property</th><th>Value</th></tr>
+         <tr><td>url</td><td>Returns the Authorization URL when getAuthorizationRequest() was successful.</td></tr>
+         </table>
+                  </div>
+<a name="event:error"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">error</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>com.swfjunkie.tweetr.oauth.OAuthEvent</code></a>
+<br>
+<span class="label">OAuthEvent.type property = </span><a href="events/OAuthEvent.html#ERROR"><code>com.swfjunkie.tweetr.oauth.events.OAuthEvent.ERROR</code></a>
+<br><p>
+     Dispatched when something goes wrong while trying to authorize
+     </p><p>
+         </p><p>The event returns the following properties:</p>
+         <table class=innertable>
+         <tr><th>Property</th><th>Value</th></tr>
+         <tr><td>text</td><td>Contains an error message</td></tr>
+         </table>
+                  </div>
 <br>
 <br>
 <hr>

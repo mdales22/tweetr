@@ -4,14 +4,27 @@ package com.swfjunkie.tweetr.oauth
     import com.hurlant.crypto.hash.HMAC;
     import com.hurlant.util.Base64;
     import com.hurlant.util.Hex;
+    import com.swfjunkie.tweetr.oauth.events.OAuthEvent;
     
     import flash.events.Event;
     import flash.events.EventDispatcher;
+    import flash.events.IOErrorEvent;
     import flash.net.URLLoader;
     import flash.net.URLRequest;
     import flash.net.URLVariables;
-    import flash.net.navigateToURL;
     import flash.utils.ByteArray;
+    
+    /**
+     * Dispatched when the OAuth has succesfully completed a Request.
+     * @eventType com.swfjunkie.tweetr.oauth.events.OAuthEvent.COMPLETE
+     */ 
+    [Event(name="complete", type="com.swfjunkie.tweetr.oauth.OAuthEvent")]
+    
+    /**
+     * Dispatched when something goes wrong while trying to authorize
+     * @eventType com.swfjunkie.tweetr.oauth.events.OAuthEvent.ERROR
+     */
+    [Event(name="error", type="com.swfjunkie.tweetr.oauth.OAuthEvent")]
     
     /**
      * OAuth Authentication Utility - requires the <a href="http://code.google.com/p/as3crypto/" target="_blank">as3crypto library</a> to work.
@@ -24,7 +37,7 @@ package com.swfjunkie.tweetr.oauth
         //  Class variables
         //
         //--------------------------------------------------------------------------
-        private static const OAUTH_DOMAIN:String = "https://api.twitter.com/1";
+        private static const OAUTH_DOMAIN:String = "http://twitter.com";
         private static const REQUEST_TOKEN:String = "/oauth/request_token";
         private static const AUTHORIZE:String = "/oauth/authorize";
         private static const ACCESS:String = "/oauth/access_token";
@@ -51,6 +64,7 @@ package com.swfjunkie.tweetr.oauth
         {
             urlLoader = new URLLoader();
             urlLoader.addEventListener(Event.COMPLETE, handleComplete);
+            urlLoader.addEventListener(IOErrorEvent.IO_ERROR, handleError);
         }
         
         //--------------------------------------------------------------------------
@@ -60,7 +74,7 @@ package com.swfjunkie.tweetr.oauth
         //--------------------------------------------------------------------------
         private var request:String;
         private var urlLoader:URLLoader;
-        private var _pin:Number;
+        private var _pin:String;
         //--------------------------------------------------------------------------
         //
         //  Properties
@@ -137,7 +151,7 @@ package com.swfjunkie.tweetr.oauth
         //--------------------------------------------------------------------------
         /**
          * Requests a OAuth Authorization Token and will build the proper authorization URL if successful.
-         * When the URL has been created a <code>Event.COMPLETE</code> will be triggered.
+         * When the URL has been created a <code>OAuthEvent.COMPLETE</code> will be fired containing the url.
          */
         public function getAuthorizationRequest():void
         {
@@ -148,10 +162,11 @@ package com.swfjunkie.tweetr.oauth
         }
         
         /**
-         * Requests the final Access Token to finish the OAuth Authorization
-         * @param pin   Pin Number given by Twitter on the Authorization Page.
+         * Requests the final Access Token to finish the OAuth Authorization.
+         * When the Request succeeds a <code>OAuthEvent.COMPLETE</code> will be fired and the OAuth Instance will contain all the information needed to successfully call any Twitter API Method.
+         * @param pin   PIN given by Twitter on the Authorization Page.
          */ 
-        public function requestAccessToken(pin:Number):void
+        public function requestAccessToken(pin:String):void
         {
             request = ACCESS;
             _pin = pin;
@@ -161,7 +176,8 @@ package com.swfjunkie.tweetr.oauth
         }
         
         /**
-         * Signs a Request and returns an proper encoded argument string.
+         * Signs a Request and returns an proper encoded argument string.<br/>
+         * <b>There usually is no need to call this by yourself.</b><br/><br/>
          * @param method    The URLRequest Method used. Valid values are POST and GET
          * @param url       The Request URL
          * @param urlVars   URLVariables that need to be signed
@@ -182,7 +198,7 @@ package com.swfjunkie.tweetr.oauth
             {
                 args.push({name: "oauth_token", value: oauthToken});
                 if (request == ACCESS)
-                    args.push({name: "oauth_verifier", value: _pin.toString()});
+                    args.push({name: "oauth_verifier", value: _pin});
             }
             
             for (var nameValue:String in urlVars)
@@ -236,8 +252,8 @@ package com.swfjunkie.tweetr.oauth
                     break;
                 }
             }
-            var urlRequest:URLRequest = new URLRequest(OAUTH_DOMAIN+AUTHORIZE+"?oauth_token="+encodeURIComponent(oauthToken));
-            navigateToURL(urlRequest);
+            var url:String = OAUTH_DOMAIN+AUTHORIZE+"?oauth_token="+encodeURIComponent(oauthToken);
+            dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE, url));
         }
         
         private function parseAccessResponse(data:String):void
@@ -271,6 +287,7 @@ package com.swfjunkie.tweetr.oauth
                     }
                 }
             }
+            dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE));
         }
         //--------------------------------------------------------------------------
         //
@@ -290,6 +307,11 @@ package com.swfjunkie.tweetr.oauth
                 buildAuthorizationRequest(urlLoader.data);
             if (request == ACCESS)
                 parseAccessResponse(urlLoader.data);
+        }
+        
+        private function handleError(event:IOErrorEvent):void
+        {
+            dispatchEvent(new OAuthEvent(OAuthEvent.ERROR, null, event.text));
         }
     }
 }
