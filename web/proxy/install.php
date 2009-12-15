@@ -385,7 +385,7 @@ include_once 'Tweetr.php';
  * Tweetr Proxy Class Startpoint
  * @author Sandro Ducceschi [swfjunkie.com, Switzerland]
  * 
- * see http://code.google.com/p/tweetr/wiki/PHPProxyUsage
+ * see http://wiki.swfjunkie.com/tweetr:proxy
  * on how to use the tweetr php proxy and it's options.
  */
 
@@ -446,7 +446,7 @@ $indexText .= "
 						 in case you are considering changing some settings later on.</p>
 						 <p>Let me leave you with some Links:
 						 <ul>
-						 	<li><a style=\"font-size: 12px;\" href=\"http://tweetr.googlecode.com/\" target=\"_blank\">Tweetr Library on Googlecode</a></li>
+						 	<li><a style=\"font-size: 12px;\" href=\"http://tweetr.swfjunkie.com/\" target=\"_blank\">Tweetr Library Project Homepage</a></li>
 						 	<li><a style=\"font-size: 12px;\" href=\"http://groups.google.com/group/tweetr-as3-library\" target=\"_blank\">Tweetr Library Discussion Group on Google Groups</a></li>
 						 	<li><a style=\"font-size: 12px;\" href=\"http://blog.swfjunkie.com\" target=\"_blank\">SWFJunkie (authors blog)</a></li>
 						 	<li><a style=\"font-size: 12px;\" href=\"http://twitter.com/_sandro\" target=\"_blank\">Author on Twitter (@_sandro)</a></li>

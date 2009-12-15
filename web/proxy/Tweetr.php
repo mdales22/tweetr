@@ -11,7 +11,7 @@ class Tweetr
     //
     //--------------------------------------------------------------------------
     const USER_AGENT = 'TweetrProxy 1.0b1';
-    const USER_AGENT_LINK = 'http://tweetr.googlecode.com/';
+    const USER_AGENT_LINK = 'http://tweetr.swfjunkie.com/';
     const BASEURL = '/proxy';
     const DEBUGMODE = false;
     const GHOST_DEFAULT = 'ghost';
