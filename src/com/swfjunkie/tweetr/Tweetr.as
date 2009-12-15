@@ -555,7 +555,7 @@ package com.swfjunkie.tweetr
             checkCredentials();
             _returnType = RETURN_TYPE_STATUS;
             
-            vars.status = escape(status.substr(0,140));
+            vars.status = strEscape(status.substr(0,140));
             if (inReplyTo != 0)
                 vars.in_reply_to_status_id = inReplyTo;
             if (lat != 0)
@@ -706,7 +706,7 @@ package com.swfjunkie.tweetr
             var vars:URLVariables = new URLVariables();
             checkCredentials();
             
-            vars.q = escape(query);
+            vars.q = strEscape(query);
             
             if (per_page < 20)
                 vars.per_page = per_page;
@@ -734,14 +734,14 @@ package com.swfjunkie.tweetr
             var vars:URLVariables = new URLVariables();
             checkCredentials();
             
-            vars.name = escape(name);
+            vars.name = strEscape(name);
             if(isPublic)
                 vars.mode = "public";
             else
                 vars.mode = "private";
             
             if (description)
-                vars.description = escape(description);
+                vars.description = strEscape(description);
             
             _returnType = RETURN_TYPE_LIST;
             setPOSTRequest(vars);
@@ -763,14 +763,14 @@ package com.swfjunkie.tweetr
             _returnType = RETURN_TYPE_LIST;
             
             if (name)
-                vars.name = escape(name);
+                vars.name = strEscape(name);
             if(isPublic)
                 vars.mode = "public";
             else
                 vars.mode = "private";
             
             if (description)
-                vars.description = escape(description);
+                vars.description = strEscape(description);
             
             setPOSTRequest(vars);
             request = "/"+_username+"/lists/"+slug+"."+DATA_FORMAT;
@@ -788,7 +788,7 @@ package com.swfjunkie.tweetr
             _returnType = RETURN_TYPE_LIST;
             
             vars._method = "DELETE";
-            vars.id = escape(id);
+            vars.id = strEscape(id);
             
             setPOSTRequest(vars);
             request = "/"+_username+"/lists/"+id+"."+DATA_FORMAT;
@@ -1122,7 +1122,7 @@ package com.swfjunkie.tweetr
             checkCredentials();
             _returnType = RETURN_TYPE_DIRECT_MESSAGE;
             vars.user = user;
-            vars.text = escape(text.substr(0,140));
+            vars.text = strEscape(text.substr(0,140));
 
             setPOSTRequest(vars);
             request = URL_SEND_NEW_DIRECT_MESSAGE;
@@ -1245,11 +1245,11 @@ package com.swfjunkie.tweetr
             var vars:URLVariables = new URLVariables();
             _returnType = RETURN_TYPE_RELATIONSHIP;
             
-            vars.target_screen_name = escape(targetName);
+            vars.target_screen_name = strEscape(targetName);
             if (!sourceName)
                 checkCredentials();
             else
-                vars.source_screen_name = escape(sourceName);
+                vars.source_screen_name = strEscape(sourceName);
             
             setGETRequest(vars);
             request = URL_FRIENDSHIP_SHOW;
@@ -1893,6 +1893,21 @@ package com.swfjunkie.tweetr
         {
             if (!_username && !_password && !_oAuth)
                 throw new Error("Username and Password or OAuth authentication required for this method call!");
+        }
+        
+        /** @private */
+        private function strEscape(value:String):String
+        {
+            if (_oAuth)
+            {
+                var str:String = escape(value);
+                str = str.replace(/\//g, "%2F");
+                str = str.replace(/\*/g, "%2A");
+                str = str.replace(/\+/g, "%2B");
+                str = str.replace(/@/g, "%40");
+                return str;
+            }
+            return value;
         }
         //--------------------------------------------------------------------------
         //
