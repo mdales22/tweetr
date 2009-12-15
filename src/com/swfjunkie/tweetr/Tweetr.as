@@ -199,13 +199,13 @@ package com.swfjunkie.tweetr
         {
             if (_oAuth)
             {
-                urlRequest.url = serviceHost+request;
+                urlRequest.url = _serviceHost+request;
                 var signedData:String = _oAuth.getSignedRequest(urlRequest.method, "https://api.twitter.com/1"+request, urlRequest.data as URLVariables);
                 urlRequest.data = new URLVariables(signedData);
             }
             else if (!_username && !_password)
             {
-                urlRequest.url = serviceHost+request;
+                urlRequest.url = _serviceHost+request;
             }
             else
             {
@@ -215,7 +215,7 @@ package com.swfjunkie.tweetr
                 if (useAuthHeaders)
                 {
                     urlRequest.requestHeaders = [new URLRequestHeader("Authorization", "Basic "+base64.toString())];
-                    urlRequest.url = serviceHost+request;
+                    urlRequest.url = _serviceHost+request;
                 }
                 else
                 {
@@ -230,7 +230,7 @@ package com.swfjunkie.tweetr
                         else
                             urlRequest.data = new URLVariables("hash="+base64.toString());
                     }
-                    urlRequest.url = serviceHost+request;
+                    urlRequest.url = _serviceHost+request;
                 }
             }
             return urlRequest;
