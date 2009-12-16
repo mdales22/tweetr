@@ -35,7 +35,7 @@ class Tweetr
         $this->baseURL = (isset($options['baseURL'])) ? $options['baseURL'] : self::BASEURL;
         $this->userAgent = (isset($options['userAgent'])) ? $options['userAgent'] : self::USER_AGENT;
         $this->userAgentLink = (isset($options['userAgentLink'])) ? $options['userAgentLink'] : self::USER_AGENT_LINK;
-        $this->indexContent = (isset($options['indexContent'])) ? $options['indexContent'] : '<html><head><title>'.$this->userAgent.'</title></head><body><a href="'.$this->userAgentLink.'" title="Go to Website">'.$this->userAgent.'</a></body></html>';
+        $this->indexContent = (isset($options['indexContent'])) ? $options['indexContent'] : '<html> <head> <title>'.$this->userAgent.'</title><style type="text/css"> body { background-color: #333; font-family: Georgia; font-variant: small-caps; font-style: oblique; font-size: 18px; font-weight: bold; } div { position: absolute; top: 50%; left: 50%; width: 300px; height: 30px; margin-left: -150px; margin-top: -15px; text-align: center; } a { color: #AAA; text-decoration: none; line-height: 30px; } a:hover { color: #FFF; } </style> </head> <body> <div> <a href="'.$this->userAgentLink.'">'.$this->userAgent.'</a> </div> </body> </html>';
         $this->debug = (isset($options['debugMode'])) ? $options['debugMode'] : self::DEBUGMODE;
         
         $this->ghostName = (isset($options['ghostName'])) ? $options['ghostName'] : self::GHOST_DEFAULT;

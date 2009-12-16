@@ -369,7 +369,7 @@ include_once 'Tweetr.php';
 		$_SESSION['ghostPass'] = (empty($_SESSION['ghostPass'])) ? Tweetr::GHOST_DEFAULT : $_SESSION['ghostPass'];
 		$_SESSION['realUser'] = (empty($_SESSION['realUser'])) ? "your_username" : $_SESSION['realUser'];
 		$_SESSION['realPass'] = (empty($_SESSION['realPass'])) ? "your_password" : $_SESSION['realPass'];
-		$customHTML = ($_POST['customHTML'] == "your html here") ? null : $_POST['customHTML'];
+		$customHTML = ($_POST['customHTML'] == "your html here" || $_POST['customHTML'] == "") ? null : $_POST['customHTML'];
 		
 		$fh = @fopen('index.php', 'wb');
 		if (!$fh)
