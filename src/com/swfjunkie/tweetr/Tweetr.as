@@ -304,6 +304,7 @@ package com.swfjunkie.tweetr
         
         /**
          * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
@@ -339,6 +340,7 @@ package com.swfjunkie.tweetr
         /**
          * Returns the 20 most recent statuses posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
          * Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
@@ -375,6 +377,7 @@ package com.swfjunkie.tweetr
          * Returns the 20 most recent statuses posted from the authenticating user. It's also possible to request 
          * another user's timeline via the id parameter. This is the equivalent of the Web /archive page for your 
          * own user, or the profile page for a third party.
+         * <p><b>This method optionally requires Authentication</b></p>
          * @param id              Optional. Specifies the ID or screen name of the user for whom to return the friends_timeline.
          * @param since_id        Optional. Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
@@ -406,6 +409,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns the 20 most recent @replies (status updates prefixed with @username) for the authenticating user.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional. Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional. Returns only statuses with an ID less than (that is, older than) the specified ID.
@@ -435,6 +439,7 @@ package com.swfjunkie.tweetr
         /**
          * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user.
          * Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
@@ -467,6 +472,7 @@ package com.swfjunkie.tweetr
         /**
          * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user's friends.
          * Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
@@ -499,6 +505,7 @@ package com.swfjunkie.tweetr
         /**
          * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.
          * Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
@@ -542,8 +549,8 @@ package com.swfjunkie.tweetr
         
         /**
          * <b><font color="#00AA00">UPDATED</font></b> - Updates the authenticating user's status. 
-         * A status update with text identical to the authenticating user's 
-         * current status will be ignored.
+         * A status update with text identical to the authenticating user's current status will be ignored.
+         * <p><b>This method requires Authentication</b></p>
          * @param status        Required. The text of your status update. Should not be more than 140 characters.
          * @param inReplyTo     Optional. The ID of an existing status that the status to be posted is in reply to. Invalid/missing status IDs will be ignored.
          * @param lat           Optional. The location's latitude that this tweet refers to. Note: The valid ranges for latitude is -90.0 to +90.0 (North is positive) inclusive.  This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding long parameter with this tweet.
@@ -571,6 +578,7 @@ package com.swfjunkie.tweetr
         /**
          * Destroys the status specified by the required ID parameter.
          * The authenticating user must be the author of the specified status.
+         * <p><b>This method requires Authentication</b></p>
          * @param id   Required. The ID of the status to destroy
          */ 
         public function destroyStatus(id:Number):void
@@ -590,6 +598,7 @@ package com.swfjunkie.tweetr
         /**
          * <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
          * Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
+         * <p><b>This method requires Authentication</b></p>
          * @param id    Required. The ID of the status to retweet
          */ 
         public function retweetStatus(id:Number):void
@@ -608,6 +617,7 @@ package com.swfjunkie.tweetr
         /**
          * <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
          * Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
+         * <p><b>This method requires Authentication</b></p>
          * @param id    Required. The ID of the status to retweet
          * @param count Optional. Specifies the number of retweets to retrieve. May not be greater than 100.
          */ 
@@ -637,7 +647,8 @@ package com.swfjunkie.tweetr
          * Returns up to 100 of the authenticating user's friends who have 
          * most recently updated, each with current status inline. 
          * It's also possible to request another user's recent friends list via the id parameter.
-         * @param id      Optional. The ID or screen name of the user for whom to request a list of friends.
+         * <p><b>This method optionally requires Authentication</b></p>
+         * @param id      Optional. The ID or screen name of the user for whom to request a list of friends. If not supplied, you have to be authenticated.
          * @param cursor    Optional. Breaks the results into pages. A single page contains 100 users. This is recommended for users who are following many users. Provide a value of  -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
          */ 
         public function getFriends(id:String = null, cursor:Number = 0):void
@@ -660,7 +671,8 @@ package com.swfjunkie.tweetr
         /**
          * Returns the authenticating user's followers, each with current status inline.  
          * They are ordered by the order in which they joined Twitter (this is going to be changed).
-         * @param id      Optional. The ID or screen name of the user for whom to request a list of followers.
+         * <p><b>This method optionally requires Authentication</b></p>
+         * @param id      Optional. The ID or screen name of the user for whom to request a list of followers. If not supplied, you need to be authenticated.
          * @param cursor    Optional. Breaks the results into pages. A single page contains 100 users. This is recommended for users who are following many users. Provide a value of  -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
          */ 
         public function getFollowers(id:String = null, cursor:Number = 0):void
@@ -696,6 +708,7 @@ package com.swfjunkie.tweetr
         /**
          * <b><font color="#00AA00">NEW</font></b> - Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.
          * It is only possible to retrieve the first 1000 matches from this API. This method does not support OAuth yet.
+         * <p><b>This method requires Authentication</b></p>
          * @param query     Required. The query to run against people search. For example "Sandro Ducceschi"
          * @param per_page  Optional. Specifies the number of statuses to retrieve. May not be greater than 20. 
          * @param page      Optional. Specifies the page of results to retrieve.
@@ -725,6 +738,7 @@ package com.swfjunkie.tweetr
         
         /**
          * <b><font color="#00AA00">UPDATED</font></b> - Creates a new list for the authenticated user. Accounts are limited to 20 lists. 
+         * <p><b>This method requires Authentication</b></p>
          * @param name          The name of the list you are creating.
          * @param isPublic      Optional. Whether your list is public or private. By default it is public.
          * @param description   Optional. The description of the list you are creating.
@@ -751,6 +765,7 @@ package com.swfjunkie.tweetr
         
         /**
          * <b><font color="#00AA00">UPDATED</font></b> - Updates the specified list. 
+         * <p><b>This method requires Authentication</b></p>
          * @param slug          The slug of the list you would like to change
          * @param name          Optional. What you'd like to change the lists name to.
          * @param isPublic      Optional. Whether your list is public or private. Lists are public by default
@@ -779,6 +794,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Deletes the specified list. Must be owned by the authenticated user.  
+         * <p><b>This method requires Authentication</b></p>
          * @param id    Required. id or slug of the list you want to delete. 
          */ 
         public function deleteList(id:String):void
@@ -797,6 +813,7 @@ package com.swfjunkie.tweetr
         
         /**
          * List the lists of the specified user. Private lists will be included if the authenticated users is the same as the user who'se lists are being returned.
+         * <p><b>This method requires Authentication</b></p>
          * @param listUser      The user who's lists you would like returned.
          * @param cursor        Optional. Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
          */
@@ -814,6 +831,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Show the specified list. Private lists will only be shown if the authenticated user owns the specified list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id            Required. id or slug of the list you want to retrieve.  
          * @param listUser      Optional. If you don't own the list, specify the user who the list belongs to.
          */ 
@@ -860,6 +878,7 @@ package com.swfjunkie.tweetr
         
         /**
          * List the lists the specified user has been added to. 
+         * <p><b>This method requires Authentication</b></p>
          * @param listUser  Optional.  The user who's list memberships you would like to retrieve. If not supplied it will retrieve the memberships of the authenticated user.
          * @param cursor    Optional. Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
          */ 
@@ -879,6 +898,7 @@ package com.swfjunkie.tweetr
         
         /**
          * List the lists the specified user follows.
+         * <p><b>This method requires Authentication</b></p>
          * @param listUser      Optional.  The user who's list subscriptions you would like to retrieve. If not supplied it will retrieve the subscriptions of the authenticated user.
          * @param cursor        Optional. Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
          */
@@ -902,6 +922,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns the members of the specified list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param listUser  Optional.  The user who's list members you would like to retrieve. If not supplied it will retrieve the list members of the authenticated user.
          * @param cursor    Optional.  Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
@@ -922,6 +943,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Add a member to a list. The authenticated user must own the list to be able to add members to it. Lists are limited to having 500 members. 
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param userId    The id of the user to add as a member of the list.
          */ 
@@ -938,6 +960,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Removes the specified member from the list. The authenticated user must be the list's owner to remove members from the list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param userId    The id of the user to remove as a member of the list.
          */ 
@@ -955,6 +978,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Check if a user is a member of the specified list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param userId    The id of the user who you want to know is a member or not of the specified list.
          */ 
@@ -974,6 +998,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns the subscribers of the specified list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param listUser  Optional.  The user who's list subscribers you would like to retrieve. If not supplied it will retrieve the list subscribers of the authenticated user.
          * @param cursor    Optional.  Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
@@ -994,6 +1019,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Make the authenticated user follow the specified list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param listUser  The user who's list you want to subscribe to.
          */ 
@@ -1008,6 +1034,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Unsubscribes the authenticated user form the specified list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param listUser  The user who's list you want to unsubscribe from.
          */ 
@@ -1024,6 +1051,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Check if the specified user is a subscriber of the specified list.
+         * <p><b>This method requires Authentication</b></p>
          * @param id        The id or slug of the list.
          * @param listUser  The user who's list you want to check against.
          * @param userId    he id of the user who you want to know is a subcriber or not of the specified list.
@@ -1045,6 +1073,7 @@ package com.swfjunkie.tweetr
         /**
          * Returns a list of the 20 most recent direct messages sent to the authenticating user.
          * The XML includes detailed information about the sending and recipient users.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id      Optional. Returns only direct messages with an ID greater than (that is, more recent than) the specified ID. 
          * @param since_date    Optional. Narrows the resulting list of direct messages to just those sent after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional. Returns only statuses with an ID less than (that is, older than) the specified ID.
@@ -1072,7 +1101,8 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns a list of the 20 most recent direct messages sent by the authenticating user.
-         * The XML includes detailed information about the sending and recipient users.
+         * The Results includes detailed information about the sending and recipient users.
+         * <p><b>This method requires Authentication</b></p>
          * @param since_id      Optional. Returns only direct messages with an ID greater than (that is, more recent than) the specified ID. 
          * @param since_date    Optional. Narrows the resulting list of direct messages to just those sent after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional. Returns only statuses with an ID less than (that is, older than) the specified ID.
@@ -1100,6 +1130,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns a single Direct Message, specified by the id parameter below.
+         * <p><b>This method requires Authentication</b></p>
          * @param id   Tweet ID
          */ 
         public function getDirectMessage(id:Number):void
@@ -1113,6 +1144,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Sends a new direct message to the specified user from the authenticating user.
+         * <p><b>This method requires Authentication</b></p>
          * @param text   Required. The text of your direct message, keep it under 140 characters or else it will be cut! 
          * @param user   Required. The ID or screen name of the recipient user.
          */
@@ -1133,6 +1165,7 @@ package com.swfjunkie.tweetr
         /**
          * Destroys the direct message specified in the required ID parameter.  
          * The authenticating user must be the recipient of the specified direct message.
+         * <p><b>This method requires Authentication</b></p>
          * @param id   Required. The ID of the direct message to destroy
          */ 
         public function destroyDirectMessage(id:Number):void
@@ -1158,6 +1191,7 @@ package com.swfjunkie.tweetr
          * Befriends the user specified in the ID parameter as the authenticating user.
          * Returns the befriended user in the requested format when successful.  
          * Returns a string describing the failure condition when unsuccessful.
+         * <p><b>This method requires Authentication</b></p>
          * @param id         The ID or screen name of the user to befriend
          * @param follow     Enable notifications for the target user in addition to becoming friends. Default is true.
          */ 
@@ -1180,6 +1214,7 @@ package com.swfjunkie.tweetr
          * Discontinues friendship with the user specified in the ID parameter as the authenticating user.  
          * Returns the un-friended user in the requested format when successful.  
          * Returns a string describing the failure condition when unsuccessful.  
+         * <p><b>This method requires Authentication</b></p>
          * @param id    The ID or screen name of the user with whom to discontinue friendship.
          */ 
         public function destroyFriendship(id:String):void
@@ -1216,6 +1251,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns detailed information about the relationship between two users.
+         * <p><b>This method optionally requires Authentication</b></p>
          * @param targetId      Required. The user_id of the target user.
          * @param sourceId      Optional. The user_id of the source user. If not defined you have to be authenticated to use this method.
          */
@@ -1237,6 +1273,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns detailed information about the relationship between two users.
+         * <p><b>This method optionally requires Authentication</b></p>
          * @param targetName      Required. The screen_name of the target user.
          * @param sourceName      Optional. The screen_name of the source user. If not defined you have to be authenticated to use this method.
          */ 
@@ -1263,6 +1300,7 @@ package com.swfjunkie.tweetr
         /**
          * Returns an array of numeric IDs for every user the specified user is following.
          * It's also possible to request another user's friends via the id parameter.
+         * <p><b>This method optionally requires Authentication</b></p>
          * @param id      Optional. The ID or screen name of the user for whom to request a list of friends.
          * @param cursor    Optional. Breaks the results into pages. A single page contains 5000 ids. This is recommended for users with large ID lists. Provide a value of -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
          */ 
@@ -1284,6 +1322,7 @@ package com.swfjunkie.tweetr
         /**
          * Returns an array of numeric IDs for every user following the specified user.
          * It's also possible to request another user's followers via the id parameter.
+         * <p><b>This method optionally requires Authentication</b></p>
          * @param id      Optional. The ID or screen name of the user for whom to request a list of friends.
          * @param cursor    Optional. Breaks the results into pages. A single page contains 5000 ids. This is recommended for users with large ID lists. Provide a value of -1 to begin paging. Provide values as returned to in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.
          */ 
@@ -1308,6 +1347,7 @@ package com.swfjunkie.tweetr
         
         /**
          * The user specified in the id is blocked by the authenticated user and reported as a spammer.
+         * <p><b>This method requires Authentication</b></p>
          * @param id    The ID or screen_name of the user you want to report as a spammer. 
          */ 
         public function reportSpammer(id:String):void
@@ -1328,6 +1368,7 @@ package com.swfjunkie.tweetr
 		
 		/**
 		 * Returns the authenticated user's saved search queries.
+         * <p><b>This method requires Authentication</b></p>
 		 */ 
 		public function getSavedSearches():void
 		{
@@ -1340,7 +1381,8 @@ package com.swfjunkie.tweetr
 		
 		/**
 		 * Retrieve the data for a saved search owned by the authenticating user specified by the given id.
-		 * @param id     The id of the saved search to be retrieved. 
+		 * <p><b>This method requires Authentication</b></p>
+         * @param id     The id of the saved search to be retrieved. 
 		 */ 
         public function getSavedSearch(id:Number):void
         {
@@ -1353,6 +1395,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Creates a saved search for the authenticated user.
+         * <p><b>This method requires Authentication</b></p>
          * @param query   The query of the search the user would like to save.
          */ 
         public function createSavedSearch(query:String):void
@@ -1368,6 +1411,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Destroys a saved search for the authenticated user. The search specified by id must be owned by the authenticating user.
+         * <p><b>This method requires Authentication</b></p>
          * @param id      The id of the saved search to be deleted. 
          */ 
         public function destroySavedSearch(id:Number):void
@@ -1400,7 +1444,8 @@ package com.swfjunkie.tweetr
 		/**
 		 * Sets values that users are able to set under the "Account" tab of their settings page. 
 		 * Only the parameters specified will be updated
-		 * @param name            Optional. Maximum of 40 characters.
+		 * <p><b>This method requires Authentication</b></p>
+         * @param name            Optional. Maximum of 40 characters.
 		 * @param url             Optional. Maximum of 100 characters. Will be prepended with "http://" if not present.
 		 * @param location        Optional. Maximum of 30 characters. The contents are not normalized or geocoded in any way.
 		 * @param description     Optional. Maximum of 160 characters.
@@ -1429,6 +1474,8 @@ package com.swfjunkie.tweetr
          * Updates the authenticating user's profile image. 
          * Keep in mind that the image must be a valid GIF, JPG, or PNG image of less than 
          * 700 kilobytes in size. Images with width larger than 500 pixels will be scaled down. 
+         * <p><b>This method requires Authentication</b></p>
+         * <p><b>NOTE:</b> This method only works in conjunction with the TweetrProxy.</p>
          * @param fileReference     A FileReference instance containing a selected image
          */ 
         public function updateProfileImage(fileReference:FileReference):void
@@ -1445,6 +1492,8 @@ package com.swfjunkie.tweetr
          * Updates the authenticating user's profile background image.
          * Keep in mind that the image must be a valid GIF, JPG, or PNG image of less than 
          * 800 kilobytes in size. Images with width larger than 2048 pixels will be forceably scaled down.  
+         * <p><b>This method requires Authentication</b></p>
+         * <p><b>NOTE:</b> This method only works in conjunction with the TweetrProxy.</p>
          * @param fileReference     A FileReference instance containing a selected image
          * @param tile              Optional. If set to true the background image will be displayed tiled. The image will not be tiled otherwise.
          */ 
@@ -1463,6 +1512,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com.
+         * <p><b>This method requires Authentication</b></p>
          * @param backgroundColor   A valid hexidecimal value, may be either three or six characters (ex: fff or AA0000).
          * @param textColor         A valid hexidecimal value, may be either three or six characters (ex: fff or AA0000).
          * @param linkColor         A valid hexidecimal value, may be either three or six characters (ex: fff or AA0000).
@@ -1494,6 +1544,7 @@ package com.swfjunkie.tweetr
         /**
          * Returns a representation of the requesting user if authentication was successful. Else return a hash error message if not.  
          * Use this method to test if supplied user credentials are valid.
+         * <p><b>This method requires Authentication</b></p>
          */ 
         public function verifyCredentials():void
         {
@@ -1506,6 +1557,7 @@ package com.swfjunkie.tweetr
 		
 		/**
 		 * Ends the session of the authenticating user. and Returns a HashData object with the response.
+         * <p><b>This method requires Authentication</b></p>
 		 */ 
 		public function endSession():void
 		{
@@ -1523,6 +1575,7 @@ package com.swfjunkie.tweetr
 		
 		/**
 		 * Returns the 20 most recent favorite statuses for the authenticating user or user specified by the ID parameter in the requested format. 
+         * <p><b>This method requires Authentication</b></p>
 		 * @param id      Optional. The ID or screen name of the user for whom to request a list of favorite statuses
 		 * @param page    Optional. Retrieves the 20 next most recent favorite statuses.
 		 */
@@ -1543,7 +1596,8 @@ package com.swfjunkie.tweetr
 		/**
 		 * Favorites the status specified in the ID parameter as the authenticating user.  
 		 * Returns the favorite status when successful.
-		 * @param id    Required.  The ID of the status to favorite.
+		 * <p><b>This method requires Authentication</b></p>
+         * @param id    Required.  The ID of the status to favorite.
 		 */
 		public function createFavorite(id:Number):void
 		{
@@ -1562,7 +1616,8 @@ package com.swfjunkie.tweetr
 		/**
 		 * Un-favorites the status specified in the ID parameter as the authenticating user.  
 		 * Returns the un-favorited status when successful.  
-		 * @param id   Required.  The ID of the status to un-favorite.
+		 * <p><b>This method requires Authentication</b></p>
+         * @param id   Required.  The ID of the status to un-favorite.
 		 */ 
 		public function destroyFavorite(id:Number):void
 		{
@@ -1587,7 +1642,8 @@ package com.swfjunkie.tweetr
 		 * Enables notifications for updates from the specified user to the authenticating user.  Returns the specified user when successful.
 		 * NOTE: The Notification Methods require the authenticated user to already be friends with the specified user otherwise 
 		 * a failed event will be fired.
-		 * @param id    Required.  The ID or screen name of the user to follow.
+		 * <p><b>This method requires Authentication</b></p>
+         * @param id    Required.  The ID or screen name of the user to follow.
 		 */ 
 		public function followUser(id:String):void
 		{
@@ -1607,7 +1663,8 @@ package com.swfjunkie.tweetr
 		 * Disables notifications for updates from the specified user to the authenticating user.  Returns the specified user when successful.
 		 * NOTE: The Notification Methods require the authenticated user to already be friends with the specified user otherwise 
 		 * a failed event will be fired.
-		 * @param id    Required.  The ID or screen name of the user to leave
+		 * <p><b>This method requires Authentication</b></p>
+         * @param id    Required.  The ID or screen name of the user to leave
 		 */ 
 		public function unfollowUser(id:String):void
 		{
@@ -1631,7 +1688,8 @@ package com.swfjunkie.tweetr
 		/**
 		 * Blocks the user specified in the ID parameter as the authenticating user.  
 		 * Returns the blocked user in the requested format when successful.
-		 * @param id   Required.  The ID or screen_name of the user to block.
+		 * <p><b>This method requires Authentication</b></p>
+         * @param id   Required.  The ID or screen_name of the user to block.
 		 */ 
 		public function blockUser(id:String):void
 		{
@@ -1650,7 +1708,8 @@ package com.swfjunkie.tweetr
 		/**
 		 * Un-blocks the user specified in the ID parameter as the authenticating user. 
 		 * Returns the un-blocked user in the requested format when successful.
-		 * @param id   Required.  The ID or screen_name of the user to un-block.
+		 * <p><b>This method requires Authentication</b></p>
+         * @param id   Required.  The ID or screen_name of the user to un-block.
 		 */
 		public function unblockUser(id:String):void
 		{
@@ -1668,6 +1727,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns if the authenticating user is blocking a target user. Will return the blocked user's object if a block exists, and an error hash object otherwise.
+         * <p><b>This method requires Authentication</b></p>
          * @param id    The ID or screen_name of the potentially blocked user.
          */ 
         public function blockExists(id:String):void
@@ -1682,6 +1742,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns an array of user objects that the authenticated user is blocking.
+         * <p><b>This method requires Authentication</b></p>
          */ 
         public function getBlocks():void
         {
@@ -1695,6 +1756,7 @@ package com.swfjunkie.tweetr
         
         /**
          * Returns an array of numeric user ids the authenticating user is blocking.
+         * <p><b>This method requires Authentication</b></p>
          */ 
         public function getBlockIds():void
         {
