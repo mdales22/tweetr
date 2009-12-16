@@ -106,7 +106,7 @@ package com.swfjunkie.tweetr
 		private static const DATA_FORMAT:String = "xml";
         
         /** Version String of the Tweetr Library */
-        public static const VERSION:String = "1.0b1";		
+        public static const VERSION:String = "1.0b2";		
 		
 		/** Return type defining what type of return Object you can expect, in this case: <code>StatusData</code> */
 		public static const RETURN_TYPE_STATUS:String = "status";
