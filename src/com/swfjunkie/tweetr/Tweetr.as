@@ -262,7 +262,7 @@ package com.swfjunkie.tweetr
         
         private var _serviceHost:String = "https://api.twitter.com/1";
         /**
-         * Service Host URL you want to use without "http://".
+         * Service Host URL you want to use.
          * This has to be changed if you are going to use tweetr
          * from a web app. Since the crossdomain policy of twitter.com
          * is very restrictive. use Tweetr's own PHPProxy Class for this. 

@@ -9,6 +9,7 @@ package com.swfjunkie.tweetr.oauth
     import flash.events.Event;
     import flash.events.EventDispatcher;
     import flash.events.IOErrorEvent;
+    import flash.events.SecurityErrorEvent;
     import flash.net.URLLoader;
     import flash.net.URLRequest;
     import flash.net.URLVariables;
@@ -65,6 +66,7 @@ package com.swfjunkie.tweetr.oauth
             urlLoader = new URLLoader();
             urlLoader.addEventListener(Event.COMPLETE, handleComplete);
             urlLoader.addEventListener(IOErrorEvent.IO_ERROR, handleError);
+            urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, handleSecurityError);
         }
         
         //--------------------------------------------------------------------------
@@ -124,6 +126,25 @@ package com.swfjunkie.tweetr.oauth
         {
             _username = value;
         }
+        
+        private var _serviceHost:String = OAUTH_DOMAIN;
+        /**
+         * Service Host URL you want to use.
+         * This has to be changed if you are going to use tweetr
+         * from a web app. Since the crossdomain policy of twitter.com
+         * is very restrictive. use Tweetr's own PHPProxy Class for this. 
+         */
+        public function get serviceHost():String
+        {
+            return _serviceHost;
+        }
+        public function set serviceHost(value:String):void
+        {
+            if (value.indexOf("http://") == -1 && value.indexOf("https://") == -1)
+                _serviceHost = "http://"+serviceHost;
+            else
+                _serviceHost = value;
+        }
         //--------------------------------------------------------------------------
         //
         //  Additional getters and setters
@@ -157,7 +178,7 @@ package com.swfjunkie.tweetr.oauth
         {
             request = REQUEST_TOKEN;
             var urlRequest:URLRequest = new URLRequest(OAUTH_DOMAIN+REQUEST_TOKEN);
-            urlRequest.url = urlRequest.url + "?"+ getSignedRequest("GET", urlRequest.url);
+            urlRequest.url = _serviceHost + REQUEST_TOKEN + "?"+ getSignedRequest("GET", urlRequest.url);
             urlLoader.load(urlRequest);
         }
         
@@ -171,7 +192,7 @@ package com.swfjunkie.tweetr.oauth
             request = ACCESS;
             _pin = pin;
             var urlRequest:URLRequest = new URLRequest(OAUTH_DOMAIN+ACCESS);
-            urlRequest.url = urlRequest.url + "?"+ getSignedRequest("GET", urlRequest.url);
+            urlRequest.url = _serviceHost + ACCESS + "?"+ getSignedRequest("GET", urlRequest.url);
             urlLoader.load(urlRequest);
         }
         
@@ -252,7 +273,7 @@ package com.swfjunkie.tweetr.oauth
                     break;
                 }
             }
-            var url:String = OAUTH_DOMAIN+AUTHORIZE+"?oauth_token="+encodeURIComponent(oauthToken);
+            var url:String = OAUTH_DOMAIN + AUTHORIZE +"?oauth_token="+encodeURIComponent(oauthToken);
             dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE, url));
         }
         
@@ -310,6 +331,11 @@ package com.swfjunkie.tweetr.oauth
         }
         
         private function handleError(event:IOErrorEvent):void
+        {
+            dispatchEvent(new OAuthEvent(OAuthEvent.ERROR, null, event.text));
+        }
+        
+        private function handleSecurityError(event:SecurityErrorEvent):void
         {
             dispatchEvent(new OAuthEvent(OAuthEvent.ERROR, null, event.text));
         }

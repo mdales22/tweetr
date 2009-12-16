@@ -10,7 +10,7 @@ class Tweetr
     //  Class variables
     //
     //--------------------------------------------------------------------------
-    const USER_AGENT = 'TweetrProxy 1.0b1';
+    const USER_AGENT = 'TweetrProxy 1.0b2';
     const USER_AGENT_LINK = 'http://tweetr.swfjunkie.com/';
     const BASEURL = '/proxy';
     const DEBUGMODE = false;
@@ -103,15 +103,19 @@ class Tweetr
     private function twitterRequest($authentication = false)
     {   
     	/* caching - begin */
-		if($_SERVER['REQUEST_METHOD'] != 'POST' && $this->cacheEnabled && $this->cacheExists())
+		if($_SERVER['REQUEST_METHOD'] != 'POST' && $this->cacheEnabled && $this->cacheExists() && !$this->isOAuthRegCall())
 		{
 			header('Content-type: text/xml; charset=utf-8');
 			echo $this->cacheRead();
 			return;
 		}
 		/* caching - end */
-    	
-        $twitterURL = 'https://api.twitter.com/1'.str_replace($this->baseURL,'',$this->url['path']);
+        
+        if($this->isOAuthRegCall())
+            $twitterURL = 'http://twitter.com'.str_replace($this->baseURL,'',$this->url['path']);
+        else
+            $twitterURL = 'https://api.twitter.com/1'.str_replace($this->baseURL,'',$this->url['path']);
+            
         
         if($_SERVER['REQUEST_METHOD'] == 'GET')
         	$twitterURL .= '?'.$this->url['query'];
@@ -244,8 +248,9 @@ class Tweetr
             $this->log($errorNumber);
             $this->log($errorMessage);
         }
-
-        header('Content-type: text/xml; charset=utf-8');
+        
+        if (!$this->isOAuthRegCall())
+            header('Content-type: text/xml; charset=utf-8');
         
         /* caching - begin */
 		if ($this->cacheEnabled)
@@ -268,6 +273,18 @@ class Tweetr
         else
             $this->twitterRequest(true);
     }
+    
+    /**
+     * Checks if the received call is a oauth token/authorization request
+     */
+    private function isOAuthRegCall()
+    {
+        if( strpos($this->url['path'], "oauth/request_token") != false || strpos($this->url['path'], "oauth/authorize") != false || strpos($this->url['path'], "oauth/access_token") != false)
+            return true;
+            
+        return false;
+    }   
+    
     
     /**
      * Log Method that you can overwrite with your own logging stuff.
