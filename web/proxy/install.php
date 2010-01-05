@@ -217,7 +217,7 @@ RewriteRule . index.php [L]
 	// STEP 4
 	//---------------------------------
 	
-	else if ($_GET[step] == 4)
+	else if ($_GET['step'] == 4)
 	{
 		$fh = @fopen('index.php', 'wb');
 		if (!$fh)
