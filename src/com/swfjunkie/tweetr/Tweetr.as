@@ -219,7 +219,7 @@ package com.swfjunkie.tweetr
                 }
                 else
                 {
-                    if (urlRequest.method == URLRequestMethod.GET)
+                    if (urlRequest.method == URLRequestMethod.GET && !urlRequest.data)
                     {
                         request = (request.indexOf("?") != -1) ? request+"&hash="+base64.toString() : request+"?hash="+base64.toString();
                     }
@@ -274,7 +274,7 @@ package com.swfjunkie.tweetr
         public function set serviceHost(value:String):void
         {
             if (value.indexOf("http://") == -1 && value.indexOf("https://") == -1)
-                _serviceHost = "http://"+serviceHost;
+                _serviceHost = "http://"+value;
             else
                 _serviceHost = value;
         }
