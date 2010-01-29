@@ -403,7 +403,7 @@ package com.swfjunkie.tweetr
                 vars.page = page;
             
             setGETRequest(vars);
-            request = URL_USER_TIMELINE + ( (id) ? "/"+id+"."+DATA_FORMAT : "."+DATA_FORMAT  );
+            request = URL_USER_TIMELINE + ( (id) ? "/" + id + "." + DATA_FORMAT : "." + DATA_FORMAT );
             urlLoader.load(url);
         }
         
@@ -543,7 +543,7 @@ package com.swfjunkie.tweetr
         {
             setGETRequest();
             _returnType = RETURN_TYPE_STATUS;
-            request = URL_SINGLE_TWEET + String(id) + "."+DATA_FORMAT;
+            request = URL_SINGLE_TWEET + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -588,10 +588,9 @@ package com.swfjunkie.tweetr
             _returnType = RETURN_TYPE_STATUS;
             
             vars.id = id;
-            vars.format = DATA_FORMAT;
             
             setPOSTRequest(vars);
-            request = URL_DESTROY_TWEET + id + "."+DATA_FORMAT;
+            request = URL_DESTROY_TWEET + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -610,7 +609,7 @@ package com.swfjunkie.tweetr
             vars.id = id;
             
             setPOSTRequest(vars);
-            request = URL_RETWEET + id + "."+DATA_FORMAT;
+            request = URL_RETWEET + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -635,7 +634,7 @@ package com.swfjunkie.tweetr
             }
             
             setGETRequest(vars);
-            request = URL_RETWEETS + id + "."+DATA_FORMAT;
+            request = URL_RETWEETS + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -664,7 +663,7 @@ package com.swfjunkie.tweetr
                  vars.cursor = cursor;
             
             setGETRequest(vars);
-            request = URL_FRIENDS + ( (id) ? "/"+id+"."+DATA_FORMAT : "."+DATA_FORMAT  );
+            request = URL_FRIENDS + ( (id) ? "/" + id + "." + DATA_FORMAT : "." + DATA_FORMAT  );
             urlLoader.load(url);
         }
         
@@ -686,7 +685,7 @@ package com.swfjunkie.tweetr
             
             setGETRequest(vars);
             _returnType = RETURN_TYPE_USER_INFO;
-            request = URL_FOLLOWERS + ( (id) ? "/"+id+"."+DATA_FORMAT : "."+DATA_FORMAT  );
+            request = URL_FOLLOWERS + ( (id) ? "/" + id + "." + DATA_FORMAT : "." + DATA_FORMAT );
             urlLoader.load(url);
         }
         
@@ -701,7 +700,7 @@ package com.swfjunkie.tweetr
         {
             setGETRequest();
             _returnType = RETURN_TYPE_USER_INFO;
-            request = URL_USER_DETAILS +id+"."+DATA_FORMAT;
+            request = URL_USER_DETAILS + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -759,7 +758,7 @@ package com.swfjunkie.tweetr
             
             _returnType = RETURN_TYPE_LIST;
             setPOSTRequest(vars);
-            request = "/"+_username+"/lists."+DATA_FORMAT;
+            request = "/" + _username + "/lists." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -788,7 +787,7 @@ package com.swfjunkie.tweetr
                 vars.description = strEscape(description);
             
             setPOSTRequest(vars);
-            request = "/"+_username+"/lists/"+slug+"."+DATA_FORMAT;
+            request = "/" + _username + "/lists/" + slug + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -807,7 +806,7 @@ package com.swfjunkie.tweetr
             vars.id = strEscape(id);
             
             setPOSTRequest(vars);
-            request = "/"+_username+"/lists/"+id+"."+DATA_FORMAT;
+            request = "/" + _username + "/lists/" + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -825,7 +824,7 @@ package com.swfjunkie.tweetr
             if (cursor != 0)
                 vars.cursor = cursor;
             setGETRequest(vars);
-            request = "/"+((listUser) ? listUser : _username)+"/lists."+DATA_FORMAT;
+            request = "/" + ((listUser) ? listUser : _username) + "/lists." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -841,7 +840,7 @@ package com.swfjunkie.tweetr
             checkCredentials();
             setGETRequest();
             _returnType = RETURN_TYPE_LIST;
-            request = "/"+((listUser) ? listUser : _username)+"/lists/"+id+"."+DATA_FORMAT;
+            request = "/"+ ((listUser) ? listUser : _username) + "/lists/" + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -892,7 +891,7 @@ package com.swfjunkie.tweetr
                 vars.cursor = cursor;
             
             setGETRequest(vars);
-            request = "/"+((listUser) ? listUser : _username)+"/lists/memberships."+DATA_FORMAT;
+            request = "/" + ((listUser) ? listUser : _username) + "/lists/memberships." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -912,7 +911,7 @@ package com.swfjunkie.tweetr
                 vars.cursor = cursor;
             
             setGETRequest(vars);
-            request = "/"+((listUser) ? listUser : _username)+"/lists/subscriptions."+DATA_FORMAT;
+            request = "/" +((listUser) ? listUser : _username) + "/lists/subscriptions." + DATA_FORMAT;
             urlLoader.load(url);
         }
             
@@ -937,7 +936,7 @@ package com.swfjunkie.tweetr
                 vars.cursor = cursor;
             
             setGETRequest(vars);
-            request = "/"+((listUser) ? listUser : _username)+"/"+id+"/members."+DATA_FORMAT;
+            request = "/" + ((listUser) ? listUser : _username) + "/" + id + "/members." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -954,7 +953,7 @@ package com.swfjunkie.tweetr
             _returnType = RETURN_TYPE_LIST;
             vars.id = userId;
             setPOSTRequest(vars);
-            request = "/"+_username+"/"+id+"/members."+DATA_FORMAT;
+            request = "/" + _username + "/" + id + "/members." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -972,7 +971,7 @@ package com.swfjunkie.tweetr
             vars.id = userId;
             vars._method = "DELETE";
             setPOSTRequest(vars);
-            request = "/"+_username+"/"+id+"/members."+DATA_FORMAT;
+            request = "/" + _username + "/" + id + "/members." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -988,7 +987,7 @@ package com.swfjunkie.tweetr
             checkCredentials();
             setGETRequest();
             _returnType = RETURN_TYPE_USER_INFO;
-            request = "/"+_username+"/"+id+"/members/"+userId+"."+DATA_FORMAT;
+            request = "/" + _username + "/" + id + "/members/" + userId + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1013,7 +1012,7 @@ package com.swfjunkie.tweetr
             
             _returnType = RETURN_TYPE_USER_INFO;
             setGETRequest(vars);
-            request = "/"+((listUser) ? listUser : _username)+"/"+id+"/subscribers."+DATA_FORMAT;
+            request = "/" + ((listUser) ? listUser : _username) + "/" + id + "/subscribers." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1028,7 +1027,7 @@ package com.swfjunkie.tweetr
             checkCredentials();
             _returnType = RETURN_TYPE_LIST;
             setPOSTRequest();
-            request = "/"+listUser+"/"+id+"/subscribers."+DATA_FORMAT;
+            request = "/" + listUser + "/" + id + "/subscribers." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1045,7 +1044,7 @@ package com.swfjunkie.tweetr
             _returnType = RETURN_TYPE_LIST;
             vars._method = "DELETE";
             setPOSTRequest(vars);
-            request = "/"+listUser+"/"+id+"/subscribers."+DATA_FORMAT;
+            request = "/" + listUser + "/" + id + "/subscribers." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1062,7 +1061,7 @@ package com.swfjunkie.tweetr
             checkCredentials();
             setGETRequest();
             _returnType = RETURN_TYPE_USER_INFO;
-            request = "/"+listUser+"/"+id+"/subscribers/"+userId+"."+DATA_FORMAT;
+            request = "/" + listUser + "/" + id + "/subscribers/" + userId + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1138,7 +1137,7 @@ package com.swfjunkie.tweetr
             checkCredentials();
             setGETRequest();
             _returnType = RETURN_TYPE_DIRECT_MESSAGE;
-            request = URL_SINGLE_DIRECT_MESSAGE + String(id) + "."+DATA_FORMAT;
+            request = URL_SINGLE_DIRECT_MESSAGE + String(id) + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1175,10 +1174,9 @@ package com.swfjunkie.tweetr
             _returnType = RETURN_TYPE_DIRECT_MESSAGE;
             
             vars.id = id;
-            vars.format = DATA_FORMAT;
             
             setPOSTRequest(vars);
-            request = URL_DESTROY_DIRECT_MESSAGE;
+            request = URL_DESTROY_DIRECT_MESSAGE + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1203,10 +1201,9 @@ package com.swfjunkie.tweetr
             
             vars.id = id;
             vars.follow = follow;
-            vars.format = DATA_FORMAT;
             
             setPOSTRequest(vars);
-            request = URL_CREATE_FRIENDSHIP;
+            request = URL_CREATE_FRIENDSHIP + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1224,10 +1221,9 @@ package com.swfjunkie.tweetr
             _returnType = RETURN_TYPE_USER_INFO;
             
             vars.id = id;
-            vars.format = DATA_FORMAT;
             
             setPOSTRequest(vars);
-            request = URL_DESTROY_FRIENDSHIP;
+            request = URL_DESTROY_FRIENDSHIP + id + "." + DATA_FORMAT;
             urlLoader.load(url);
         }
         
@@ -1315,7 +1311,7 @@ package com.swfjunkie.tweetr
             
             _returnType = RETURN_TYPE_IDS;
             setGETRequest(vars);
-            request = URL_SOCIAL_GRAPH_FRIEND_IDS + ( (id) ? "/"+id+"."+DATA_FORMAT : "."+DATA_FORMAT );
+            request = URL_SOCIAL_GRAPH_FRIEND_IDS + ( (id) ? "/" + id + "." + DATA_FORMAT : "." + DATA_FORMAT );
             urlLoader.load(url);
         }
         
@@ -1337,7 +1333,7 @@ package com.swfjunkie.tweetr
             
             _returnType = RETURN_TYPE_IDS;
             setGETRequest(vars);
-            request = URL_SOCIAL_GRAPH_FOLLOWER_IDS + ( (id) ? "/"+id+"."+DATA_FORMAT : "."+DATA_FORMAT );
+            request = URL_SOCIAL_GRAPH_FOLLOWER_IDS + ( (id) ? "/" + id + "." + DATA_FORMAT : "." + DATA_FORMAT );
             urlLoader.load(url);
         }
         
@@ -1589,7 +1585,7 @@ package com.swfjunkie.tweetr
             
             _returnType = RETURN_TYPE_STATUS;
             setGETRequest(vars);
-            request = URL_RETRIEVE_FAVORITES + ( (id) ? "/"+id+"."+DATA_FORMAT : "."+DATA_FORMAT  );
+            request = URL_RETRIEVE_FAVORITES + ( (id) ? "/" + id + "." + DATA_FORMAT : "." + DATA_FORMAT  );
             urlLoader.load(url);   
 		}
 		
@@ -1606,10 +1602,9 @@ package com.swfjunkie.tweetr
 		    _returnType = RETURN_TYPE_STATUS;
 		    
 		    vars.id = id;
-		    vars.format = DATA_FORMAT;
 		    
 		    setPOSTRequest(vars);
-		    request = URL_CREATE_FAVORITE;
+		    request = URL_CREATE_FAVORITE + id + "." + DATA_FORMAT;
 		    urlLoader.load(url);   
 		}
 		
@@ -1626,10 +1621,9 @@ package com.swfjunkie.tweetr
 		    _returnType = RETURN_TYPE_STATUS;
 		    
 		    vars.id = id;
-		    vars.format = DATA_FORMAT;
 		    
 		    setPOSTRequest(vars);
-		    request = URL_DESTROY_FAVORITE;
+		    request = URL_DESTROY_FAVORITE + id + "." + DATA_FORMAT;
 		    urlLoader.load(url);   
 		}
 		
@@ -1652,10 +1646,9 @@ package com.swfjunkie.tweetr
 		    _returnType = RETURN_TYPE_USER_INFO;
 		    
 		    vars.id = id;
-		    vars.format = DATA_FORMAT;
 		    
 		    setPOSTRequest(vars);
-		    request = URL_FOLLOW_USER;
+		    request = URL_FOLLOW_USER + id + "." + DATA_FORMAT;
 		    urlLoader.load(url);
 		}
 		
@@ -1673,10 +1666,9 @@ package com.swfjunkie.tweetr
 		    _returnType = RETURN_TYPE_USER_INFO;
 		    
 		    vars.id = id;
-		    vars.format = DATA_FORMAT;
 		    
 		    setPOSTRequest(vars);
-		    request = URL_UNFOLLOW_USER;
+		    request = URL_UNFOLLOW_USER + id + "." + DATA_FORMAT;
 		    urlLoader.load(url);
 		}
 		
@@ -1698,10 +1690,9 @@ package com.swfjunkie.tweetr
 		    _returnType = RETURN_TYPE_USER_INFO;
 		    
 		    vars.id = id;
-		    vars.format = DATA_FORMAT;
 		    
 		    setPOSTRequest(vars);
-		    request = URL_BLOCK_USER;
+		    request = URL_BLOCK_USER + id + "." + DATA_FORMAT;
 		    urlLoader.load(url);
 		}
 		
@@ -1718,10 +1709,9 @@ package com.swfjunkie.tweetr
 		    _returnType = RETURN_TYPE_USER_INFO;
 		    
 		    vars.id = id;
-		    vars.format = DATA_FORMAT;
 		    
 		    setPOSTRequest(vars);
-		    request = URL_UNBLOCK_USER;
+		    request = URL_UNBLOCK_USER + id + "." + DATA_FORMAT;
 		    urlLoader.load(url);
 		}
         
