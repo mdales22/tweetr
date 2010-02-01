@@ -1777,10 +1777,7 @@ package com.swfjunkie.tweetr
             var urlRequest:URLRequest = new URLRequest(URL_TWITTER_SEARCH);
             var vars:URLVariables = new URLVariables();
             
-            if(searchString.indexOf(" ") != -1)
-                vars.phrase = searchString;
-            else
-                vars.q = searchString;
+            vars.q = searchString;
 		    
 		    if (lang)
                 vars.lang = lang;
