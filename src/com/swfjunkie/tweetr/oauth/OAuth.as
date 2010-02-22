@@ -141,7 +141,7 @@ package com.swfjunkie.tweetr.oauth
         public function set serviceHost(value:String):void
         {
             if (value.indexOf("http://") == -1 && value.indexOf("https://") == -1)
-                _serviceHost = "http://"+serviceHost;
+                _serviceHost = "http://"+value;
             else
                 _serviceHost = value;
         }
