@@ -14,6 +14,7 @@ package com.swfjunkie.tweetr.oauth
     import flash.net.URLRequest;
     import flash.net.URLVariables;
     import flash.utils.ByteArray;
+    import flash.external.ExternalInterface;
     
     /**
      * Dispatched when the OAuth has succesfully completed a Request.
@@ -76,7 +77,7 @@ package com.swfjunkie.tweetr.oauth
         //--------------------------------------------------------------------------
         private var request:String;
         private var urlLoader:URLLoader;
-        private var _pin:String;
+        private var verifier:String;
         //--------------------------------------------------------------------------
         //
         //  Properties
@@ -111,6 +112,16 @@ package com.swfjunkie.tweetr.oauth
             return null;
         }
         
+        //TODO document variable 
+        private var _callbackURL:String = "oob";
+        public function get callbackURL():String
+        {
+            return decodeURIComponent(_callbackURL);
+        }
+        public function set callbackURL(value:String):void
+        {
+            _callbackURL = encodeURIComponent(value);
+        }
         
         private var _username:String;
         /**
@@ -145,6 +156,9 @@ package com.swfjunkie.tweetr.oauth
             else
                 _serviceHost = value;
         }
+        
+        public var pinlessAuth:Boolean = false;
+        
         //--------------------------------------------------------------------------
         //
         //  Additional getters and setters
@@ -185,12 +199,12 @@ package com.swfjunkie.tweetr.oauth
         /**
          * Requests the final Access Token to finish the OAuth Authorization.
          * When the Request succeeds a <code>OAuthEvent.COMPLETE</code> will be fired and the OAuth Instance will contain all the information needed to successfully call any Twitter API Method.
-         * @param pin   PIN given by Twitter on the Authorization Page.
+         * @param verifier   PIN or verifier_token given by Twitter on the Authorization Page.
          */ 
-        public function requestAccessToken(pin:String):void
+        public function requestAccessToken(verifier:String):void
         {
             request = ACCESS;
-            _pin = pin;
+            this.verifier = verifier;
             var urlRequest:URLRequest = new URLRequest(OAUTH_DOMAIN+ACCESS);
             urlRequest.url = _serviceHost + ACCESS + "?"+ getSignedRequest("GET", urlRequest.url);
             urlLoader.load(urlRequest);
@@ -208,7 +222,7 @@ package com.swfjunkie.tweetr.oauth
             var args:Array = [];
             
             if (request)
-                args.push({name: "oauth_callback", value: "oob"});
+                args.push({name: "oauth_callback", value: _callbackURL});
             args.push({name: "oauth_consumer_key", value: consumerKey});
             args.push({name: "oauth_nonce", value: nonce});
             args.push({name: "oauth_signature_method", value: "HMAC-SHA1"});
@@ -219,7 +233,7 @@ package com.swfjunkie.tweetr.oauth
             {
                 args.push({name: "oauth_token", value: oauthToken});
                 if (request == ACCESS)
-                    args.push({name: "oauth_verifier", value: _pin});
+                    args.push({name: "oauth_verifier", value: verifier});
             }
             
             for (var nameValue:String in urlVars)
@@ -274,7 +288,11 @@ package com.swfjunkie.tweetr.oauth
                 }
             }
             var url:String = OAUTH_DOMAIN + AUTHORIZE +"?oauth_token="+encodeURIComponent(oauthToken);
-            dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE, url));
+            
+            if (!pinlessAuth)
+                dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE, url));
+            else
+                sendAuthorizeCall(url);
         }
         
         private function parseAccessResponse(data:String):void
@@ -310,6 +328,21 @@ package com.swfjunkie.tweetr.oauth
             }
             dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE));
         }
+        
+        //----------------------------------
+        //  ExternalInterface Calls
+        //----------------------------------
+
+        private function sendAuthorizeCall(url:String):void
+        {
+            if (ExternalInterface.available)
+            {
+                ExternalInterface.addCallback("setVerifier", requestAccessToken);
+                ExternalInterface.call("OAuth.callAuthorize", url);
+            }
+        }
+        
+        
         //--------------------------------------------------------------------------
         //
         //  Broadcasting
