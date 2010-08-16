@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="Tweetr,com.swfjunkie.tweetr.Tweetr,RETURN_TYPE_BOOLEAN,RETURN_TYPE_DIRECT_MESSAGE,RETURN_TYPE_HASH,RETURN_TYPE_IDS,RETURN_TYPE_LIST,RETURN_TYPE_RELATIONSHIP,RETURN_TYPE_SAVED_SEARCHES,RETURN_TYPE_SEARCH_RESULTS,RETURN_TYPE_STATUS,RETURN_TYPE_TRENDS_RESULTS,RETURN_TYPE_USER_INFO,VERSION,useAuthHeaders,returnType,serviceHost,oAuth,password,username,addListMember,addListSubscription,blockExists,blockUser,createFavorite,createFriendship,createList,createSavedSearch,currentTrends,dailyTrends,deleteList,destroy,destroyDirectMessage,destroyFavorite,destroyFriendship,destroySavedSearch,destroyStatus,endSession,followUser,getBlockIds,getBlocks,getDirectMessage,getFavorites,getFollowerIds,getFollowers,getFriendIds,getFriends,getFriendsTimeLine,getHomeTimeLine,getList,getListMembers,getListMemberships,getListStatuses,getListSubscribers,getListSubscriptions,getLists,getMentions,getPublicTimeLine,getRateLimitStatus,getReceivedDirectMessages,getRetweetsByMe,getRetweetsOfMe,getRetweetsToMe,getSavedSearch,getSavedSearches,getSentDirectMessages,getStatus,getUserDetails,getUserTimeLine,hasFriendship,hasListMember,hasListSubscription,removeListMember,removeListSubscription,reportSpammer,retweetStatus,search,searchUser,sendDirectMessage,showFriendshipById,showFriendshipByName,statusRetweets,trends,unblockUser,unfollowUser,updateList,updateProfile,updateProfileBackgroundImage,updateProfileColors,updateProfileImage,updateStatus,verifyCredentials,weeklyTrends" name="keywords">
+<meta content="Tweetr,com.swfjunkie.tweetr.Tweetr,RETURN_TYPE_BOOLEAN,RETURN_TYPE_DIRECT_MESSAGE,RETURN_TYPE_HASH,RETURN_TYPE_IDS,RETURN_TYPE_LIST,RETURN_TYPE_RELATIONSHIP,RETURN_TYPE_SAVED_SEARCHES,RETURN_TYPE_SEARCH_RESULTS,RETURN_TYPE_STATUS,RETURN_TYPE_TRENDS_RESULTS,RETURN_TYPE_USER_INFO,VERSION,returnType,serviceHost,username,oAuth,addListMember,addListSubscription,blockExists,blockUser,createFavorite,createFriendship,createList,createSavedSearch,currentTrends,dailyTrends,deleteList,destroy,destroyDirectMessage,destroyFavorite,destroyFriendship,destroySavedSearch,destroyStatus,endSession,followUser,getBlockIds,getBlocks,getDirectMessage,getFavorites,getFollowerIds,getFollowers,getFriendIds,getFriends,getFriendsTimeLine,getHomeTimeLine,getList,getListMembers,getListMemberships,getListStatuses,getListSubscribers,getListSubscriptions,getLists,getMentions,getPublicTimeLine,getRateLimitStatus,getReceivedDirectMessages,getRetweetsByMe,getRetweetsOfMe,getRetweetsToMe,getSavedSearch,getSavedSearches,getSentDirectMessages,getStatus,getUserDetails,getUserTimeLine,hasFriendship,hasListMember,hasListSubscription,removeListMember,removeListSubscription,reportSpammer,retweetStatus,search,searchUser,sendDirectMessage,showFriendshipById,showFriendshipByName,statusRetweets,trends,unblockUser,unfollowUser,updateList,updateProfile,updateProfileBackgroundImage,updateProfileColors,updateProfileImage,updateStatus,verifyCredentials,weeklyTrends" name="keywords">
 <title>com.swfjunkie.tweetr.Tweetr</title>
 </head>
 <body>
@@ -61,10 +61,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#password">password</a> : String<div class="summaryTableDescription">[write-only] Set the users password </div>
-</td><td class="summaryTableOwnerCol">Tweetr</td>
-</tr>
-<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#returnType">returnType</a> : String<div class="summaryTableDescription">[read-only] Return type of the current response </div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
@@ -74,12 +70,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#useAuthHeaders">useAuthHeaders</a> : Boolean = false<div class="summaryTableDescription">
-         Get/Set if the Authentication Headers should be used or not.</div>
-</td><td class="summaryTableOwnerCol">Tweetr</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#username">username</a> : String<div class="summaryTableDescription">[write-only] Set the username  </div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#username">username</a> : String<div class="summaryTableDescription">[read-only] Get the username of the authorized user </div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 </table>
@@ -94,7 +85,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#Tweetr()">Tweetr</a>(username:String = null, password:String = null)</div>
+<a class="signatureLink" href="#Tweetr()">Tweetr</a>()</div>
 <div class="summaryTableDescription">
          Creates a new Tweetr Instance
          </div>
@@ -153,7 +144,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#createList()">createList</a>(name:String, isPublic:Boolean = true, description:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">UPDATED</font></b> - Creates a new list for the authenticated user.</div>
+         Creates a new list for the authenticated user.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -331,7 +322,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getHomeTimeLine()">getHomeTimeLine</a>(since_id:String = null, since_date:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends.</div>
+         Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -428,7 +419,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getRetweetsByMe()">getRetweetsByMe</a>(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user.</div>
+         Returns the 20 most recent retweets posted by the authenticating user.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -436,7 +427,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getRetweetsOfMe()">getRetweetsOfMe</a>(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.</div>
+         Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -444,7 +435,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getRetweetsToMe()">getRetweetsToMe</a>(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user's friends.</div>
+         Returns the 20 most recent retweets posted by the authenticating user's friends.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -548,7 +539,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#retweetStatus()">retweetStatus</a>(id:Number):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet.</div>
+         Retweets a tweet.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -564,7 +555,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#searchUser()">searchUser</a>(query:String, per_page:Number = 20, page:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.</div>
+         Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -596,7 +587,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#statusRetweets()">statusRetweets</a>(id:Number, count:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet.</div>
+         Retweets a tweet.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -628,7 +619,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#updateList()">updateList</a>(slug:String, name:String = null, isPublic:Boolean = true, description:String = null):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">UPDATED</font></b> - Updates the specified list.</div>
+         Updates the specified list.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -668,7 +659,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#updateStatus()">updateStatus</a>(status:String, inReplyTo:Number = 0, lat:Number = 0, long:Number = 0):void</div>
 <div class="summaryTableDescription">
-         <b><font color="#00AA00">UPDATED</font></b> - Updates the authenticating user's status.</div>
+         Updates the authenticating user's status.</div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
@@ -775,7 +766,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#VERSION">VERSION</a> : String = "1.0b2"<div class="summaryTableDescription">[static] Version String of the Tweetr Library </div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#VERSION">VERSION</a> : String = "1.0b3"<div class="summaryTableDescription">[static] Version String of the Tweetr Library </div>
 </td><td class="summaryTableOwnerCol">Tweetr</td>
 </tr>
 </table>
@@ -797,18 +788,6 @@ showHideInherited();
 <code>oAuth:<a href="oauth/IOAuth.html">IOAuth</a></code>&nbsp;&nbsp;[write-only]<span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function set oAuth(value:<a href="oauth/IOAuth.html">IOAuth</a>):void</code>
-<br>
-</div>
-<a name="password"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">password</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>password:String</code>&nbsp;&nbsp;[write-only]<p> Set the users password </p><span class="label">Implementation</span>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set password(value:String):void</code>
 <br>
 </div>
 <a name="returnType"></a>
@@ -842,19 +821,6 @@ showHideInherited();
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function set serviceHost(value:String):void</code>
 <br>
 </div>
-<a name="useAuthHeaders"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">useAuthHeaders</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var useAuthHeaders:Boolean = false</code><p>
-         Get/Set if the Authentication Headers should be used or not. Default is false.
-         <br/>This should only be set to true if you are building an AIR App
-         and are calling the twitter api directly without the use of the proxy.
-         
-         </p></div>
 <a name="username"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -862,9 +828,9 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>username:String</code>&nbsp;&nbsp;[write-only]<p> Set the username  </p><span class="label">Implementation</span>
+<code>username:String</code>&nbsp;&nbsp;[read-only]<p> Get the username of the authorized user </p><span class="label">Implementation</span>
 <br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set username(value:String):void</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get username():String</code>
 <br>
 </div>
 <a name="constructorDetail"></a>
@@ -876,23 +842,9 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function Tweetr(username:String = null, password:String = null)</code><p>
+<code>public function Tweetr()</code><p>
          Creates a new Tweetr Instance
-         </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">username</span>:String</code> (default = <code>null</code>)<code></code> &mdash;   Username is optional at this point but is required for most twitter api calls
-         </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">password</span>:String</code> (default = <code>null</code>)<code></code> &mdash;   Password is optional at this point but is required for most twitter api calls
-         </td>
-</tr>
-</table>
-</div>
+         </p></div>
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
 <a name="addListMember()"></a>
@@ -1036,7 +988,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function createList(name:String, isPublic:Boolean = true, description:String = null):void</code><p>
-         <b><font color="#00AA00">UPDATED</font></b> - Creates a new list for the authenticated user. Accounts are limited to 20 lists. 
+         Creates a new list for the authenticated user. Accounts are limited to 20 lists. 
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1478,7 +1430,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getHomeTimeLine(since_id:String = null, since_date:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
+         Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1841,7 +1793,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getRetweetsByMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user.
+         Returns the 20 most recent retweets posted by the authenticating user.
          Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
@@ -1881,7 +1833,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getRetweetsOfMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.
+         Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.
          Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
@@ -1921,7 +1873,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function getRetweetsToMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user's friends.
+         Returns the 20 most recent retweets posted by the authenticating user's friends.
          Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
@@ -2264,7 +2216,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function retweetStatus(id:Number):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
+         Retweets a tweet. 
          Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
@@ -2337,7 +2289,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function searchUser(query:String, per_page:Number = 20, page:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.
+         Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.
          It is only possible to retrieve the first 1000 matches from this API. This method does not support OAuth yet.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
@@ -2445,7 +2397,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function statusRetweets(id:Number, count:Number = 0):void</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
+         Retweets a tweet. 
          Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
@@ -2520,7 +2472,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function updateList(slug:String, name:String = null, isPublic:Boolean = true, description:String = null):void</code><p>
-         <b><font color="#00AA00">UPDATED</font></b> - Updates the specified list. 
+         Updates the specified list. 
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2694,7 +2646,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function updateStatus(status:String, inReplyTo:Number = 0, lat:Number = 0, long:Number = 0):void</code><p>
-         <b><font color="#00AA00">UPDATED</font></b> - Updates the authenticating user's status. 
+         Updates the authenticating user's status. 
          A status update with text identical to the authenticating user's current status will be ignored.
          </p><p><b>This method requires Authentication</b></p>
          <span class="label">Parameters</span>
@@ -2905,7 +2857,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static const VERSION:String = "1.0b2"</code><p> Version String of the Tweetr Library </p></div>
+<code>public static const VERSION:String = "1.0b3"</code><p> Version String of the Tweetr Library </p></div>
 <br>
 <br>
 <hr>

@@ -621,3 +621,13 @@ html>body .listing pre
 {
 	height:10px;
 }
+
+.airIcon
+{
+	margin-left: -20px;
+	padding-left: 20px;
+	background-image: url(images/AirIcon12x12.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 2px;
+
+}

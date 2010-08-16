@@ -161,7 +161,7 @@ package com.swfjunkie.tweetr.utils
 			
 			var currentTime:Date = new Date();
 			//currentTime.setHours(currentTime.hours-1);
-			var diffTime:int = currentTime.getTime() - time.getTime();
+			var diffTime:Number = currentTime.getTime() - time.getTime();
 			//var diff:Date = new Date();
 			//diff.setTime(diffTime);
 			var diffDays:int = (diffTime-(diffTime%86400000))/86400000;

@@ -10,11 +10,14 @@ package com.swfjunkie.tweetr.oauth
     import flash.events.EventDispatcher;
     import flash.events.IOErrorEvent;
     import flash.events.SecurityErrorEvent;
+    import flash.external.ExternalInterface;
     import flash.net.URLLoader;
     import flash.net.URLRequest;
     import flash.net.URLVariables;
     import flash.utils.ByteArray;
-    import flash.external.ExternalInterface;
+    
+    CONFIG::AIR
+    import flash.html.HTMLLoader;
     
     /**
      * Dispatched when the OAuth has succesfully completed a Request.
@@ -32,7 +35,6 @@ package com.swfjunkie.tweetr.oauth
      * OAuth Authentication Utility - requires the <a href="http://code.google.com/p/as3crypto/" target="_blank">as3crypto library</a> to work.
      * @author Sandro Ducceschi [swfjunkie.com, Switzerland]
      */
-    
     public class OAuth extends EventDispatcher implements IOAuth
     {
         //
@@ -55,15 +57,6 @@ package com.swfjunkie.tweetr.oauth
         public function OAuth()
         {
             super();
-            init();
-        }
-        
-        /**
-         * @private
-         * Initializes the instance.
-         */
-        private function init():void
-        {
             urlLoader = new URLLoader();
             urlLoader.addEventListener(Event.COMPLETE, handleComplete);
             urlLoader.addEventListener(IOErrorEvent.IO_ERROR, handleError);
@@ -100,7 +93,6 @@ package com.swfjunkie.tweetr.oauth
          */ 
         public var oauthTokenSecret:String = "";
         
-        
         private var _userId:String;
         /**
          * Get the twitter user_id (retrieval only available after successful user authorization)
@@ -112,8 +104,10 @@ package com.swfjunkie.tweetr.oauth
             return null;
         }
         
-        //TODO document variable 
         private var _callbackURL:String = "oob";
+        /**
+         * <b><font color="#00AA00">NEW</font></b> - Get/Set the OAuth Callback URL
+         */
         public function get callbackURL():String
         {
             return decodeURIComponent(_callbackURL);
@@ -157,8 +151,19 @@ package com.swfjunkie.tweetr.oauth
                 _serviceHost = value;
         }
         
+        /**
+         * <b><font color="#00AA00">NEW</font></b> - Whether to use pinless OAuth or not.<br/>
+         * If you set this to true, you will have to supply
+         * a callback url via <code>callbackURL</code>
+         */
         public var pinlessAuth:Boolean = false;
         
+        /**
+         * <div class="airIcon"><b><font color="#00AA00">NEW</font></b> - <b>AIR only!</b> The HTMLLoader to be used to display the OAuth
+         * Authentication Process from Twitter in.</div> 
+         */ 
+        CONFIG::AIR
+        public var htmlLoader:HTMLLoader;
         //--------------------------------------------------------------------------
         //
         //  Additional getters and setters
@@ -261,6 +266,17 @@ package com.swfjunkie.tweetr.oauth
             return vars;
         }
         
+        /**
+         * <b><font color="#00AA00">NEW</font></b> - Returns username, userid, oauth token 
+         * and secret in a practical string ;)
+         */ 
+        override public function toString():String
+        {
+            return "Username: "+_username+"\n"+
+                    "User Id: "+_userId+"\n"+
+                    "OAuth Token: "+oauthToken+"\n"+
+                    "OAuth Token Secret: "+oauthTokenSecret;
+        }
         
         //--------------------------------------------------------------------------
         //
@@ -292,7 +308,7 @@ package com.swfjunkie.tweetr.oauth
             if (!pinlessAuth)
                 dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE, url));
             else
-                sendAuthorizeCall(url);
+                callAuthorize(url);
         }
         
         private function parseAccessResponse(data:String):void
@@ -329,11 +345,12 @@ package com.swfjunkie.tweetr.oauth
             dispatchEvent(new OAuthEvent(OAuthEvent.COMPLETE));
         }
         
-        //----------------------------------
-        //  ExternalInterface Calls
-        //----------------------------------
-
-        private function sendAuthorizeCall(url:String):void
+        //------------------------------------------
+        //  Conditional Authorize Call Methods
+        //------------------------------------------
+        
+        CONFIG::WEB
+        private function callAuthorize(url:String):void
         {
             if (ExternalInterface.available)
             {
@@ -342,6 +359,16 @@ package com.swfjunkie.tweetr.oauth
             }
         }
         
+        
+        CONFIG::AIR
+        private function callAuthorize(url:String):void
+        {
+            if (htmlLoader)
+            {
+                htmlLoader.addEventListener(Event.COMPLETE, handleDocumentComplete);
+                htmlLoader.load(new URLRequest(url));
+            }
+        }
         
         //--------------------------------------------------------------------------
         //
@@ -371,6 +398,23 @@ package com.swfjunkie.tweetr.oauth
         private function handleSecurityError(event:SecurityErrorEvent):void
         {
             dispatchEvent(new OAuthEvent(OAuthEvent.ERROR, null, event.text));
+        }
+        
+        CONFIG::AIR
+        private function handleDocumentComplete(event:Event):void
+        {
+            var sStr:String = "oauth_verifier=";
+            var location:String = htmlLoader.location;
+            var hasLocation:Boolean = htmlLoader.location.indexOf(location) != -1;
+            var oAuthVerifierIndex:int = location.indexOf(sStr);
+            
+            if (hasLocation && oAuthVerifierIndex != -1)
+            {
+                htmlLoader.removeEventListener(Event.COMPLETE, handleDocumentComplete);
+                verifier = location.substr(oAuthVerifierIndex + sStr.length, location.length);
+                htmlLoader = null;
+                requestAccessToken(verifier);
+            }
         }
     }
 }

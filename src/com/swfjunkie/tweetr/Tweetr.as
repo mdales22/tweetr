@@ -4,7 +4,6 @@ package com.swfjunkie.tweetr
     import com.swfjunkie.tweetr.data.objects.CursorData;
     import com.swfjunkie.tweetr.events.TweetEvent;
     import com.swfjunkie.tweetr.oauth.IOAuth;
-    import com.swfjunkie.tweetr.utils.Base64Encoder;
     
     import flash.events.DataEvent;
     import flash.events.Event;
@@ -15,7 +14,6 @@ package com.swfjunkie.tweetr
     import flash.net.FileReference;
     import flash.net.URLLoader;
     import flash.net.URLRequest;
-    import flash.net.URLRequestHeader;
     import flash.net.URLRequestMethod;
     import flash.net.URLVariables;
     
@@ -106,7 +104,7 @@ package com.swfjunkie.tweetr
 		private static const DATA_FORMAT:String = "xml";
         
         /** Version String of the Tweetr Library */
-        public static const VERSION:String = "1.0b2";		
+        public static const VERSION:String = "1.0b3";		
 		
 		/** Return type defining what type of return Object you can expect, in this case: <code>StatusData</code> */
 		public static const RETURN_TYPE_STATUS:String = "status";
@@ -137,20 +135,8 @@ package com.swfjunkie.tweetr
         //--------------------------------------------------------------------------
         /**
          * Creates a new Tweetr Instance
-         * @param username   Username is optional at this point but is required for most twitter api calls
-         * @param password   Password is optional at this point but is required for most twitter api calls
          */ 
-        public function Tweetr(username:String = null, password:String = null)
-        {
-            _username = username;
-            _password = password;
-            init();
-        }
-        /**
-         * @private
-         * Initializes the instance.
-         */
-        private function init():void
+        public function Tweetr()
         {
             urlRequest = new URLRequest();
             urlLoader = new URLLoader();
@@ -175,14 +161,6 @@ package com.swfjunkie.tweetr
         /** @private */
         private var request:String;
         
-        /**
-         * Get/Set if the Authentication Headers should be used or not. Default is false.
-         * <br/>This should only be set to true if you are building an AIR App
-         * and are calling the twitter api directly without the use of the proxy.
-         * 
-         */ 
-        public var useAuthHeaders:Boolean = false;
-        
         private var _oAuth:IOAuth;
         public function set oAuth(value:IOAuth):void
         {
@@ -202,54 +180,17 @@ package com.swfjunkie.tweetr
                 urlRequest.url = _serviceHost+request;
                 var signedData:String = _oAuth.getSignedRequest(urlRequest.method, "https://api.twitter.com/1"+request, urlRequest.data as URLVariables);
                 urlRequest.data = new URLVariables(signedData);
+                return urlRequest;
             }
-            else if (!_username && !_password)
-            {
-                urlRequest.url = _serviceHost+request;
-            }
-            else
-            {
-                var base64:Base64Encoder = new Base64Encoder();
-                base64.encode(_username+":"+_password);
-                
-                if (useAuthHeaders)
-                {
-                    urlRequest.requestHeaders = [new URLRequestHeader("Authorization", "Basic "+base64.toString())];
-                    urlRequest.url = _serviceHost+request;
-                }
-                else
-                {
-                    if (urlRequest.method == URLRequestMethod.GET && !urlRequest.data)
-                    {
-                        request = (request.indexOf("?") != -1) ? request+"&hash="+base64.toString() : request+"?hash="+base64.toString();
-                    }
-                    else
-                    {
-                        if (urlRequest.data)
-                            urlRequest.data.hash = base64.toString();
-                        else
-                            urlRequest.data = new URLVariables("hash="+base64.toString());
-                    }
-                    urlRequest.url = _serviceHost+request;
-                }
-            }
-            return urlRequest;
+            return null;
         }
         
         /** @private */
         private var _username:String;
-        /** Set the username  */ 
-        public function set username(value:String):void
+        /** Get the username of the authorized user */ 
+        public function get username():String
         {
-            _username = value;
-        }
-        
-        /** @private */
-        private var _password:String;
-        /** Set the users password */ 
-        public function set password(value:String):void
-        {
-            _password = value;
+            return _username;
         }
         
         /** @private */
@@ -303,7 +244,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
+         * Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user's friends. This is the equivalent of /timeline/home on the Web.
          * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
@@ -437,7 +378,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user.
+         * Returns the 20 most recent retweets posted by the authenticating user.
          * Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
          * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
@@ -470,7 +411,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent retweets posted by the authenticating user's friends.
+         * Returns the 20 most recent retweets posted by the authenticating user's friends.
          * Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
          * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
@@ -503,7 +444,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">NEW</font></b> - Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.
+         * Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.
          * Note: Retweets will not appear in the friends_timeline for backwards compatibility. If you want retweets included use getHomeTimeLine.
          * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
@@ -548,7 +489,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">UPDATED</font></b> - Updates the authenticating user's status. 
+         * Updates the authenticating user's status. 
          * A status update with text identical to the authenticating user's current status will be ignored.
          * <p><b>This method requires Authentication</b></p>
          * @param status        Required. The text of your status update. Should not be more than 140 characters.
@@ -595,7 +536,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
+         * Retweets a tweet. 
          * Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
          * <p><b>This method requires Authentication</b></p>
          * @param id    Required. The ID of the status to retweet
@@ -614,7 +555,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">NEW</font></b> - Retweets a tweet. 
+         * Retweets a tweet. 
          * Requires the id parameter of the tweet you are retweeting. Returns the original tweet with retweet details embedded.
          * <p><b>This method requires Authentication</b></p>
          * @param id    Required. The ID of the status to retweet
@@ -705,7 +646,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">NEW</font></b> - Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.
+         * Run a search for users similar to Find People button on Twitter.com; the same results returned by people search on Twitter.com will be returned by using this API.
          * It is only possible to retrieve the first 1000 matches from this API. This method does not support OAuth yet.
          * <p><b>This method requires Authentication</b></p>
          * @param query     Required. The query to run against people search. For example "Sandro Ducceschi"
@@ -736,7 +677,7 @@ package com.swfjunkie.tweetr
 		//----------------------------------
         
         /**
-         * <b><font color="#00AA00">UPDATED</font></b> - Creates a new list for the authenticated user. Accounts are limited to 20 lists. 
+         * Creates a new list for the authenticated user. Accounts are limited to 20 lists. 
          * <p><b>This method requires Authentication</b></p>
          * @param name          The name of the list you are creating.
          * @param isPublic      Optional. Whether your list is public or private. By default it is public.
@@ -763,7 +704,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * <b><font color="#00AA00">UPDATED</font></b> - Updates the specified list. 
+         * Updates the specified list. 
          * <p><b>This method requires Authentication</b></p>
          * @param slug          The slug of the list you would like to change
          * @param name          Optional. What you'd like to change the lists name to.
@@ -1849,8 +1790,8 @@ package com.swfjunkie.tweetr
             urlLoader = null;
     	    urlRequest = null;
     	    request = null;
+            _oAuth = null;
     	    _username = null;
-    	    _password = null;
     	    _returnType = null;
         }
         //--------------------------------------------------------------------------
@@ -1940,8 +1881,8 @@ package com.swfjunkie.tweetr
         /** @private */ 
         private function checkCredentials():void
         {
-            if (!_username && !_password && !_oAuth)
-                throw new Error("Username and Password or OAuth authentication required for this method call!");
+            if (!_oAuth)
+                throw new Error("OAuth authentication required for this method call!");
         }
         
         /** @private */
@@ -1950,6 +1891,7 @@ package com.swfjunkie.tweetr
             if (_oAuth)
             {
                 var str:String = escape(value);
+                str = str.replace(/\'/g, "%27");
                 str = str.replace(/\//g, "%2F");
                 str = str.replace(/\*/g, "%2A");
                 str = str.replace(/\+/g, "%2B");

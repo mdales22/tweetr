@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
-<meta content="OAuth,com.swfjunkie.tweetr.oauth.OAuth,consumerKey,consumerSecret,oauthToken,oauthTokenSecret,serviceHost,userId,username,getAuthorizationRequest,getSignedRequest,requestAccessToken" name="keywords">
+<meta content="OAuth,com.swfjunkie.tweetr.oauth.OAuth,consumerKey,consumerSecret,htmlLoader,oauthToken,oauthTokenSecret,pinlessAuth,callbackURL,serviceHost,userId,username,getAuthorizationRequest,getSignedRequest,requestAccessToken,toString" name="keywords">
 <title>com.swfjunkie.tweetr.oauth.OAuth</title>
 </head>
 <body>
@@ -58,6 +58,12 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#callbackURL">callbackURL</a> : String<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Get/Set the OAuth Callback URL
+         </div>
+</td><td class="summaryTableOwnerCol">OAuth</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#consumerKey">consumerKey</a> : String = ""<div class="summaryTableDescription">
          Get/Set the Consumer Key for your Application
          </div>
@@ -70,6 +76,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol">OAuth</td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#htmlLoader">htmlLoader</a> : HTMLLoader<div class="summaryTableDescription">
+         <div class="airIcon"><b><font color="#00AA00">NEW</font></b> - <b>AIR only!</b> The HTMLLoader to be used to display the OAuth
+         Authentication Process from Twitter in.</div> 
+         </div>
+</td><td class="summaryTableOwnerCol">OAuth</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#oauthToken">oauthToken</a> : String = ""<div class="summaryTableDescription">
          Get/Set the User Token
          </div>
@@ -78,6 +91,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#oauthTokenSecret">oauthTokenSecret</a> : String = ""<div class="summaryTableDescription">
          Get/Set the User Token Secret
+         </div>
+</td><td class="summaryTableOwnerCol">OAuth</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#pinlessAuth">pinlessAuth</a> : Boolean = false<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Whether to use pinless OAuth or not.<br/>
+         If you set this to true, you will have to supply
+         a callback url via <code>callbackURL</code>
          </div>
 </td><td class="summaryTableOwnerCol">OAuth</td>
 </tr>
@@ -137,9 +158,19 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#requestAccessToken()">requestAccessToken</a>(pin:String):void</div>
+<a class="signatureLink" href="#requestAccessToken()">requestAccessToken</a>(verifier:String):void</div>
 <div class="summaryTableDescription">
          Requests the final Access Token to finish the OAuth Authorization.</div>
+</td><td class="summaryTableOwnerCol">OAuth</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():String</div>
+<div class="summaryTableDescription">
+         <b><font color="#00AA00">NEW</font></b> - Returns username, userid, oauth token 
+         and secret in a practical string ;)
+         </div>
 </td><td class="summaryTableOwnerCol">OAuth</td>
 </tr>
 </table>
@@ -177,10 +208,26 @@ showHideInherited();
 <div class="MainContent">
 <a name="propertyDetail"></a>
 <div class="detailSectionHeader">Property detail</div>
+<a name="callbackURL"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">callbackURL</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>callbackURL:String</code>&nbsp;&nbsp;[read-write]<p>
+         <b><font color="#00AA00">NEW</font></b> - Get/Set the OAuth Callback URL
+         </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get callbackURL():String</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set callbackURL(value:String):void</code>
+<br>
+</div>
 <a name="consumerKey"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">consumerKey</td><td class="detailHeaderType">property</td>
+<td class="detailHeaderName">consumerKey</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -196,6 +243,17 @@ showHideInherited();
 <div class="detailBody">
 <code>public var consumerSecret:String = ""</code><p>
          Get/set the Consumer Secret for your Application
+         </p></div>
+<a name="htmlLoader"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">htmlLoader</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var htmlLoader:HTMLLoader</code><p>
+         <div class="airIcon"><b><font color="#00AA00">NEW</font></b> - <b>AIR only!</b> The HTMLLoader to be used to display the OAuth
+         Authentication Process from Twitter in.</div> 
          </p></div>
 <a name="oauthToken"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -216,6 +274,18 @@ showHideInherited();
 <div class="detailBody">
 <code>public var oauthTokenSecret:String = ""</code><p>
          Get/Set the User Token Secret
+         </p></div>
+<a name="pinlessAuth"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">pinlessAuth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var pinlessAuth:Boolean = false</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Whether to use pinless OAuth or not.<br/>
+         If you set this to true, you will have to supply
+         a callback url via <code>callbackURL</code>
          </p></div>
 <a name="serviceHost"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -337,14 +407,32 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function requestAccessToken(pin:String):void</code><p>
+<code>public function requestAccessToken(verifier:String):void</code><p>
          Requests the final Access Token to finish the OAuth Authorization.
          When the Request succeeds a <code>OAuthEvent.COMPLETE</code> will be fired and the OAuth Instance will contain all the information needed to successfully call any Twitter API Method.
          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">pin</span>:String</code> &mdash;   PIN given by Twitter on the Authorization Page.
+<td width="20px"></td><td><code><span class="label">verifier</span>:String</code> &mdash;   PIN or verifier_token given by Twitter on the Authorization Page.
          </td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function toString():String</code><p>
+         <b><font color="#00AA00">NEW</font></b> - Returns username, userid, oauth token 
+         and secret in a practical string ;)
+         </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
 </tr>
 </table>
 </div>

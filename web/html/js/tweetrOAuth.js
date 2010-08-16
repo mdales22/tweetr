@@ -26,6 +26,5 @@ OAuth.passVerifier = function (token) {
         flash = document.getElementById(swfId);
         flash.setVerifier(token); 
     }
-    if (oauthWin) { window.close(); }
 };
  
