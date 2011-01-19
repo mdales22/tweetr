@@ -18,10 +18,10 @@ package com.swfjunkie.tweetr.data.objects
         //  Initialization
         //
         //--------------------------------------------------------------------------
-        public function DirectMessageData( id:Number = 0,
-                                           senderId:Number = 0,
+        public function DirectMessageData(id:String = null,
+                                           senderId:String = null,
                                            text:String = null,
-                                           recipientId:Number = 0,
+                                           recipientId:String = null,
                                            createdAt:String = null,
                                            senderScreenName:String = null,
                                            recipientScreenName:String = null,
@@ -43,10 +43,10 @@ package com.swfjunkie.tweetr.data.objects
         //  Properties
         //
         //--------------------------------------------------------------------------
-        public var id:Number;
-        public var senderId:Number;
+        public var id:String;
+        public var senderId:String;
         public var text:String;
-        public var recipientId:Number;
+        public var recipientId:String;
         public var createdAt:String;
         public var senderScreenName:String;
         public var recipientScreenName:String;

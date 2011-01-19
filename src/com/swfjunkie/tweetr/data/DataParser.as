@@ -218,7 +218,7 @@ package com.swfjunkie.tweetr.data
             
             var target:RelationData = new RelationData();
             target.type = RelationData.RELATION_TYPE_TARGET;
-            target.id = parseFloat(xml.target.id);
+            target.id = xml.target.id;
             target.screenName = xml.target.screen_name;
             target.following = TweetUtil.stringToBool(xml.target.following);
             target.followedBy = TweetUtil.stringToBool(xml.target.followed_by);
@@ -226,7 +226,7 @@ package com.swfjunkie.tweetr.data
             
             var source:RelationData = new RelationData();
             source.type = RelationData.RELATION_TYPE_SOURCE;
-            source.id = parseFloat(xml.source.id);
+            source.id = xml.source.id;
             source.screenName = xml.source.screen_name;
             source.following = TweetUtil.stringToBool(xml.source.following);
             source.followedBy = TweetUtil.stringToBool(xml.source.followed_by);
@@ -280,7 +280,7 @@ package com.swfjunkie.tweetr.data
                 if (node)
                 {
                     listData = new ListData();
-                    listData.id = parseFloat(node.id);
+                    listData.id = node.id;
                     listData.name = node.name;
                     listData.fullName = node.full_name;
                     listData.slug = node.slug;
@@ -433,7 +433,7 @@ package com.swfjunkie.tweetr.data
                 var str:String = entry.ns::id;
                 var index:Number = str.lastIndexOf(':');
                 
-                searchData.id = parseInt(str.substring(index+1, str.length-1));
+                searchData.id = str.substring(index+1, str.length-1);
                 searchData.text = entry.ns::title;        
                 searchData.createdAt = entry.ns::updated;
                 searchData.userProfileImage = entry.ns::link[1].@href;

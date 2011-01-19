@@ -19,7 +19,7 @@ package com.swfjunkie.tweetr.data.objects
         //
         //--------------------------------------------------------------------------
         public function SearchResultData(
-                                         id:Number = 0, 
+                                         id:String = null, 
                                          link:String = null, 
                                          text:String = null, 
                                          createdAt:String = null, 
@@ -40,7 +40,7 @@ package com.swfjunkie.tweetr.data.objects
         //  Properties
         //
         //--------------------------------------------------------------------------
-        public var id:Number;
+        public var id:String;
         public var link:String;
         public var text:String;
         public var createdAt:String;

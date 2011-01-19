@@ -19,6 +19,11 @@ package com.swfjunkie.tweetr.oauth
     CONFIG::AIR
     import flash.html.HTMLLoader;
     
+    CONFIG::MOBILE
+    import flash.media.StageWebView;
+    CONFIG::MOBILE
+    import flash.events.LocationChangeEvent;
+    
     /**
      * Dispatched when the OAuth has succesfully completed a Request.
      * @eventType com.swfjunkie.tweetr.oauth.events.OAuthEvent.COMPLETE
@@ -93,7 +98,7 @@ package com.swfjunkie.tweetr.oauth
          */ 
         public var oauthTokenSecret:String = "";
         
-        private var _userId:String;
+        protected var _userId:String;
         /**
          * Get the twitter user_id (retrieval only available after successful user authorization)
          */ 
@@ -117,19 +122,15 @@ package com.swfjunkie.tweetr.oauth
             _callbackURL = encodeURIComponent(value);
         }
         
-        private var _username:String;
+        protected var _username:String;
         /**
-         * Get/set the twitter screen_name (retrieval only available after successful user authorization)
+         * Get the twitter screen_name (retrieval only available after successful user authorization)
          */ 
         public function get username():String
         {
             if (_username)
                 return _username;
             return null;
-        }
-        public function set username(value:String):void
-        {
-            _username = value;
         }
         
         private var _serviceHost:String = OAUTH_DOMAIN;
@@ -164,6 +165,10 @@ package com.swfjunkie.tweetr.oauth
          */ 
         CONFIG::AIR
         public var htmlLoader:HTMLLoader;
+        
+        CONFIG::MOBILE
+        public var stageWebView:StageWebView;
+        
         //--------------------------------------------------------------------------
         //
         //  Additional getters and setters
@@ -370,6 +375,16 @@ package com.swfjunkie.tweetr.oauth
             }
         }
         
+        CONFIG::MOBILE
+        private function callAuthorize(url:String):void
+        {
+            if (stageWebView)
+            {
+                stageWebView.addEventListener(LocationChangeEvent.LOCATION_CHANGE, handleLocationChange);
+                stageWebView.loadURL(url);
+            }
+        }
+        
         //--------------------------------------------------------------------------
         //
         //  Broadcasting
@@ -414,6 +429,27 @@ package com.swfjunkie.tweetr.oauth
                 verifier = location.substr(oAuthVerifierIndex + sStr.length, location.length);
                 htmlLoader = null;
                 requestAccessToken(verifier);
+            }
+        }
+        
+        CONFIG::MOBILE
+        private function handleLocationChange(event:LocationChangeEvent):void
+        {
+            var sStr:String = "oauth_verifier=";
+            var location:String = stageWebView.location;
+            var hasLocation:Boolean = stageWebView.location.indexOf(location) != -1;
+            var oAuthVerifierIndex:int = location.indexOf(sStr);
+            
+            if (hasLocation && oAuthVerifierIndex != -1)
+            {
+                stageWebView.removeEventListener(LocationChangeEvent.LOCATION_CHANGE, handleLocationChange);
+                verifier = location.substr(oAuthVerifierIndex + sStr.length, location.length);
+                stageWebView = null;
+                requestAccessToken(verifier);
+            }
+            else
+            {
+                dispatchEvent(new OAuthEvent(OAuthEvent.ERROR, stageWebView.location, "User Denied"));
             }
         }
     }

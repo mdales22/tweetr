@@ -18,7 +18,7 @@ package com.swfjunkie.tweetr.data.objects
         //  Initialization
         //
         //--------------------------------------------------------------------------
-        public function UserData( id:Number = 0,
+        public function UserData( id:String = null,
                                     name:String = null,
                                     screenName:String = null,
                                     location:String = null,
@@ -48,7 +48,7 @@ package com.swfjunkie.tweetr.data.objects
         //
         //--------------------------------------------------------------------------
         
-        public var id:Number;
+        public var id:String;
         public var name:String;
         public var screenName:String;
         public var location:String;

@@ -26,7 +26,7 @@ package com.swfjunkie.tweetr.data.objects
         //  Properties
         //
         //--------------------------------------------------------------------------
-        public var id:Number;
+        public var id:String;
         public var name:String;
         public var fullName:String;
         public var slug:String;

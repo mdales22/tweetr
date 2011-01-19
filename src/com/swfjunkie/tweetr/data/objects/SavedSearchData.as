@@ -18,7 +18,7 @@ package com.swfjunkie.tweetr.data.objects
         //  Initialization
         //
         //--------------------------------------------------------------------------
-        public function SavedSearchData( id:Number = 0,
+        public function SavedSearchData( id:String = null,
                                            name:String = null,
                                            query:String = null,
                                            position:String = null,
@@ -35,7 +35,7 @@ package com.swfjunkie.tweetr.data.objects
         //  Properties
         //
         //--------------------------------------------------------------------------
-        public var id:Number;
+        public var id:String;
         public var name:String;
         public var query:String;
         public var position:String;

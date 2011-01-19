@@ -28,7 +28,7 @@ package com.swfjunkie.tweetr.data.objects
         //
         //--------------------------------------------------------------------------
         public var type:String;
-        public var id:Number;
+        public var id:String;
         public var screenName:String;
         public var following:Boolean;
         public var followedBy:Boolean;
