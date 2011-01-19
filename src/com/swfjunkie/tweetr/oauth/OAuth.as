@@ -18,7 +18,6 @@ package com.swfjunkie.tweetr.oauth
     
     CONFIG::AIR
     import flash.html.HTMLLoader;
-    
     CONFIG::MOBILE
     import flash.media.StageWebView;
     CONFIG::MOBILE
@@ -450,10 +449,6 @@ package com.swfjunkie.tweetr.oauth
                 verifier = location.substr(oAuthVerifierIndex + sStr.length, location.length);
                 stageWebView = null;
                 requestAccessToken(verifier);
-            }
-            else
-            {
-                dispatchEvent(new OAuthEvent(OAuthEvent.ERROR, stageWebView.location, "User Denied"));
             }
         }
     }
