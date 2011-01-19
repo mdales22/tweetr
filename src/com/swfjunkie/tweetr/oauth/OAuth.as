@@ -122,15 +122,19 @@ package com.swfjunkie.tweetr.oauth
             _callbackURL = encodeURIComponent(value);
         }
         
-        protected var _username:String;
+        protected var _userName:String;
         /**
-         * Get the twitter screen_name (retrieval only available after successful user authorization)
+         * Get/Set the twitter screen_name/username
+         * <b>NOTICE:</b> Setting the username to a different user
+         * than authorized via the tokens, may cause request to fail.
          */ 
         public function get username():String
         {
-            if (_username)
-                return _username;
-            return null;
+            return _userName;
+        }
+        public function set username(value:String):void
+        {
+            _userName = value;
         }
         
         private var _serviceHost:String = OAUTH_DOMAIN;
@@ -277,7 +281,7 @@ package com.swfjunkie.tweetr.oauth
          */ 
         override public function toString():String
         {
-            return "Username: "+_username+"\n"+
+            return "Username: "+_userName+"\n"+
                     "User Id: "+_userId+"\n"+
                     "OAuth Token: "+oauthToken+"\n"+
                     "OAuth Token Secret: "+oauthTokenSecret;
@@ -342,7 +346,7 @@ package com.swfjunkie.tweetr.oauth
                     }
                     case "screen_name":
                     {
-                        _username = element[1];
+                        _userName = element[1];
                         break;
                     }
                 }

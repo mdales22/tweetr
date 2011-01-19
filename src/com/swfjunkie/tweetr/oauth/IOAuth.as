@@ -21,8 +21,11 @@ package com.swfjunkie.tweetr.oauth
          */
         function get userId():String;
         /**
-         * Get the twitter screen_name (retrieval only available after successful user authorization)
+         * Get/Set the twitter screen_name/username
+         * <b>NOTICE:</b> Setting the username to a different user
+         * than authorized via the tokens, may cause request to fail.
          */
         function get username():String;
+        function set username(value:String):void;
     }
 }
