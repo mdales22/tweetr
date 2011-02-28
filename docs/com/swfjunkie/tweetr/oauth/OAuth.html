@@ -1,495 +1,102 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
-<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
-<meta content="OAuth,com.swfjunkie.tweetr.oauth.OAuth,consumerKey,consumerSecret,htmlLoader,oauthToken,oauthTokenSecret,pinlessAuth,callbackURL,serviceHost,userId,username,getAuthorizationRequest,getSignedRequest,requestAccessToken,toString" name="keywords">
-<title>com.swfjunkie.tweetr.oauth.OAuth</title>
-</head>
-<body>
-<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
-<!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="OAuth,com.swfjunkie.tweetr.oauth.OAuth,_userId,_userName,callbackURL,consumerKey,consumerSecret,oauthToken,oauthTokenSecret,pinlessAuth,serviceHost,userId,userId,username,username,getAuthorizationRequest,getSignedRequest,getSignedRequest,requestAccessToken,toString"><title>com.swfjunkie.tweetr.oauth.OAuth</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
 				asdocTitle = 'OAuth - Tweetr Documentation';
 				var baseRef = '../../../../';
 				window.onload = configPage;
 			--></script>
-<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
-<tr>
-<td align="left" class="titleTableTitle">Tweetr Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?com/swfjunkie/tweetr/oauth/OAuth.html&amp;com/swfjunkie/tweetr/oauth/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
-</tr>
-<tr class="titleTableRow2">
-<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;OAuth</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
-</tr>
-<tr class="titleTableRow3">
-<td colspan="2">&nbsp;</td>
-</tr>
-</table>
-<script type="text/javascript" language="javascript">
-<!--
-if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class OAuth"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
---></script>
-<div class="MainContent">
-<table cellspacing="0" cellpadding="0" class="classHeaderTable">
-<tr>
-<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.swfjunkie.tweetr.oauth</a></td>
-</tr>
-<tr>
-<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class OAuth</td>
-</tr>
-<tr>
-<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">OAuth <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../../images/inherit-arrow.gif"> flash.events.EventDispatcher</td>
-</tr>
-<tr>
-<td class="classHeaderTableLabel">Implements</td><td><a href="IOAuth.html">IOAuth</a></td>
-</tr>
-</table>
-<p></p>
-     OAuth Authentication Utility - requires the <a href="http://code.google.com/p/as3crypto/" target="_blank">as3crypto library</a> to work.
-     <p></p>
-<br>
-<hr>
-</div>
-<a name="propertySummary"></a>
-<div class="summarySection">
-<div class="summaryTableTitle">Public Properties</div>
-<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
-<tr>
-<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#callbackURL">callbackURL</a> : String<div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Get/Set the OAuth Callback URL
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#consumerKey">consumerKey</a> : String = ""<div class="summaryTableDescription">
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">Tweetr Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?com/swfjunkie/tweetr/oauth/OAuth.html&amp;com/swfjunkie/tweetr/oauth/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">OAuth</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("OAuth"); titleBar_setSubNav(false,true,false,false,false,false,true,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.swfjunkie.tweetr.oauth</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  OAuth</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">OAuth  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> flash.events.EventDispatcher</td></tr><tr><td class="classHeaderTableLabel">Implements</td><td> <a href="../../../../com/swfjunkie/tweetr/oauth/IOAuth.html">IOAuth</a></td></tr></table><p></p><p></p>
+     OAuth Authentication Utility - requires the <a href="http://code.google.com/p/as3crypto/" target="external">as3crypto library</a> to work.
+     <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#callbackURL" class="signatureLink">callbackURL</a> : String<div class="summaryTableDescription">
+         NEW - Get/Set the OAuth Callback URL
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#consumerKey" class="signatureLink">consumerKey</a> : String<div class="summaryTableDescription">
          Get/Set the Consumer Key for your Application
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#consumerSecret">consumerSecret</a> : String = ""<div class="summaryTableDescription">
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#consumerSecret" class="signatureLink">consumerSecret</a> : String<div class="summaryTableDescription">
          Get/set the Consumer Secret for your Application
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#htmlLoader">htmlLoader</a> : HTMLLoader<div class="summaryTableDescription">
-         <div class="airIcon"><b><font color="#00AA00">NEW</font></b> - <b>AIR only!</b> The HTMLLoader to be used to display the OAuth
-         Authentication Process from Twitter in.</div> 
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#oauthToken">oauthToken</a> : String = ""<div class="summaryTableDescription">
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#oauthToken" class="signatureLink">oauthToken</a> : String<div class="summaryTableDescription">
          Get/Set the User Token
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#oauthTokenSecret">oauthTokenSecret</a> : String = ""<div class="summaryTableDescription">
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#oauthTokenSecret" class="signatureLink">oauthTokenSecret</a> : String<div class="summaryTableDescription">
          Get/Set the User Token Secret
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#pinlessAuth">pinlessAuth</a> : Boolean = false<div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Whether to use pinless OAuth or not.<br/>
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#pinlessAuth" class="signatureLink">pinlessAuth</a> : Boolean = false<div class="summaryTableDescription">
+         NEW - Whether to use pinless OAuth or not.
          If you set this to true, you will have to supply
-         a callback url via <code>callbackURL</code>
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#serviceHost">serviceHost</a> : String<div class="summaryTableDescription">
-         Service Host URL you want to use.</div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#userId">userId</a> : String<div class="summaryTableDescription">[read-only]
+         a callback url via callbackURL
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#serviceHost" class="signatureLink">serviceHost</a> : String<div class="summaryTableDescription">
+         Service Host URL you want to use.</div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#userId" class="signatureLink">userId</a> : String<div class="summaryTableDescription">[read-only] 
          Get the twitter user_id (retrieval only available after successful user authorization)
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#username">username</a> : String<div class="summaryTableDescription">
-         Get/set the twitter screen_name (retrieval only available after successful user authorization)
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-</table>
-</div>
-<a name="methodSummary"></a>
-<div class="summarySection">
-<div class="summaryTableTitle">Public Methods</div>
-<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
-<tr>
-<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#OAuth()">OAuth</a>()</div>
-<div class="summaryTableDescription">
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#username" class="signatureLink">username</a> : String<div class="summaryTableDescription">
+         Get/Set the twitter screen_name/username
+         NOTICE: Setting the username to a different user
+         than authorized via the tokens, may cause request to fail.</div></td><td class="summaryTableOwnerCol">OAuth</td></tr></table></div><a name="protectedPropertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Protected Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProtectedProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#_userId" class="signatureLink">_userId</a> : String<div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#_userName" class="signatureLink">_userName</a> : String<div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">OAuth</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#OAuth()" class="signatureLink">OAuth</a>()</div><div class="summaryTableDescription">
          Creates a new OAuth Instance
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#getAuthorizationRequest()">getAuthorizationRequest</a>():void</div>
-<div class="summaryTableDescription">
-         Requests a OAuth Authorization Token and will build the proper authorization URL if successful.</div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#getSignedRequest()">getSignedRequest</a>(method:String, url:String, urlVars:URLVariables = null):String</div>
-<div class="summaryTableDescription">
-         Signs a Request and returns an proper encoded argument string.<br/>
-         <b>There usually is no need to call this by yourself.</b><br/><br/>
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#requestAccessToken()">requestAccessToken</a>(verifier:String):void</div>
-<div class="summaryTableDescription">
-         Requests the final Access Token to finish the OAuth Authorization.</div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#toString()">toString</a>():String</div>
-<div class="summaryTableDescription">
-         <b><font color="#00AA00">NEW</font></b> - Returns username, userid, oauth token 
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getAuthorizationRequest()" class="signatureLink">getAuthorizationRequest</a>():void</div><div class="summaryTableDescription">
+         Requests a OAuth Authorization Token and will build the proper authorization URL if successful.</div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getSignedRequest()" class="signatureLink">getSignedRequest</a>(method:String, url:String, urlVars:URLVariables = null):String</div><div class="summaryTableDescription">
+         Signs a Request and returns an proper encoded argument string.
+         There usually is no need to call this by yourself.
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#requestAccessToken()" class="signatureLink">requestAccessToken</a>(verifier:String):void</div><div class="summaryTableDescription">
+         Requests the final Access Token to finish the OAuth Authorization.</div></td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#toString()" class="signatureLink">toString</a>():String</div><div class="summaryTableDescription">[override] 
+         NEW - Returns username, userid, oauth token 
          and secret in a practical string ;)
-         </div>
-</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-</table>
-</div>
-<a name="eventSummary"></a>
-<div class="summarySection">
-<div class="summaryTableTitle">Events</div>
-<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
-<tr>
-<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#event:complete">complete</a>
-</div>
-</td><td class="summaryTableDescription summaryTableCol">
-     Dispatched when the OAuth has succesfully completed a Request.</td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#event:error">error</a>
-</div>
-</td><td class="summaryTableDescription summaryTableCol">
-     Dispatched when something goes wrong while trying to authorize
-     </td><td class="summaryTableOwnerCol">OAuth</td>
-</tr>
-</table>
-</div>
-<script type="text/javascript" language="javascript">
-<!--
-showHideInherited();
---></script>
-<div class="MainContent">
-<a name="propertyDetail"></a>
-<div class="detailSectionHeader">Property detail</div>
-<a name="callbackURL"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">callbackURL</td><td class="detailHeaderType">property</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>callbackURL:String</code>&nbsp;&nbsp;[read-write]<p>
-         <b><font color="#00AA00">NEW</font></b> - Get/Set the OAuth Callback URL
-         </p><span class="label">Implementation</span>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get callbackURL():String</code>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set callbackURL(value:String):void</code>
-<br>
-</div>
-<a name="consumerKey"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">consumerKey</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var consumerKey:String = ""</code><p>
+         </div></td><td class="summaryTableOwnerCol">OAuth</td></tr></table></div><a name="eventSummary"></a><div class="summarySection"><div class="summaryTableTitle">Events</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableEvent"><tr><th>&nbsp;</th><th colspan="2">Event</th><th> Summary </th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#event:complete" class="signatureLink">complete</a></div></td><td class="summaryTableDescription summaryTableCol">Dispatched when the OAuth has succesfully completed a Request.</td><td class="summaryTableOwnerCol">OAuth</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#event:error" class="signatureLink">error</a></div></td><td class="summaryTableDescription summaryTableCol">Dispatched when something goes wrong while trying to authorize</td><td class="summaryTableOwnerCol">OAuth</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="_userId"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">_userId</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>protected var _userId:String</code></div><a name="propertyDetail"></a><a name="_userName"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">_userName</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>protected var _userName:String</code></div><a name="propertyDetail"></a><a name="callbackURL"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">callbackURL</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>callbackURL:String</code><p></p><p>
+         <b></b> - Get/Set the OAuth Callback URL
+         </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get callbackURL():String</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set callbackURL(value:String):void</code><br/></div><a name="propertyDetail"></a><a name="consumerKey"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">consumerKey</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var consumerKey:String</code><p></p><p>
          Get/Set the Consumer Key for your Application
-         </p></div>
-<a name="consumerSecret"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">consumerSecret</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var consumerSecret:String = ""</code><p>
+         </p></div><a name="propertyDetail"></a><a name="consumerSecret"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">consumerSecret</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var consumerSecret:String</code><p></p><p>
          Get/set the Consumer Secret for your Application
-         </p></div>
-<a name="htmlLoader"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">htmlLoader</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var htmlLoader:HTMLLoader</code><p>
-         <div class="airIcon"><b><font color="#00AA00">NEW</font></b> - <b>AIR only!</b> The HTMLLoader to be used to display the OAuth
-         Authentication Process from Twitter in.</div> 
-         </p></div>
-<a name="oauthToken"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">oauthToken</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var oauthToken:String = ""</code><p>
+         </p></div><a name="propertyDetail"></a><a name="oauthToken"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">oauthToken</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var oauthToken:String</code><p></p><p>
          Get/Set the User Token
-         </p></div>
-<a name="oauthTokenSecret"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">oauthTokenSecret</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var oauthTokenSecret:String = ""</code><p>
+         </p></div><a name="propertyDetail"></a><a name="oauthTokenSecret"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">oauthTokenSecret</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var oauthTokenSecret:String</code><p></p><p>
          Get/Set the User Token Secret
-         </p></div>
-<a name="pinlessAuth"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">pinlessAuth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var pinlessAuth:Boolean = false</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Whether to use pinless OAuth or not.<br/>
+         </p></div><a name="propertyDetail"></a><a name="pinlessAuth"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">pinlessAuth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var pinlessAuth:Boolean = false</code><p></p><p>
+         <b></b> - Whether to use pinless OAuth or not.
          If you set this to true, you will have to supply
          a callback url via <code>callbackURL</code>
-         </p></div>
-<a name="serviceHost"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">serviceHost</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>serviceHost:String</code>&nbsp;&nbsp;[read-write]<p>
+         </p></div><a name="propertyDetail"></a><a name="serviceHost"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">serviceHost</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>serviceHost:String</code><p></p><p>
          Service Host URL you want to use.
          This has to be changed if you are going to use tweetr
          from a web app. Since the crossdomain policy of twitter.com
          is very restrictive. use Tweetr's own PHPProxy Class for this. 
-         </p><span class="label">Implementation</span>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get serviceHost():String</code>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set serviceHost(value:String):void</code>
-<br>
-</div>
-<a name="userId"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">userId</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>userId:String</code>&nbsp;&nbsp;[read-only]<p>
+         </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get serviceHost():String</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set serviceHost(value:String):void</code><br/></div><a name="propertyDetail"></a><a name="userId"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">userId</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>userId:String</code>&nbsp;&nbsp;[read-only] <p></p><p>
          Get the twitter user_id (retrieval only available after successful user authorization)
-         </p><span class="label">Implementation</span>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get userId():String</code>
-<br>
-</div>
-<a name="username"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">username</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>username:String</code>&nbsp;&nbsp;[read-write]<p>
-         Get/set the twitter screen_name (retrieval only available after successful user authorization)
-         </p><span class="label">Implementation</span>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get username():String</code>
-<br>
-<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set username(value:String):void</code>
-<br>
-</div>
-<a name="constructorDetail"></a>
-<div class="detailSectionHeader">Constructor detail</div>
-<a name="OAuth()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">OAuth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function OAuth()</code><p>
+         </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get userId():String</code><br/></div><a name="propertyDetail"></a><a name="username"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">username</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>username:String</code><p></p><p>
+         Get/Set the twitter screen_name/username
+         <b>NOTICE:</b> Setting the username to a different user
+         than authorized via the tokens, may cause request to fail.
+         </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get username():String</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set username(value:String):void</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="OAuth()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">OAuth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function OAuth()</code><p>
          Creates a new OAuth Instance
-         </p></div>
-<a name="methodDetail"></a>
-<div class="detailSectionHeader">Method detail</div>
-<a name="getAuthorizationRequest()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">getAuthorizationRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function getAuthorizationRequest():void</code><p>
+         </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="getAuthorizationRequest()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getAuthorizationRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function getAuthorizationRequest():void</code><p></p><p>
          Requests a OAuth Authorization Token and will build the proper authorization URL if successful.
          When the URL has been created a <code>OAuthEvent.COMPLETE</code> will be fired containing the url.
-         </p></div>
-<a name="getSignedRequest()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">getSignedRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function getSignedRequest(method:String, url:String, urlVars:URLVariables = null):String</code><p>
-         Signs a Request and returns an proper encoded argument string.<br/>
-         <b>There usually is no need to call this by yourself.</b><br/><br/>
-         </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">method</span>:String</code> &mdash;    The URLRequest Method used. Valid values are POST and GET
-         </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">url</span>:String</code> &mdash;       The Request URL
-         </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">urlVars</span>:URLVariables</code> (default = <code>null</code>)<code></code> &mdash;   URLVariables that need to be signed
-         </td>
-</tr>
-</table>
-<p></p>
-<span class="label">Returns</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20"></td><td><code>String</code></td>
-</tr>
-</table>
-</div>
-<a name="requestAccessToken()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">requestAccessToken</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function requestAccessToken(verifier:String):void</code><p>
+         </p></div><a name="getSignedRequest()"></a><a name="getSignedRequest(String,String,flash.net.URLVariables)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getSignedRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function getSignedRequest(method:String, url:String, urlVars:URLVariables = null):String</code><p></p><p>
+         Signs a Request and returns an proper encoded argument string.
+         <b>There usually is no need to call this by yourself.</b>
+         </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">method</span>:String</code> &mdash;    The URLRequest Method used. Valid values are POST and GET
+         </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">url</span>:String</code> &mdash;       The Request URL
+         </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">urlVars</span>:URLVariables</code> (default = <code>null</code>)<code></code> &mdash;   URLVariables that need to be signed
+         </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code></td></tr></table></div><a name="requestAccessToken()"></a><a name="requestAccessToken(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">requestAccessToken</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function requestAccessToken(verifier:String):void</code><p></p><p>
          Requests the final Access Token to finish the OAuth Authorization.
          When the Request succeeds a <code>OAuthEvent.COMPLETE</code> will be fired and the OAuth Instance will contain all the information needed to successfully call any Twitter API Method.
-         </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">verifier</span>:String</code> &mdash;   PIN or verifier_token given by Twitter on the Authorization Page.
-         </td>
-</tr>
-</table>
-</div>
-<a name="toString()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public override function toString():String</code><p>
-         <b><font color="#00AA00">NEW</font></b> - Returns username, userid, oauth token 
+         </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">verifier</span>:String</code> &mdash;   PIN or verifier_token given by Twitter on the Authorization Page.
+         </td></tr></table></p></div><a name="toString()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>override public function toString():String</code><p></p><p>
+         <b></b> - Returns username, userid, oauth token 
          and secret in a practical string ;)
-         </p><p></p>
-<span class="label">Returns</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20"></td><td><code>String</code></td>
-</tr>
-</table>
-</div>
-<div class="detailSectionHeader">Event detail</div>
-<a name="event:complete"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<span class="label">Event object type: </span><a href=""><code>com.swfjunkie.tweetr.oauth.OAuthEvent</code></a>
-<br>
-<span class="label">OAuthEvent.type property = </span><a href="events/OAuthEvent.html#COMPLETE"><code>com.swfjunkie.tweetr.oauth.events.OAuthEvent.COMPLETE</code></a>
-<br><p>
+         </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code></td></tr></table></div><div class="detailSectionHeader"> Event Detail </div><a name="event:complete"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">complete</td><td class="detailHeaderType"> Event </td></tr></table><div class="detailBody"><span class="label">Event Object Type: </span><code>com.swfjunkie.tweetr.oauth.OAuthEvent</code><br/><span class="label">OAuthEvent.type property = </span><code>com.swfjunkie.tweetr.oauth.events.OAuthEvent.COMPLETE</code><br/><p></p><p>
      Dispatched when the OAuth has succesfully completed a Request.
-     </p><p>
-         </p><p>The event returns the following properties:</p>
-         <table class=innertable>
-         <tr><th>Property</th><th>Value</th></tr>
-         <tr><td>url</td><td>Returns the Authorization URL when getAuthorizationRequest() was successful.</td></tr>
-         </table>
-                  </div>
-<a name="event:error"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">error</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<span class="label">Event object type: </span><a href=""><code>com.swfjunkie.tweetr.oauth.OAuthEvent</code></a>
-<br>
-<span class="label">OAuthEvent.type property = </span><a href="events/OAuthEvent.html#ERROR"><code>com.swfjunkie.tweetr.oauth.events.OAuthEvent.ERROR</code></a>
-<br><p>
+     </p>
+         <p>The event returns the following properties:</p>
+         <table class="innertable" ><tr><th>Property</th><th>Value</th></tr><tr><td>url</td><td>Returns the Authorization URL when getAuthorizationRequest() was successful.</td></tr></table>
+         
+         </div><a name="event:error"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">error</td><td class="detailHeaderType"> Event </td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><span class="label">Event Object Type: </span><code>com.swfjunkie.tweetr.oauth.OAuthEvent</code><br/><span class="label">OAuthEvent.type property = </span><code>com.swfjunkie.tweetr.oauth.events.OAuthEvent.ERROR</code><br/><p></p><p>
      Dispatched when something goes wrong while trying to authorize
-     </p><p>
-         </p><p>The event returns the following properties:</p>
-         <table class=innertable>
-         <tr><th>Property</th><th>Value</th></tr>
-         <tr><td>text</td><td>Contains an error message</td></tr>
-         </table>
-                  </div>
-<br>
-<br>
-<hr>
-<br>
-<p></p>
-<div id="disqus_thread"></div>
-<script src="http://disqus.com/forums/tweetrdocumentation/embed.js" type="text/javascript"></script>
-<noscript>
-<a href="http://disqus.com/forums/tweetrdocumentation/?url=ref">View the discussion thread.</a>
-</noscript>
-<a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a>
-<p>
-<center class="copyright">[swfjunkie.com] - Open source under GNU Lesser GPL</center>
-</p>
-</div>
-</body>
-</html>
-<!--[swfjunkie.com] - Open source under GNU Lesser GPL-->
+     </p>
+         <p>The event returns the following properties:</p>
+         <table class="innertable" ><tr><th>Property</th><th>Value</th></tr><tr><td>text</td><td>Contains an error message</td></tr></table>
+         
+         </div><br/><br/><hr><br/><p></p><div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/tweetrdocumentation/embed.js"></script><noscript><a href="http://disqus.com/forums/tweetrdocumentation/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><p><center class="copyright"><footer>[swfjunkie.com] - Open source under GNU Lesser GPL</footer><br/>Montag Februar 28 2011, 03:10 PM +01:00  </center></p></div></body></html><!--[swfjunkie.com] - Open source under GNU Lesser GPL<br/>Montag Februar 28 2011, 03:10 PM +01:00  -->

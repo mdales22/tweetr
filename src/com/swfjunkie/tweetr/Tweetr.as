@@ -1,3 +1,17 @@
+/*
+ * 		This program is free software: you can redistribute it and/or modify
+ * 		it under the terms of the GNU Lesser General Public License as published by
+ * 		the Free Software Foundation, either version 3 of the License, or 
+ * 		(at your option) any later version.
+ * 
+ * 		This program is distributed in the hope that it will be useful,
+ * 		but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * 		GNU Lesser General Public License for more details.
+ *
+ * 		You should have received a copy of the GNU Lesser General Public License
+ * 		along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.txt>.
+ */
 package com.swfjunkie.tweetr
 {
     import com.swfjunkie.tweetr.data.DataParser;
@@ -126,7 +140,7 @@ package com.swfjunkie.tweetr
 		public static const RETURN_TYPE_SAVED_SEARCHES:String = "saved_searches";
 		/** Return type defining what type of return Object you can expect, in this case: <code>SearchResultData</code> */
 		public static const RETURN_TYPE_SEARCH_RESULTS:String = "search";
-		/** Return type defining what type of return Object you can expect, in this case: <code>TrendData/code> */
+		/** Return type defining what type of return Object you can expect, in this case: <code>TrendData</code> */
 		public static const RETURN_TYPE_TRENDS_RESULTS:String = "trends";
         //--------------------------------------------------------------------------
         //
@@ -349,7 +363,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * Returns the 20 most recent @replies (status updates prefixed with @username) for the authenticating user.
+         * Returns the 20 most recent @replies (status updates prefixed with username) for the authenticating user.
          * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional. Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
@@ -1575,9 +1589,11 @@ package com.swfjunkie.tweetr
 		
 		/**
 		 * Enables notifications for updates from the specified user to the authenticating user.  Returns the specified user when successful.
+		 * <p><b>ATTENTION:</b> This method will not let you follow users (as in: add to friends), use the <code>createFriendShip()</code> method instead.</p>
 		 * NOTE: The Notification Methods require the authenticated user to already be friends with the specified user otherwise 
 		 * a failed event will be fired.
 		 * <p><b>This method requires Authentication</b></p>
+		 * @see createFriendShip()
          * @param id    Required.  The ID or screen name of the user to follow.
 		 */ 
 		public function followUser(id:String):void

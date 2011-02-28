@@ -1,3 +1,17 @@
+/*
+* 		This program is free software: you can redistribute it and/or modify
+* 		it under the terms of the GNU Lesser General Public License as published by
+* 		the Free Software Foundation, either version 3 of the License, or 
+* 		(at your option) any later version.
+* 
+* 		This program is distributed in the hope that it will be useful,
+* 		but WITHOUT ANY WARRANTY; without even the implied warranty of
+* 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* 		GNU Lesser General Public License for more details.
+*
+* 		You should have received a copy of the GNU Lesser General Public License
+* 		along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.txt>.
+*/
 package com.swfjunkie.tweetr.data
 {
     import com.swfjunkie.tweetr.data.objects.CursorData;
@@ -432,15 +446,14 @@ package com.swfjunkie.tweetr.data
                 searchData = new SearchResultData();
                 var str:String = entry.ns::id;
                 var index:Number = str.lastIndexOf(':');
-                
-                searchData.id = str.substring(index+1, str.length-1);
+                searchData.id = str.substring(index+1, str.length);
                 searchData.text = entry.ns::title;        
                 searchData.createdAt = entry.ns::updated;
                 searchData.userProfileImage = entry.ns::link[1].@href;
                 searchData.link = entry.ns::link[0].@href;
                 searchData.userLink = entry.ns::author.ns::uri;
                 searchData.user = entry.ns::author.ns::name;
-                
+				
                 array.push(searchData);
             }
             return array;
