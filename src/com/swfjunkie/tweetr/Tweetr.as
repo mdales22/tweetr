@@ -1,16 +1,16 @@
 /*
- * 		This program is free software: you can redistribute it and/or modify
- * 		it under the terms of the GNU Lesser General Public License as published by
- * 		the Free Software Foundation, either version 3 of the License, or 
- * 		(at your option) any later version.
+ * 	This program is free software: you can redistribute it and/or modify
+ * 	it under the terms of the GNU Lesser General Public License as published by
+ * 	the Free Software Foundation, either version 3 of the License, or 
+ * 	(at your option) any later version.
  * 
- * 		This program is distributed in the hope that it will be useful,
- * 		but WITHOUT ANY WARRANTY; without even the implied warranty of
- * 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * 		GNU Lesser General Public License for more details.
+ * 	This program is distributed in the hope that it will be useful,
+ * 	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * 	GNU Lesser General Public License for more details.
  *
- * 		You should have received a copy of the GNU Lesser General Public License
- * 		along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.txt>.
+ * 	You should have received a copy of the GNU Lesser General Public License
+ * 	along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.txt>.
  */
 package com.swfjunkie.tweetr
 {
@@ -363,7 +363,7 @@ package com.swfjunkie.tweetr
         }
         
         /**
-         * Returns the 20 most recent @replies (status updates prefixed with username) for the authenticating user.
+         * Returns the 20 most recent @replies (status updates prefixed with @username) for the authenticating user.
          * <p><b>This method requires Authentication</b></p>
          * @param since_id        Optional. Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
@@ -511,7 +511,7 @@ package com.swfjunkie.tweetr
          * @param lat           Optional. The location's latitude that this tweet refers to. Note: The valid ranges for latitude is -90.0 to +90.0 (North is positive) inclusive.  This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding long parameter with this tweet.
          * @param long          Optional. The location's longitude that this tweet refers to. Note: The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive.  This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter with this tweet.
          */ 
-        public function updateStatus(status:String, inReplyTo:String = null, lat:Number = 0, long:Number = 0):void
+         public function updateStatus(status:String, inReplyTo:String = null, lat:Number = 0, long:Number = 0):URLRequest
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -527,7 +527,9 @@ package com.swfjunkie.tweetr
             
             setPOSTRequest(vars);
             request = URL_SEND_UPDATE;
-            urlLoader.load(url);
+            var urlRequest:URLRequest = url;
+            urlLoader.load(urlRequest);
+			return urlRequest;
         }
         
         /**
@@ -1800,9 +1802,11 @@ package com.swfjunkie.tweetr
          */
         public function destroy():void
         {
+			urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, handleSecurityError);
             urlLoader.removeEventListener(Event.COMPLETE,handleTweetsLoaded);
             urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, handleTweetsLoadingFailed);
             urlLoader.removeEventListener(HTTPStatusEvent.HTTP_STATUS, handleHTTPStatus);
+			try { urlLoader.close(); } catch (error:Error) { }
             urlLoader = null;
     	    urlRequest = null;
     	    request = null;
@@ -1905,15 +1909,16 @@ package com.swfjunkie.tweetr
         private function strEscape(value:String):String
         {
             if (_oAuth)
-            {
-                var str:String = escape(value);
-                str = str.replace(/\'/g, "%27");
-                str = str.replace(/\//g, "%2F");
-                str = str.replace(/\*/g, "%2A");
-                str = str.replace(/\+/g, "%2B");
-                str = str.replace(/@/g, "%40");
-                return str;
-            }
+			{
+				var str:String = encodeURIComponent(value);
+				str = str.replace(/\'/g, "%27");
+				str = str.replace(/\*/g, "%2A");
+				str = str.replace(/\!/g, "%21");
+				str = str.replace(/\(/g, "%28");
+				str = str.replace(/\)/g, "%29");
+				str = str.replace(/\)/g, "%29");
+				return str;
+			}
             return value;
         }
         //--------------------------------------------------------------------------
