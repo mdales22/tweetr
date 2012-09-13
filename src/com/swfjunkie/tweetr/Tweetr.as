@@ -1,17 +1,10 @@
-/*
- * 	This program is free software: you can redistribute it and/or modify
- * 	it under the terms of the GNU Lesser General Public License as published by
- * 	the Free Software Foundation, either version 3 of the License, or 
- * 	(at your option) any later version.
- * 
- * 	This program is distributed in the hope that it will be useful,
- * 	but WITHOUT ANY WARRANTY; without even the implied warranty of
- * 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * 	GNU Lesser General Public License for more details.
+/**
+ * requires environment variables to be set
+ * Additional compiler arguments[example is for FlashBuilder]
+ * -define=CONFIG::FLEX,false -define=CONFIG::AIR,true -define=CONFIG::WEB,false
  *
- * 	You should have received a copy of the GNU Lesser General Public License
- * 	along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.txt>.
- */
+ */ 
+
 package com.swfjunkie.tweetr
 {
     import com.swfjunkie.tweetr.data.DataParser;
@@ -60,38 +53,38 @@ package com.swfjunkie.tweetr
         //  Class variables
         //
         //--------------------------------------------------------------------------
-        private static const URL_PUBLIC_TIMELINE:String =           "/statuses/public_timeline.xml";
-        private static const URL_HOME_TIMELINE:String =             "/statuses/home_timeline.xml";
-        private static const URL_FRIENDS_TIMELINE:String =          "/statuses/friends_timeline.xml";
+        private static const URL_PUBLIC_TIMELINE:String =           "/statuses/public_timeline.json";
+        private static const URL_HOME_TIMELINE:String =             "/statuses/home_timeline.json";
+        private static const URL_FRIENDS_TIMELINE:String =          "/statuses/friends_timeline.json";
         private static const URL_USER_TIMELINE:String =             "/statuses/user_timeline";
-        private static const URL_RETWEETS_BY_ME:String =            "/statuses/retweeted_by_me.xml";
-        private static const URL_RETWEETS_TO_ME:String =            "/statuses/retweeted_to_me.xml";
-        private static const URL_RETWEETS_OF_ME:String =            "/statuses/retweets_of_me.xml";
+        private static const URL_RETWEETS_BY_ME:String =            "/statuses/retweeted_by_me.json";
+        private static const URL_RETWEETS_TO_ME:String =            "/statuses/retweeted_to_me.json";
+        private static const URL_RETWEETS_OF_ME:String =            "/statuses/retweets_of_me.json";
         private static const URL_SINGLE_TWEET:String =              "/statuses/show/";
-        private static const URL_SEND_UPDATE:String =               "/statuses/update.xml";
+        private static const URL_SEND_UPDATE:String =               "/statuses/update.json";
         private static const URL_DESTROY_TWEET:String =             "/statuses/destroy/";
         private static const URL_RETWEET:String =                   "/statuses/retweet/";
         private static const URL_RETWEETS:String =                  "/statuses/retweets/";
-        private static const URL_MENTIONS:String =                  "/statuses/mentions.xml";
+        private static const URL_MENTIONS:String =                  "/statuses/mentions.json";
         private static const URL_FRIENDS:String =                   "/statuses/friends";
         private static const URL_FOLLOWERS:String =                 "/statuses/followers";
         private static const URL_USER_DETAILS:String =              "/users/show/";
-        private static const URL_USER_SEARCH:String =               "/users/search.xml";
+        private static const URL_USER_SEARCH:String =               "/users/search.json";
         private static const URL_SINGLE_DIRECT_MESSAGE:String =     "/direct_messages/show/";
-        private static const URL_RECEIVED_DIRECT_MESSAGES:String =  "/direct_messages.xml";
-        private static const URL_SENT_DIRECT_MESSAGES:String =      "/direct_messages/sent.xml";
-        private static const URL_SEND_NEW_DIRECT_MESSAGE:String =   "/direct_messages/new.xml";
+        private static const URL_RECEIVED_DIRECT_MESSAGES:String =  "/direct_messages.json";
+        private static const URL_SENT_DIRECT_MESSAGES:String =      "/direct_messages/sent.json";
+        private static const URL_SEND_NEW_DIRECT_MESSAGE:String =   "/direct_messages/new.json";
         private static const URL_DESTROY_DIRECT_MESSAGE:String =    "/direct_messages/destroy";
         private static const URL_CREATE_FRIENDSHIP:String =         "/friendships/create/";
         private static const URL_DESTROY_FRIENDSHIP:String =        "/friendships/destroy/";
-        private static const URL_FRIENDSHIP_EXISTS:String =         "/friendships/exists.xml";
-        private static const URL_FRIENDSHIP_SHOW:String =           "/friendships/show.xml";
-        private static const URL_VERIFY_CREDENTIALS:String =        "/account/verify_credentials.xml";
-        private static const URL_RATELIMIT_STATUS:String =          "/account/rate_limit_status.xml";
-        private static const URL_UPDATE_PROFILE:String =            "/account/update_profile.xml";
-        private static const URL_UPDATE_PROFILE_COLORS:String =     "/account/update_profile_colors.xml";
-        private static const URL_UPDATE_PROFILE_IMAGE:String =      "/account/update_profile_image.xml";
-        private static const URL_UPDATE_PROFILE_BG_IMAGE:String =   "/account/update_profile_background_image.xml";
+        private static const URL_FRIENDSHIP_EXISTS:String =         "/friendships/exists.json";
+        private static const URL_FRIENDSHIP_SHOW:String =           "/friendships/show.json";
+        private static const URL_VERIFY_CREDENTIALS:String =        "/account/verify_credentials.json";
+        private static const URL_RATELIMIT_STATUS:String =          "/account/rate_limit_status.json";
+        private static const URL_UPDATE_PROFILE:String =            "/account/update_profile.json";
+        private static const URL_UPDATE_PROFILE_COLORS:String =     "/account/update_profile_colors.json";
+        private static const URL_UPDATE_PROFILE_IMAGE:String =      "/account/update_profile_image.json";
+        private static const URL_UPDATE_PROFILE_BG_IMAGE:String =   "/account/update_profile_background_image.json";
         private static const URL_RETRIEVE_FAVORITES:String =        "/favorites";
         private static const URL_CREATE_FAVORITE:String =           "/favorites/create/";
         private static const URL_DESTROY_FAVORITE:String =          "/favorites/destroy/";
@@ -100,22 +93,22 @@ package com.swfjunkie.tweetr
 		private static const URL_BLOCK_USER:String =                "/blocks/create/";
 		private static const URL_UNBLOCK_USER:String =              "/blocks/destroy/";
 		private static const URL_BLOCK_EXISTS:String =              "/blocks/exists/";
-		private static const URL_BLOCKS:String =                    "/blocks/blocking.xml";
-		private static const URL_BLOCK_IDS:String =                 "/blocks/blocking/ids.xml";
-		private static const URL_END_SESSION:String =               "/account/end_session.xml";
+		private static const URL_BLOCKS:String =                    "/blocks/blocking.json";
+		private static const URL_BLOCK_IDS:String =                 "/blocks/blocking/ids.json";
+		private static const URL_END_SESSION:String =               "/account/end_session.json";
 		private static const URL_SOCIAL_GRAPH_FRIEND_IDS:String =   "/friends/ids";
 		private static const URL_SOCIAL_GRAPH_FOLLOWER_IDS:String = "/followers/ids";
-        private static const URL_REPORT_SPAM:String =               "/report_spam.xml";
-		private static const URL_SAVED_SEARCHES:String =            "/saved_searches.xml";
+        private static const URL_REPORT_SPAM:String =               "/report_spam.json";
+		private static const URL_SAVED_SEARCHES:String =            "/saved_searches.json";
 		private static const URL_RETRIEVE_SAVED_SEARCH:String =     "/saved_searches/show/"; 
-		private static const URL_CREATE_SAVED_SEARCH:String =       "/saved_searches/create.xml";   
+		private static const URL_CREATE_SAVED_SEARCH:String =       "/saved_searches/create.json";   
 		private static const URL_DESTROY_SAVED_SEARCH:String =      "/saved_searches/destroy/";
-		private static const URL_TWITTER_SEARCH:String =            "http://search.twitter.com/search.atom";
+		private static const URL_TWITTER_SEARCH:String =            "/search/tweets.json";
 		private static const URL_TWITTER_TRENDS:String =            "http://search.twitter.com/trends.json";
         private static const URL_TWITTER_TRENDS_CURRENT:String =    "http://search.twitter.com/trends/current.json";
         private static const URL_TWITTER_TRENDS_DAILY:String =      "http://search.twitter.com/trends/daily.json";
         private static const URL_TWITTER_TRENDS_WEEKLY:String =      "http://search.twitter.com/trends/weekly.json";
-		private static const DATA_FORMAT:String = "xml";
+		private static const DATA_FORMAT:String = "json";
         
         /** Version String of the Tweetr Library */
         public static const VERSION:String = "1.0b3";		
@@ -140,7 +133,7 @@ package com.swfjunkie.tweetr
 		public static const RETURN_TYPE_SAVED_SEARCHES:String = "saved_searches";
 		/** Return type defining what type of return Object you can expect, in this case: <code>SearchResultData</code> */
 		public static const RETURN_TYPE_SEARCH_RESULTS:String = "search";
-		/** Return type defining what type of return Object you can expect, in this case: <code>TrendData</code> */
+		/** Return type defining what type of return Object you can expect, in this case: <code>TrendData/code> */
 		public static const RETURN_TYPE_TRENDS_RESULTS:String = "trends";
         //--------------------------------------------------------------------------
         //
@@ -192,7 +185,7 @@ package com.swfjunkie.tweetr
             if (_oAuth)
             {
                 urlRequest.url = _serviceHost+request;
-                var signedData:String = _oAuth.getSignedRequest(urlRequest.method, "https://api.twitter.com/1"+request, urlRequest.data as URLVariables);
+                var signedData:String = _oAuth.getSignedRequest(urlRequest.method, "https://api.twitter.com/1.1"+request, urlRequest.data as URLVariables);
                 urlRequest.data = new URLVariables(signedData);
                 return urlRequest;
             }
@@ -215,7 +208,7 @@ package com.swfjunkie.tweetr
             return _returnType;
         }
         
-        private var _serviceHost:String = "https://api.twitter.com/1";
+        private var _serviceHost:String = "https://api.twitter.com/1.1";
         /**
          * Service Host URL you want to use.
          * This has to be changed if you are going to use tweetr
@@ -264,9 +257,9 @@ package com.swfjunkie.tweetr
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
-         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
-        public function getHomeTimeLine(since_id:String = null, since_date:String = null, max_id:String = null, count:Number = 0, page:Number = 0):void
+        public function getHomeTimeLine(since_id:String = null, since_date:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -276,7 +269,7 @@ package com.swfjunkie.tweetr
                 vars.since_id = since_id;
             if (since_date)
                 vars.since = since_date;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (count > 0)
             {
@@ -300,9 +293,9 @@ package com.swfjunkie.tweetr
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
-         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
-        public function getFriendsTimeLine(since_id:String = null, since_date:String = null, max_id:String = null, count:Number = 0, page:Number = 0):void
+        public function getFriendsTimeLine(since_id:String = null, since_date:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -312,7 +305,7 @@ package com.swfjunkie.tweetr
                 vars.since_id = since_id;
             if (since_date)
                 vars.since = since_date;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (count > 0)
             {
@@ -337,9 +330,9 @@ package com.swfjunkie.tweetr
          * @param since_id        Optional. Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional. Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
-         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
-        public function getUserTimeLine(id:String = null, since_id:String = null, since_date:String = null, max_id:String = null, page:Number = 0):void
+        public function getUserTimeLine(id:String = null, since_id:String = null, since_date:String = null, max_id:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             
@@ -352,7 +345,7 @@ package com.swfjunkie.tweetr
                 vars.since_id = since_id;
             if (since_date)
                 vars.since = since_date;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (page > 0)
                 vars.page = page;
@@ -368,9 +361,9 @@ package com.swfjunkie.tweetr
          * @param since_id        Optional. Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param since_date      Optional. Narrows the returned results to just those statuses created after the specified HTTP-formatted date, up to 24 hours old.
          * @param max_id          Optional. Returns only statuses with an ID less than (that is, older than) the specified ID.
-         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
-        public function getMentions(since_id:String = null, since_date:String = null, max_id:String = null, page:Number = 0):void
+        public function getMentions(since_id:String = null, since_date:String = null, max_id:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -380,7 +373,7 @@ package com.swfjunkie.tweetr
                 vars.since_id = since_id;
             if (since_date)
                 vars.since = since_date;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (page > 0)
                 vars.page = page;
@@ -398,9 +391,9 @@ package com.swfjunkie.tweetr
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
-         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
-        public function getRetweetsByMe(since_id:String = null, max_id:String = null, count:Number = 0, page:Number = 0):void
+        public function getRetweetsByMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -408,7 +401,7 @@ package com.swfjunkie.tweetr
             
             if (since_id)
                 vars.since_id = since_id;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (count > 0)
             {
@@ -431,9 +424,9 @@ package com.swfjunkie.tweetr
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
-         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
-        public function getRetweetsToMe(since_id:String = null, max_id:String = null, count:Number = 0, page:Number = 0):void
+        public function getRetweetsToMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -441,7 +434,7 @@ package com.swfjunkie.tweetr
             
             if (since_id)
                 vars.since_id = since_id;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (count > 0)
             {
@@ -464,7 +457,7 @@ package com.swfjunkie.tweetr
          * @param since_id        Optional.  Returns only statuses with an ID greater than (that is, more recent than) the specified ID.
          * @param max_id          Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param count           Optional. Specifies the number of statuses to retrieve. May not be greater than 200.
-         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.xml?page=3
+         * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
         public function getRetweetsOfMe(since_id:String = null, max_id:Number = 0, count:Number = 0, page:Number = 0):void
         {
@@ -494,7 +487,7 @@ package com.swfjunkie.tweetr
          * Returns a single status, specified by the id parameter below.  The status's author will be returned inline.
          * @param id   Tweet ID
          */
-        public function getStatus(id:String):void
+        public function getStatus(id:Number):void
         {
             setGETRequest();
             _returnType = RETURN_TYPE_STATUS;
@@ -511,14 +504,14 @@ package com.swfjunkie.tweetr
          * @param lat           Optional. The location's latitude that this tweet refers to. Note: The valid ranges for latitude is -90.0 to +90.0 (North is positive) inclusive.  This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding long parameter with this tweet.
          * @param long          Optional. The location's longitude that this tweet refers to. Note: The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive.  This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter with this tweet.
          */ 
-         public function updateStatus(status:String, inReplyTo:String = null, lat:Number = 0, long:Number = 0):URLRequest
+        public function updateStatus(status:String, inReplyTo:Number = 0, lat:Number = 0, long:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
             _returnType = RETURN_TYPE_STATUS;
             
             vars.status = strEscape(status.substr(0,140));
-            if (inReplyTo)
+            if (inReplyTo != 0)
                 vars.in_reply_to_status_id = inReplyTo;
             if (lat != 0)
                 vars.lat = lat;
@@ -527,9 +520,7 @@ package com.swfjunkie.tweetr
             
             setPOSTRequest(vars);
             request = URL_SEND_UPDATE;
-            var urlRequest:URLRequest = url;
-            urlLoader.load(urlRequest);
-			return urlRequest;
+            urlLoader.load(url);
         }
         
         /**
@@ -538,7 +529,7 @@ package com.swfjunkie.tweetr
          * <p><b>This method requires Authentication</b></p>
          * @param id   Required. The ID of the status to destroy
          */ 
-        public function destroyStatus(id:String):void
+        public function destroyStatus(id:Number):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -557,7 +548,7 @@ package com.swfjunkie.tweetr
          * <p><b>This method requires Authentication</b></p>
          * @param id    Required. The ID of the status to retweet
          */ 
-        public function retweetStatus(id:String):void
+        public function retweetStatus(id:Number):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -577,7 +568,7 @@ package com.swfjunkie.tweetr
          * @param id    Required. The ID of the status to retweet
          * @param count Optional. Specifies the number of retweets to retrieve. May not be greater than 100.
          */ 
-        public function statusRetweets(id:String, count:Number = 0):void
+        public function statusRetweets(id:Number, count:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -810,14 +801,14 @@ package com.swfjunkie.tweetr
          * @param perPage       Optional.  Specifies the number of statuses to retrieve. May not be greater than 200.  
          * @param page          Optional.  Specifies the page of results to retrieve. Note: there are <a href="http://apiwiki.twitter.com/Things-Every-Developer-Should-Know#6Therearepaginationlimits">pagination limits.</a>
          */ 
-        public function getListStatuses(slug:String, listUser:String = null, since_id:String = null, max_id:String = null, perPage:Number = 0, page:Number = 0):void
+        public function getListStatuses(slug:String, listUser:String = null, since_id:String = null, max_id:Number = 0, perPage:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             _returnType = RETURN_TYPE_STATUS;
             
             if (since_id)
                 vars.since_id = since_id;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (perPage > 0)
                 vars.per_page = perPage;
@@ -903,7 +894,7 @@ package com.swfjunkie.tweetr
          * @param id        The id or slug of the list.
          * @param userId    The id of the user to add as a member of the list.
          */ 
-        public function addListMember(id:String, userId:String):void
+        public function addListMember(id:String, userId:Number):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -920,7 +911,7 @@ package com.swfjunkie.tweetr
          * @param id        The id or slug of the list.
          * @param userId    The id of the user to remove as a member of the list.
          */ 
-        public function removeListMember(id:String, userId:String):void
+        public function removeListMember(id:String, userId:Number):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -938,7 +929,7 @@ package com.swfjunkie.tweetr
          * @param id        The id or slug of the list.
          * @param userId    The id of the user who you want to know is a member or not of the specified list.
          */ 
-        public function hasListMember(id:String, userId:String):void
+        public function hasListMember(id:String, userId:Number):void
         {
             var arguments:Array = [];
             checkCredentials();
@@ -1012,7 +1003,7 @@ package com.swfjunkie.tweetr
          * @param listUser  The user who's list you want to check against.
          * @param userId    he id of the user who you want to know is a subcriber or not of the specified list.
          */ 
-        public function hasListSubscription(id:String, listUser:String, userId:String):void
+        public function hasListSubscription(id:String, listUser:String, userId:Number):void
         {
             var arguments:Array = [];
             checkCredentials();
@@ -1035,7 +1026,7 @@ package com.swfjunkie.tweetr
          * @param max_id          Optional. Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param page          Optional. Retrieves the 20 next most recent direct messages.
          */ 
-        public function getReceivedDirectMessages(since_id:String = null, since_date:String = null, max_id:String = null, page:Number = 0):void
+        public function getReceivedDirectMessages(since_id:String = null, since_date:String = null, max_id:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -1045,7 +1036,7 @@ package com.swfjunkie.tweetr
                 vars.since_id = since_id;
             if (since_date)
                 vars.since = since_date;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (page > 0)
                 vars.page = page;
@@ -1064,7 +1055,7 @@ package com.swfjunkie.tweetr
          * @param max_id          Optional. Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param page          Optional. Retrieves the 20 next most recent direct messages.
          */ 
-        public function getSentDirectMessages(since_id:String = null, since_date:String = null, max_id:String = null, page:Number = 0):void
+        public function getSentDirectMessages(since_id:String = null, since_date:String = null, max_id:Number = 0, page:Number = 0):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -1074,7 +1065,7 @@ package com.swfjunkie.tweetr
                 vars.since_id = since_id;
             if (since_date)
                 vars.since = since_date;
-            if (max_id)
+            if (max_id > 0)
                 vars.max_id = max_id;
             if (page > 0)
                 vars.page = page;
@@ -1089,7 +1080,7 @@ package com.swfjunkie.tweetr
          * <p><b>This method requires Authentication</b></p>
          * @param id   Tweet ID
          */ 
-        public function getDirectMessage(id:String):void
+        public function getDirectMessage(id:Number):void
         {
             checkCredentials();
             setGETRequest();
@@ -1124,7 +1115,7 @@ package com.swfjunkie.tweetr
          * <p><b>This method requires Authentication</b></p>
          * @param id   Required. The ID of the direct message to destroy
          */ 
-        public function destroyDirectMessage(id:String):void
+        public function destroyDirectMessage(id:Number):void
         {
             var vars:URLVariables = new URLVariables();
             checkCredentials();
@@ -1337,7 +1328,7 @@ package com.swfjunkie.tweetr
 		 * <p><b>This method requires Authentication</b></p>
          * @param id     The id of the saved search to be retrieved. 
 		 */ 
-        public function getSavedSearch(id:String):void
+        public function getSavedSearch(id:Number):void
         {
             checkCredentials();
             setGETRequest();
@@ -1367,7 +1358,7 @@ package com.swfjunkie.tweetr
          * <p><b>This method requires Authentication</b></p>
          * @param id      The id of the saved search to be deleted. 
          */ 
-        public function destroySavedSearch(id:String):void
+        public function destroySavedSearch(id:Number):void
         {
 		    checkCredentials();
 		    _returnType = RETURN_TYPE_SAVED_SEARCHES;
@@ -1552,7 +1543,7 @@ package com.swfjunkie.tweetr
 		 * <p><b>This method requires Authentication</b></p>
          * @param id    Required.  The ID of the status to favorite.
 		 */
-		public function createFavorite(id:String):void
+		public function createFavorite(id:Number):void
 		{
 		    var vars:URLVariables = new URLVariables();
 		    checkCredentials();
@@ -1571,7 +1562,7 @@ package com.swfjunkie.tweetr
 		 * <p><b>This method requires Authentication</b></p>
          * @param id   Required.  The ID of the status to un-favorite.
 		 */ 
-		public function destroyFavorite(id:String):void
+		public function destroyFavorite(id:Number):void
 		{
 		    var vars:URLVariables = new URLVariables();
 		    checkCredentials();
@@ -1591,11 +1582,9 @@ package com.swfjunkie.tweetr
 		
 		/**
 		 * Enables notifications for updates from the specified user to the authenticating user.  Returns the specified user when successful.
-		 * <p><b>ATTENTION:</b> This method will not let you follow users (as in: add to friends), use the <code>createFriendShip()</code> method instead.</p>
 		 * NOTE: The Notification Methods require the authenticated user to already be friends with the specified user otherwise 
 		 * a failed event will be fired.
 		 * <p><b>This method requires Authentication</b></p>
-		 * @see createFriendShip()
          * @param id    Required.  The ID or screen name of the user to follow.
 		 */ 
 		public function followUser(id:String):void
@@ -1729,30 +1718,35 @@ package com.swfjunkie.tweetr
 		 * @param page              Optional. The page number (starting at 1) to return, up to a max of roughly 1500 results ((based on numTweets * page).
 		 * @param since_id          Optional. Returns tweets with status ids greater than the given id.
 		 * @param geocode           Optional. Returns tweets by users located within a given radius of the given latitude/longitude, where the user's location is taken from their Twitter profile. The parameter value is specified by "latitide,longitude,radius", where radius units must be specified as either "mi" (miles) or "km" (kilometers). Note that you cannot use the near operator via the API to geocode arbitrary locations; however you can use this geocode parameter to search near geocodes directly. Example: http://search.twitter.com/search.atom?geocode=40.757929%2C-73.985506%2C25km
-
+		 * @param result_type		Optional. "recent" only recent tweets. "popular" only the most popular results. "mixed" [default] a mix of recent and popular results.
 		 */ 
-		public function search(searchString:String, lang:String = null, numTweets:Number = 15, page:Number = 1, since_id:String = null, geocode:String = null):void
+		public function search(searchString:String, lang:String = null, numTweets:Number = 15, page:Number = 1, since_id:Number = 0, geocode:String = null , result_type:String = "mixed" ):void
 		{
-            var urlRequest:URLRequest = new URLRequest(URL_TWITTER_SEARCH);
+            var urlRequest:URLRequest = new URLRequest();
             var vars:URLVariables = new URLVariables();
-            
+			checkCredentials();
             vars.q = searchString;
 		    
 		    if (lang)
                 vars.lang = lang;
 		    if (numTweets != 15)
-                vars.rpp = numTweets;
+                vars.count = numTweets;
 		    if (page != 1)
                 vars.page = page;
-		    if (since_id)
+		    if (since_id != 0)
                 vars.since_id = since_id;
 		    if (geocode)
                 vars.geocode = geocode;
+			if (result_type)
+				vars.result_type = result_type;
+
 		    
 		    _returnType = RETURN_TYPE_SEARCH_RESULTS;
             urlRequest.data = vars;
             urlRequest.method = URLRequestMethod.GET;
-		    urlLoader.load(urlRequest);
+			setGETRequest(vars);
+			request = URL_TWITTER_SEARCH;
+		    urlLoader.load(url);
 		}
 		
 		/**
@@ -1802,11 +1796,9 @@ package com.swfjunkie.tweetr
          */
         public function destroy():void
         {
-			urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, handleSecurityError);
             urlLoader.removeEventListener(Event.COMPLETE,handleTweetsLoaded);
             urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, handleTweetsLoadingFailed);
             urlLoader.removeEventListener(HTTPStatusEvent.HTTP_STATUS, handleHTTPStatus);
-			try { urlLoader.close(); } catch (error:Error) { }
             urlLoader = null;
     	    urlRequest = null;
     	    request = null;
@@ -1827,6 +1819,7 @@ package com.swfjunkie.tweetr
         {
             var returnArray:Array = responseParser(data);
             var xml:XML = XML(data);
+			
             var cursor:CursorData = DataParser.parseCursor(xml);
             if (xml.localName() == RETURN_TYPE_HASH && xml.child("error").length() > 0 && xml.child("error")[0] != "Logged out.")
             {
@@ -1909,16 +1902,15 @@ package com.swfjunkie.tweetr
         private function strEscape(value:String):String
         {
             if (_oAuth)
-			{
-				var str:String = encodeURIComponent(value);
-				str = str.replace(/\'/g, "%27");
-				str = str.replace(/\*/g, "%2A");
-				str = str.replace(/\!/g, "%21");
-				str = str.replace(/\(/g, "%28");
-				str = str.replace(/\)/g, "%29");
-				str = str.replace(/\)/g, "%29");
-				return str;
-			}
+            {
+                var str:String = escape(value);
+                str = str.replace(/\'/g, "%27");
+                str = str.replace(/\//g, "%2F");
+                str = str.replace(/\*/g, "%2A");
+                str = str.replace(/\+/g, "%2B");
+                str = str.replace(/@/g, "%40");
+                return str;
+            }
             return value;
         }
         //--------------------------------------------------------------------------

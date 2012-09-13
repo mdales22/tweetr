@@ -1,17 +1,3 @@
-/*
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU Lesser General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or 
- *  (at your option) any later version.
- * 
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.txt>.
- */
 package com.swfjunkie.tweetr.oauth
 {
     import com.hurlant.crypto.Crypto;
@@ -32,10 +18,6 @@ package com.swfjunkie.tweetr.oauth
     
     CONFIG::AIR
     import flash.html.HTMLLoader;
-    CONFIG::MOBILE
-    import flash.media.StageWebView;
-    CONFIG::MOBILE
-    import flash.events.LocationChangeEvent;
     
     /**
      * Dispatched when the OAuth has succesfully completed a Request.
@@ -59,7 +41,7 @@ package com.swfjunkie.tweetr.oauth
         //  Class variables
         //
         //--------------------------------------------------------------------------
-        private static const OAUTH_DOMAIN:String = "http://twitter.com";
+        private static const OAUTH_DOMAIN:String = "https://api.twitter.com";
         private static const REQUEST_TOKEN:String = "/oauth/request_token";
         private static const AUTHORIZE:String = "/oauth/authorize";
         private static const ACCESS:String = "/oauth/access_token";
@@ -111,7 +93,7 @@ package com.swfjunkie.tweetr.oauth
          */ 
         public var oauthTokenSecret:String = "";
         
-        protected var _userId:String;
+        private var _userId:String;
         /**
          * Get the twitter user_id (retrieval only available after successful user authorization)
          */ 
@@ -135,19 +117,19 @@ package com.swfjunkie.tweetr.oauth
             _callbackURL = encodeURIComponent(value);
         }
         
-        protected var _userName:String;
+        private var _username:String;
         /**
-         * Get/Set the twitter screen_name/username
-         * <b>NOTICE:</b> Setting the username to a different user
-         * than authorized via the tokens, may cause request to fail.
+         * Get/set the twitter screen_name (retrieval only available after successful user authorization)
          */ 
         public function get username():String
         {
-            return _userName;
+            if (_username)
+                return _username;
+            return null;
         }
         public function set username(value:String):void
         {
-            _userName = value;
+            _username = value;
         }
         
         private var _serviceHost:String = OAUTH_DOMAIN;
@@ -182,10 +164,6 @@ package com.swfjunkie.tweetr.oauth
          */ 
         CONFIG::AIR
         public var htmlLoader:HTMLLoader;
-        
-        CONFIG::MOBILE
-        public var stageWebView:StageWebView;
-        
         //--------------------------------------------------------------------------
         //
         //  Additional getters and setters
@@ -294,7 +272,7 @@ package com.swfjunkie.tweetr.oauth
          */ 
         override public function toString():String
         {
-            return "Username: "+_userName+"\n"+
+            return "Username: "+_username+"\n"+
                     "User Id: "+_userId+"\n"+
                     "OAuth Token: "+oauthToken+"\n"+
                     "OAuth Token Secret: "+oauthTokenSecret;
@@ -359,7 +337,7 @@ package com.swfjunkie.tweetr.oauth
                     }
                     case "screen_name":
                     {
-                        _userName = element[1];
+                        _username = element[1];
                         break;
                     }
                 }
@@ -389,16 +367,6 @@ package com.swfjunkie.tweetr.oauth
             {
                 htmlLoader.addEventListener(Event.COMPLETE, handleDocumentComplete);
                 htmlLoader.load(new URLRequest(url));
-            }
-        }
-        
-        CONFIG::MOBILE
-        private function callAuthorize(url:String):void
-        {
-            if (stageWebView)
-            {
-                stageWebView.addEventListener(LocationChangeEvent.LOCATION_CHANGE, handleLocationChange);
-                stageWebView.loadURL(url);
             }
         }
         
@@ -445,23 +413,6 @@ package com.swfjunkie.tweetr.oauth
                 htmlLoader.removeEventListener(Event.COMPLETE, handleDocumentComplete);
                 verifier = location.substr(oAuthVerifierIndex + sStr.length, location.length);
                 htmlLoader = null;
-                requestAccessToken(verifier);
-            }
-        }
-        
-        CONFIG::MOBILE
-        private function handleLocationChange(event:LocationChangeEvent):void
-        {
-            var sStr:String = "oauth_verifier=";
-            var location:String = stageWebView.location;
-            var hasLocation:Boolean = stageWebView.location.indexOf(location) != -1;
-            var oAuthVerifierIndex:int = location.indexOf(sStr);
-            
-            if (hasLocation && oAuthVerifierIndex != -1)
-            {
-                stageWebView.removeEventListener(LocationChangeEvent.LOCATION_CHANGE, handleLocationChange);
-                verifier = location.substr(oAuthVerifierIndex + sStr.length, location.length);
-                stageWebView = null;
                 requestAccessToken(verifier);
             }
         }
