@@ -56,7 +56,7 @@ package com.swfjunkie.tweetr
         private static const URL_PUBLIC_TIMELINE:String =           "/statuses/public_timeline.json";
         private static const URL_HOME_TIMELINE:String =             "/statuses/home_timeline.json";
         private static const URL_FRIENDS_TIMELINE:String =          "/statuses/friends_timeline.json";
-        private static const URL_USER_TIMELINE:String =             "/statuses/user_timeline";
+        private static const URL_USER_TIMELINE:String =             "/statuses/user_timeline.json";
         private static const URL_RETWEETS_BY_ME:String =            "/statuses/retweeted_by_me.json";
         private static const URL_RETWEETS_TO_ME:String =            "/statuses/retweeted_to_me.json";
         private static const URL_RETWEETS_OF_ME:String =            "/statuses/retweets_of_me.json";
@@ -332,28 +332,39 @@ package com.swfjunkie.tweetr
          * @param max_id          Optional. Optional.  Returns only statuses with an ID less than (that is, older than) the specified ID.
          * @param page            Optional. Provides paging. Ex. http://twitter.com/statuses/user_timeline.json?page=3
          */ 
-        public function getUserTimeLine(id:String = null, since_id:String = null, since_date:String = null, max_id:Number = 0, page:Number = 0):void
-        {
-            var vars:URLVariables = new URLVariables();
-            
-            if (!id)
-                checkCredentials();
-            
-            _returnType = RETURN_TYPE_STATUS;
-            
-            if (since_id)
-                vars.since_id = since_id;
-            if (since_date)
-                vars.since = since_date;
-            if (max_id > 0)
-                vars.max_id = max_id;
-            if (page > 0)
-                vars.page = page;
-            
-            setGETRequest(vars);
-            request = URL_USER_TIMELINE + ( (id) ? "/" + id + "." + DATA_FORMAT : "." + DATA_FORMAT );
-            urlLoader.load(url);
-        }
+		public function getUserTimeLine(user_id:String = null, since_id:String = null, screen_name:String = null , count:Number = 20 , max_id:String = null , trim_user:Boolean = true , exclude_replies:Boolean = true , contributor_details:Boolean = true , include_rts:Boolean = false):void
+		{
+			var vars:URLVariables = new URLVariables();
+			
+			checkCredentials();
+			
+			_returnType = RETURN_TYPE_STATUS;
+			if(user_id){
+				vars.user_id = user_id;
+			}
+			if(since_id){
+				vars.since_id = since_id;
+			}
+			if(screen_name){
+				vars.screen_name = screen_name;
+			}
+			if(count > 0){
+				vars.count = count > 200 ? 200 : count;
+			}		
+			
+			if(max_id){
+				vars.max_id = max_id;
+			}
+			vars.trim_user = trim_user;
+			vars.exclude_replies = exclude_replies;
+			vars.contributor_details = contributor_details;
+			vars.include_rts = include_rts;
+			
+			
+			setGETRequest(vars);
+			request = URL_USER_TIMELINE;
+			urlLoader.load(url);
+		}
         
         /**
          * Returns the 20 most recent @replies (status updates prefixed with @username) for the authenticating user.
